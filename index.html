@@ -48,11 +48,43 @@
 			</nav>
 		</header>
 		<main role="main">
-			<h1>Main Heading</h1>
-			<img src="img/okwu.jpg" alt="Product one">
-			<img src="img/okwu-athletics.jpg" alt="Product two">
-			<img src="img/bartlesvillecf.jpg" alt="Product three">
-			<img src="img/emancipation.jpg" alt="Product four">
+			<!--picture carousel-->
+			<div id="homepage-feature" class="carousel slide">
+				<ol class="carousel-indicators">
+					<li data-target="#homepage-feature" data-slide-to="0" class="active"></li>
+					<li data-target="#homepage-feature" data-slide-to="1"></li>
+					<li data-target="#homepage-feature" data-slide-to="2"></li>
+					<li data-target="#homepage-feature" data-slide-to="3"></li>
+				</ol>
+				<!--Wrappers for slides-->
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="img/okwu.jpg" alt="Product one">
+					</div>
+				<div>
+				<div class="carousel-inner">
+					<div class="item">
+						<img src="img/okwu-athletics.jpg" alt="Product two">
+					</div>
+				<div>
+				<div class="carousel-inner">
+					<div class="item">
+						<img src="img/bartlesvillecf.jpg" alt="Product three">
+					</div>
+				<div>
+				<div class="carousel-inner">
+					<div class="item">
+						<img src="img/emancipation.jpg" alt="Product four">
+					</div>
+				<div>
+				<!--controls-->
+				<a class="left carousel-control" href="#homepage-feature" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left"></span>
+				</a>
+				<a class="right carousel-control" href="#homepage-feature" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right"></span>
+				</a>
+			</div>
 			<h1>欢迎</h1> 
 			<p>Content specific to this page goes here.</p>
 			<p><a href="#">更多</a></p>
