@@ -26,6 +26,14 @@
 
         <!-- Add your site or application content here -->
 		<header role="banner">
+			<div class="container">
+            	<a class="banner-brand visible-sm visible-md visible-lg" href="index.html"><img src="img/logo.png" alt="Logo" width="180"></img></a>
+				<div class="utility-nav">
+					<ul>
+						<li><a href="#" title="register"><span class="icon fa fa-user fa-lg"></span>注册</a></li>
+					</ul>
+				</div>
+			</div><!--/.container-->
 			<nav role="navigation" class="navbar navbar-static-top navbar-default"> <!--navbar-default: for icon color-->
             	<div class="container">
            			<div class="navbar-header">
@@ -35,16 +43,42 @@
 						    <span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-            			<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Logo" width="120"></img></a>
+            			<a class="navbar-brand visible-xs" href="index.html"><img src="img/logo.png" alt="Logo" width="120"></img></a>
             		</div>
 					<div class="navbar-collapse collapse">
             			<ul class="nav navbar-nav">
+							<li class="active"><a href="index.html"><span class="icon fa fa-home"></span> 主页</a></li>
+							<li class="dropdown">
+								<a href="#" class="drop-toggle" data-toggle="dropdown">上装<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">衬衫</a></li>
+									<li><a href="#">T恤 </a></li>
+									<li><a href="#">长袖</a></li>
+									<li><a href="#">针织衫</a></li>
+									<li><a href="#">毛衣</a></li>
+									<li><a href="#">外套</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="drop-toggle" data-toggle="dropdown">下装<b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">短裤</a></li>
+									<li><a href="#">休闲裤</a></li>
+									<li><a href="#">牛仔裤</a></li>
+								</ul>
+							</li>
+						</ul>
+            			<ul class="nav navbar-nav pull-right">
+							<li><a href="#">关于</a></li>
+						</ul>
+<!--
 							<li class="active"><a href="index.html">
 								<i class="icon fa fa-home"></i> 主页</a></li>
 							<li><a href="#">
 								<i class="icon fa fa-refresh"></i> 最新</a></li>
 							<li><a href="#">
 								<i class="icon fa fa-ellipsis-h"></i></a></li>
+-->
 						</ul> 
 					</div><!--/.nav-collapse -->
 				</div>
