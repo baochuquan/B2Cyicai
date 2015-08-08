@@ -26,7 +26,7 @@
 
         <!-- Add your site or application content here -->
 		<header role="banner">
-			<nav role="navigation" class="navbar navbar-static-top navbar-default">
+			<nav role="navigation" class="navbar navbar-static-top navbar-default"> <!--navbar-default: for icon color-->
             	<div class="container">
            			<div class="navbar-header">
 						<button type="button" class="navbar-toggle" 
@@ -35,13 +35,16 @@
 						    <span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-            			<a class="navbar-brand" href="index.html">Logo</a>
+            			<a class="navbar-brand" href="index.html"><img src="img/logo.png" alt="Logo" width="120"></img></a>
             		</div>
 					<div class="navbar-collapse collapse">
             			<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">主页</a></li>
-							<li><a href="#">Link</a></li>
-							<li><a href="#">Link</a></li>
+							<li class="active"><a href="index.html">
+								<i class="icon fa fa-home"></i> 主页</a></li>
+							<li><a href="#">
+								<i class="icon fa fa-refresh"></i> 最新</a></li>
+							<li><a href="#">
+								<i class="icon fa fa-ellipsis-h"></i></a></li>
 						</ul> 
 					</div><!--/.nav-collapse -->
 				</div>
@@ -61,42 +64,77 @@
 					<div class="item active">
 						<img src="img/okwu.jpg" alt="Product one">
 					</div>
-				<div>
-				<div class="carousel-inner">
-					<div class="item">
+					<div class="item">	<!--item-->
 						<img src="img/okwu-athletics.jpg" alt="Product two">
 					</div>
-				<div>
-				<div class="carousel-inner">
 					<div class="item">
 						<img src="img/bartlesvillecf.jpg" alt="Product three">
 					</div>
-				<div>
-				<div class="carousel-inner">
 					<div class="item">
 						<img src="img/emancipation.jpg" alt="Product four">
 					</div>
-				<div>
+				</div>
 				<!--controls-->
-				<a class="left carousel-control" href="#homepage-feature" data-slide="prev">
-					<span class="glyphicon glyphicon-chevron-left"></span>
+				<a class="carousel-control left" href="#homepage-feature" data-slide="prev">
+					<span class="icon fa fa-chevron-left"></span>
 				</a>
-				<a class="right carousel-control" href="#homepage-feature" data-slide="next">
-					<span class="glyphicon glyphicon-chevron-right"></span>
+				<a class="carousel-control right" href="#homepage-feature" data-slide="next">
+					<span class="icon fa fa-chevron-right"></span>
 				</a>
 			</div>
-			<h1>欢迎</h1> 
-			<p>Content specific to this page goes here.</p>
-			<p><a href="#">更多</a></p>
+			<!--shop-->
+			<div class="bcq-page-contents container">
+				<h1 class="shop"><strong>店家</strong></h1>
+				<div class="row">
+					<div class="col-xs-4">
+						<p><a href="#"><img src="#" alt="小狸丢丢"><span>小狸丢丢</span></a></p>
+					</div>
+					<div class="col-xs-4">
+						<p><a href="#"><img src="#" alt="小狸丢丢"><span>水木衣彩</span></a></p>
+					</div>
+					<div class="col-xs-4">
+						<p><a href="#"><img src="#" alt="小三黑~ "><span>水木衣彩</span></a></p>
+					</div>
+				</div>
+				<p><a class="btn btn-primary pull-right" href="#">
+					更多信息 <span class="icon fa fa-arrow-circle-right"></span></a>
+				</p>
+			</div>
+			<div class="bcq-page-contents container">
+				<h1 class="topic"><strong>主题</strong></h1>
+				<div class="row">
+					<div class="col-xs-4">
+						<h2 class="subtopic">毕业季</h2>
+						<p><a class="btn btn-primary pull-right" href="#">
+							更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
+					</div>
+					<div class="col-xs-4">
+						<h2 class="subtopic">文青</h2>
+						<p><a class="btn btn-primary pull-right" href="#">
+							更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
+					</div>
+					<div class="col-xs-4">
+						<h2 class="subtopic">DIY</h2>
+						<p><a class="btn btn-primary pull-right" href="#">
+							更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h1>欢迎</h1> 
+				<p>Content specific to this page goes here.</p>
+				<p><a href="#">更多</a></p>
+			</div>
 		</main>
 		<footer role="contentinfo">
 			<p><a href="index.html"><img src="img/logo.png" width="80" alt="Logo"></a></p>
 			<ul class="social">
-				<li><a href="#" title="Tiwtter Profile">Twitter</a></li>
-				<li><a href="#" title="Facebook Page">Faebook</a></li>
-				<li><a href="#" title="Weibo Profile">Weibo</a></li>
-				<li><a href="#" title="Wechat Profile">Wechat</a></li>
-				<li><a href="#" title="QQ Profile">QQ</a></li>
+				<li><a href="#" title="Tiwtter Profile"><span class="icon fa fa-twitter"></span></a></li>
+				<li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
+				<li><a href="#" title="qq Profile"><span class="icon fa fa-qq"></span></a></li>
+				<li><a href="#" title="weibo Profile"><span class="icon fa fa-weibo"></span></a></li>
+				<li><a href="#" title="weixin Profile"><span class="icon fa fa-weixin"></span></a></li>
 			</ul>
 			<p><small>Copyright &copy; baochuquan</small></p>
 		</footer>

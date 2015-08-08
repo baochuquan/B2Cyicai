@@ -6,6 +6,9 @@
 // Wrapper for the slide container and indicators
 .carousel {
   position: relative;
+  //padding-top: 4px;					//__my add
+  //padding-bottom: 28px;				//__my add
+  //background-color: @gray-lighter;	//__my add
 }
 
 .carousel-inner {
@@ -17,12 +20,14 @@
     display: none;
     position: relative;
     .transition(.6s ease-in-out left);
+	max-height: 640px;	//__my add
 
     // Account for jankitude on images
     > img,
     > a > img {
       &:extend(.img-responsive);
       line-height: 1;
+	  min-width: 100%;
     }
 
     // WebKit CSS3 transforms for supported devices
@@ -127,7 +132,8 @@
   .icon-prev,
   .icon-next,
   .glyphicon-chevron-left,
-  .glyphicon-chevron-right {
+  .glyphicon-chevron-right,
+  .icon {		//__my add
     position: absolute;
     top: 50%;
     margin-top: -10px;
@@ -135,14 +141,16 @@
     display: inline-block;
   }
   .icon-prev,
-  .glyphicon-chevron-left {
-    left: 50%;
-    margin-left: -10px;
+  .glyphicon-chevron-left,
+  &.left .icon {	//__my add
+    left: 20%;		//edited was 50%
+    //margin-left: -10px;	//edited
   }
   .icon-next,
-  .glyphicon-chevron-right {
-    right: 50%;
-    margin-right: -10px;
+  .glyphicon-chevron-right,
+   &.right .icon {	//__my add
+    right: 20%;		//edited was 50%
+    //margin-right: -10px;
   }
   .icon-prev,
   .icon-next {
