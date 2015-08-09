@@ -1,0 +1,46 @@
+//
+// Banner Area Styles
+//-----------------------------------------
+header[role="banner"] {
+  .brand-banner {
+	padding-top: 40px;
+  }
+  > .container {
+	position: relative;
+  }
+  .utility-nav {
+	position: absolute;
+	z-index: 1999;
+	top: 0;
+	right: 0;
+	> ul {
+	  list-style: none;
+	  > li {
+		float: left;
+		> a {
+		  display: inline-block;
+		  padding: 8px 12px;
+		  @media (max-width: (@grid-float-breakpoint - 1)) {
+			span {
+			  .sr-only();
+			}
+			.icon {
+			  font-size: 2em;
+			  line-height: 1.2;
+			}
+		  }
+		  &:hover {
+			text-decoration: none;
+		  }
+		}
+	  }
+	}
+  }
+}
+
+// Apply .navbar-inverse styles to the expanded navbar
+@media (min-width: @grid-float-breakpoint) {  
+  .navbar-default {
+	.navbar-inverse();
+  }
+}

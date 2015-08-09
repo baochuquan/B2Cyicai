@@ -2,9 +2,30 @@
 // Page Contents
 //--------------------------------------------
 
+.bcq-div-fl {float:left;}
+.bcq-div-fr {float:right;}
+
+.bcq-navbar {
+  padding: 6px;
+  border: 2px solid #666;
+  > ul {
+	list-style: none;
+	> li {
+	  > a {
+		display: inline-block;
+		padding: 8px 20px;
+		fone-size: 2em;
+		&:hover {
+		  text-decoration: none;
+		}
+	  }
+	}
+  } 
+}
+
 .bcq-page-contents {
-  padding-top: 20px;
-  padding-bottom: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   background-color: #F0FFFF;
   border-style: solid;
 }

@@ -30,7 +30,8 @@
             	<a class="banner-brand visible-sm visible-md visible-lg" href="index.html"><img src="img/logo.png" alt="Logo" width="180"></img></a>
 				<div class="utility-nav">
 					<ul>
-						<li><a href="#" title="register"><span class="icon fa fa-user fa-lg"></span>注册</a></li>
+						<li><a href="#" title="register"><i class="icon fa fa-user fa-lg"></i><span>注册</span></a></li>
+						<li><a href="#" title="view cart"><i class="icon fa fa-shopping-cart fa-lg"></i><span>购物车</span></a></li>
 					</ul>
 				</div>
 			</div><!--/.container-->
@@ -47,46 +48,46 @@
             		</div>
 					<div class="navbar-collapse collapse">
             			<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html"><span class="icon fa fa-home"></span> 主页</a></li>
+							<li class="active"><a href="index.html">主页</a></li>
+							<li><a href="#">浏览</a></li>
+							<li><a href="#">主题</a></li>
+							<li><a href="#">合作</a></li>
 							<li class="dropdown">
-								<a href="#" class="drop-toggle" data-toggle="dropdown">上装<b class="caret"></b></a>
+								<a href="#" class="drop-toggle" data-toggle="dropdown">更多<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">衬衫</a></li>
-									<li><a href="#">T恤 </a></li>
-									<li><a href="#">长袖</a></li>
-									<li><a href="#">针织衫</a></li>
-									<li><a href="#">毛衣</a></li>
-									<li><a href="#">外套</a></li>
+									<li><a href="#">账号设置</a></li>
+									<li><a href="#">意见反馈</a></li>
+									<li><a href="#">退出</a><li>
 								</ul>
 							</li>
-							<li class="dropdown">
-								<a href="#" class="drop-toggle" data-toggle="dropdown">下装<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">短裤</a></li>
-									<li><a href="#">休闲裤</a></li>
-									<li><a href="#">牛仔裤</a></li>
-								</ul>
-							</li>
-						</ul>
-            			<ul class="nav navbar-nav pull-right">
-							<li><a href="#">关于</a></li>
-						</ul>
-<!--
-							<li class="active"><a href="index.html">
-								<i class="icon fa fa-home"></i> 主页</a></li>
-							<li><a href="#">
-								<i class="icon fa fa-refresh"></i> 最新</a></li>
-							<li><a href="#">
-								<i class="icon fa fa-ellipsis-h"></i></a></li>
--->
 						</ul> 
 					</div><!--/.nav-collapse -->
 				</div>
 			</nav>
 		</header>
+<!------------------------------------------------------------------------------------------------------------------------->
 		<main role="main">
+			<!--shop-->
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-4">
+						<p><a href="#"><img src="#" alt="小狸丢丢"><span>小狸丢丢</span></a></p>
+					</div>
+					<div class="col-xs-4">
+						<p><a href="#"><img src="#" alt="小狸丢丢"><span>水木衣彩</span></a></p>
+					</div>
+					<div class="col-xs-4">
+						<p><a href="#"><img src="#" alt="小三黑~ "><span>水木衣彩</span></a></p>
+					</div>
+				</div>					
+				<p><a class="btn btn-primary pull-right" href="#">
+					更多信息 <span class="icon fa fa-arrow-circle-right"></span></a>
+				</p>
+			</div>
+			<!--.container-->
+	
 			<!--picture carousel-->
-			<div id="homepage-feature" class="carousel slide">
+			<div id="homepage-feature" class="carousel slide container">
 				<ol class="carousel-indicators">
 					<li data-target="#homepage-feature" data-slide-to="0" class="active"></li>
 					<li data-target="#homepage-feature" data-slide-to="1"></li>
@@ -116,51 +117,134 @@
 					<span class="icon fa fa-chevron-right"></span>
 				</a>
 			</div>
-			<!--shop-->
-			<div class="bcq-page-contents container">
-				<h1 class="shop"><strong>店家</strong></h1>
+			
+			<div class="container">
 				<div class="row">
-					<div class="col-xs-4">
-						<p><a href="#"><img src="#" alt="小狸丢丢"><span>小狸丢丢</span></a></p>
+					<div class="col-xs-2 grid-options">
+						<ul>
+							<li><a href="#">主题</a></li>
+							<li><a href="#">女装</a></li>
+							<li><a href="#">女鞋</a></li>
+							<li><a href="#">男装</a></li>
+							<li><a href="#">女鞋</a></li>
+							<li><a href="#">配饰</a></li>
+						</ul>
 					</div>
-					<div class="col-xs-4">
-						<p><a href="#"><img src="#" alt="小狸丢丢"><span>水木衣彩</span></a></p>
-					</div>
-					<div class="col-xs-4">
-						<p><a href="#"><img src="#" alt="小三黑~ "><span>水木衣彩</span></a></p>
+					<div class="col-xs-10 container grid-options">
+						<h1 class="topic"><strong>主题</strong></h1>
+						<div class="row">
+							<div class="col-xs-4 grid-options">
+								<h2 class="subtopic">毕业季</h2>
+								<p><a class="btn btn-primary pull-right" href="#">
+									更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
+							</div>
+							<div class="col-xs-4 grid-options">
+								<h2 class="subtopic">文青</h2>
+								<p><a class="btn btn-primary pull-right" href="#">
+									更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
+							</div>
+							</div>
+							<div class="col-xs-4 grid-options">
+								<h2 class="subtopic">DIY</h2>
+								<p><a class="btn btn-primary pull-right" href="#">
+									更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
+							</div>
+						</div>
 					</div>
 				</div>
-				<p><a class="btn btn-primary pull-right" href="#">
-					更多信息 <span class="icon fa fa-arrow-circle-right"></span></a>
-				</p>
-			</div>
-			<div class="bcq-page-contents container">
-				<h1 class="topic"><strong>主题</strong></h1>
-				<div class="row">
-					<div class="col-xs-4">
-						<h2 class="subtopic">毕业季</h2>
-						<p><a class="btn btn-primary pull-right" href="#">
-							更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
-					</div>
-					<div class="col-xs-4">
-						<h2 class="subtopic">文青</h2>
-						<p><a class="btn btn-primary pull-right" href="#">
-							更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
-					</div>
-					<div class="col-xs-4">
-						<h2 class="subtopic">DIY</h2>
-						<p><a class="btn btn-primary pull-right" href="#">
-							更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
-					</div>
-				</div>
-			</div>
+			</div><!--.container-->
 
-			<div>
-				<h1>欢迎</h1> 
+			<div class="container">
+				<h1>全部宝贝</h1> 
+				<div class="row">
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			        	    <a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			        	    <h2><a href="#">产品1</a></h2>
+
+			        	    <p>This text describes the above product a little not too much but just enough or maybe a little more</p>
+			        	    <a class="btn btn-default btn-xs pull-right" href="#"><span>
+								加入购物车<i class="fa fa-arrow-circle-right"></span></i></a>
+						</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			           		<a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			            	<h2><a href="#">产品2</a></h2>
+			            	<p>This text describes the above product a little not too much</p>
+			            	<a class="btn btn-default btn-xs pull-right" href="#"><span>
+								加入购物车</span><i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			           	 	<a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			           		<h2><a href="#">产品3</a></h2>
+			            	<p>This text describes the above produ and, well, this product just really deserves it!</p>
+			            	<a class="btn btn-default btn-xs pull-right" href="#">
+								加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			            	<a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			            	<h2><a href="#">产品4</a></h2>
+			            	<p>This text describes the above product a little not too much but just enough or maybe a little more</p>
+			            	<a class="btn btn-default btn-xs pull-right" href="#">
+								加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			            	<a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			            	<h2><a href="#">产品5</a></h2>
+			            	<p>This text describes the above product a little not too much</p>
+			            	<a class="btn btn-default btn-xs pull-right" href="#">
+								加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			        	    <a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			        	    <h2><a href="#">产品6</a></h2>
+			        	    <p>This text dhis one just because it's fun and, well, this product just really deserves it!</p>
+			            	<a class="btn btn-default btn-xs pull-right" href="#">
+								加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			        	    <a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			        	    <h2><a href="#">产品7</a></h2>
+			        	    <p>This text describes the above product a little not too much but just enough or maybe a little more</p>
+			        	    <a class="btn btn-default btn-xs pull-right" href="#">
+							加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			        	    <a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			        	    <h2><a href="#">产品8</a></h2>
+			        	    <p>This text describes the above product a little not too much</p>
+			        	    <a class="btn btn-default btn-xs pull-right" href="#">
+								加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+					<div class="product-item col-sm-4">
+						<div class="grid-options">
+			        	    <a href="#"><img src="holder.js/300x300/auto" alt="sample product" /></a>
+			            	<h2><a href="#">产品9</a></h2>
+			           		<p>This text n this one just because it's fun and, well, this product just really deserves it!</p>
+			            	<a class="btn btn-default btn-xs pull-right" href="#">
+							加入购物车<i class="fa fa-arrow-circle-right"></i></a>
+			        	</div>
+			        </div>
+				</div>
 				<p>Content specific to this page goes here.</p>
 				<p><a href="#">更多</a></p>
 			</div>
 		</main>
+<!------------------------------------------------------------------------------------------------------------------------->
 		<footer role="contentinfo">
 			<p><a href="index.html"><img src="img/logo.png" width="80" alt="Logo"></a></p>
 			<ul class="social">
@@ -175,6 +259,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+		<script src="js/vendor/holder.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
