@@ -8,7 +8,8 @@
   position: relative;
   //padding-top: 4px;					//__my add
   //padding-bottom: 28px;				//__my add
-  //background-color: @gray-lighter;	//__my add
+  padding: 0px !important;
+//   (@grid-gutter-width / 2);	//edited was background-color: #fff;	//__my add
 }
 
 .carousel-inner {
@@ -20,7 +21,7 @@
     display: none;
     position: relative;
     .transition(.6s ease-in-out left);
-	max-height: 640px;	//__my add
+	max-height: 600px;	//__my add
 
     // Account for jankitude on images
     > img,
@@ -98,7 +99,7 @@
 .carousel-control {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0 ;
   bottom: 0;
   width: @carousel-control-width;
   .opacity(@carousel-control-opacity);

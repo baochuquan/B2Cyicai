@@ -25,7 +25,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-		<header role="banner">
+		<header role="banner" class="navbar">
 			<div class="container">
             	<a class="banner-brand visible-sm visible-md visible-lg" href="index.html"><img src="img/logo.png" alt="Logo" width="180"></img></a>
 				<div class="utility-nav">
@@ -49,9 +49,9 @@
 					<div class="navbar-collapse collapse">
             			<ul class="nav navbar-nav">
 							<li class="active"><a href="index.html">主页</a></li>
-							<li><a href="#">浏览</a></li>
-							<li><a href="#">主题</a></li>
-							<li><a href="#">合作</a></li>
+							<li><a href="#">产品</a></li>
+							<li><a href="#">关于</a></li>
+							<li><a href="#">联系</a></li>
 							<li class="dropdown">
 								<a href="#" class="drop-toggle" data-toggle="dropdown">更多<b class="caret"></b></a>
 								<ul class="dropdown-menu">
@@ -68,21 +68,20 @@
 <!------------------------------------------------------------------------------------------------------------------------->
 		<main role="main">
 			<!--shop-->
-			<div class="container">
+			<div class="container grid-options">
 				<div class="row">
+					<h1 class="hidden">店主</h1>	
+					<p class="text-center lead"><small>~~店主~~</small></p>
 					<div class="col-xs-4">
-						<p><a href="#"><img src="#" alt="小狸丢丢"><span>小狸丢丢</span></a></p>
+						<p class="text-center"><a href="#"><img src="holder.js/50x50/auto" alt="小狸丢丢" class="img-circle box-shadow"><br/><span>小狸丢丢</span></a></p>
 					</div>
 					<div class="col-xs-4">
-						<p><a href="#"><img src="#" alt="小狸丢丢"><span>水木衣彩</span></a></p>
+						<p class="text-center"><a href="#"><img src="holder.js/75x75/auto" alt="水木衣彩" class="img-circle"><br/><span>水木衣彩</span></a></p>
 					</div>
 					<div class="col-xs-4">
-						<p><a href="#"><img src="#" alt="小三黑~ "><span>水木衣彩</span></a></p>
+						<p class="text-center"><a href="#"><img src="holder.js/50x50/auto" alt="小三黑~ " class="img-circle"><br/><span>小三黑~ </span></a></p>
 					</div>
 				</div>					
-				<p><a class="btn btn-primary pull-right" href="#">
-					更多信息 <span class="icon fa fa-arrow-circle-right"></span></a>
-				</p>
 			</div>
 			<!--.container-->
 	
@@ -112,44 +111,48 @@
 				<!--controls-->
 				<a class="carousel-control left" href="#homepage-feature" data-slide="prev">
 					<span class="icon fa fa-chevron-left"></span>
-				</a>
+		
 				<a class="carousel-control right" href="#homepage-feature" data-slide="next">
 					<span class="icon fa fa-chevron-right"></span>
 				</a>
 			</div>
 			
-			<div class="container">
-				<h1>选项栏</h1>
-				<div class="row">
-					<div class="span2 bcq-topic-grid">
-						<ul>
-							<li><a href="#">主题</a></li>
-							<li><a href="#">女装</a></li>
-							<li><a href="#">女鞋</a></li>
-							<li><a href="#">男装</a></li>
-							<li><a href="#">女鞋</a></li>
-							<li><a href="#">配饰</a></li>
-						</ul>
-					</div>
+			<div class="container grid-options">
+				<div class="bcq-nav-ul">
+				<ul class="list-unstyled text-center pull-left">
+								<li class="bg-danger"><a href="#">女装</a></li>
+								<li role="seperator " class="divider"></li>
+								<li class="bg-info"><a href="#">男装</a></li>
+								<li role="seperator " class="divider"></li>
+								<li class="bg-warning"><a href="#">配饰</a></li>
+								<li role="seperator " class="divider"></li>
+								<li class="bg-success"><a href="#">其他</a></li>
+				</ul>
+				</div>
+<!--
+						<table class="table text-center bcq-nav-table pull-left">
+							<tbody>
+								<tr class="danger"><td><a href="#">女装</a></td></tr>
+								<tr class="info"><td><a href="#">女鞋</a></td></tr>
+								<tr class="warning"><td><a href="#">男装</a></td></tr>
+								<tr class="success"><td><a href="#">男鞋</a></td></tr>
+								<tr class="active"><td><a href="#">配饰</a></td></tr>
+							</tbody>
+						</table>
+-->
 
-					<div class="span10 bcq-topic-grid">
-						<h1 class="topic"><strong>主题</strong></h1>
-						<div class="row">
-							<div class="span4 bcq-topic-grid">
-								<h2 class="subtopic">毕业</h2>
-								<p><a class="btn btn-primary pull-right" href="#">
-									更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
-							</div>
-							<div class="span4 bcq-topic-grid">
-								<h2 class="subtopic">文青</h2>
-								<p><a class="btn btn-primary pull-right" href="#">
-									更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
-							</div>
-							<div class="span4 bcq-topic-grid">
-								<h2 class="subtopic">DIY</h2>
-								<p><a class="btn btn-primary pull-right" href="#">
-									更多 <span class="icon fa fa-arrow-circle-right"></span></a></p>
-							</div>
+					<div class="grid-options bcq-topic-div">
+						<div>
+							<span class="text-center"><a href="#"><img src="holder.js/140x140/auto" alt="水木衣彩"></a></span>
+						</div>
+						<div>
+							<span class="text-center"><a href="#"><img src="holder.js/140x140/auto" alt="水木衣彩"></a></span>
+						</div>
+						<div>
+							<span class="text-center"><a href="#"><img src="holder.js/140x140/auto" alt="水木衣彩"></a></span>
+						</div>
+						<div>
+							<span class="text-center"><a href="#"><img src="holder.js/140x140/auto" alt="水木衣彩"></a></span>
 						</div>
 					</div>
 
