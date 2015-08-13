@@ -5,16 +5,13 @@
 require ('includes/config.inc.php'); 
 
 // Set the page title and include the HTML header:
-$page_title = 'Welcome to this Site!';
+$page_title = '衣彩';
 include ('includes/head.html');
 
 // Welcome the user (by name if they are logged in):
-echo '<h1>Welcome';
+echo '<h1>欢迎 ';
 if (isset($_SESSION['username'])) {
 	echo ", {$_SESSION['username']}";
-}
-else {
-	echo "stranger";
 }
 echo '!</h1>';
 ?>
