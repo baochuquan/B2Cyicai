@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title><?php echo "$page_title"?></title>
+        <title><?php echo $page_title; ?></title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
@@ -18,5 +18,89 @@
   	 	<!--[if (lt IE 9) & (!IEMobile)]>
   	 	<script src="js/vendor/respond.min.js"></script>
   	 	<![endif]-->
-    </head>
- 
+	</head>
+	<body>
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+		<header role="banner" class="navbar">
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="./index_new.php">
+							<img src="img/logo.png" alt="Logo" width="100"></img>
+						</a>
+					</div><!--navbar-header-->
+					<!--<div class="navbar">-->
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="./index_new.php">首页</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">主题<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">DIY</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">毕业季</a></li>
+									<li><a href="#">情侣装</a></li>
+									<li><a href="#">日系</a></li>
+									<li><a href="#">文艺</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">男装<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">衬衫</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">T 恤</a></li>
+									<li><a href="#">长袖</a></li>
+									<li><a href="#">毛衣</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">外套</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">女装<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">衬衫</a></li>
+									<li><a href="#">裙子</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">T 恤</a></li>
+									<li><a href="#">长袖</a></li>
+									<li><a href="#">毛衣</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">外套</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">帽子</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">领带</a></li>
+									<li><a href="#">领结</a></li>
+									<li><a href="#">围巾</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">手套</a></li>
+									<li role="separator" class="divider"></a></li>
+									<li><a href="#">袜子</a></li>
+								</ul>
+							</li>
+						</ul>
+						<form role="search" class="navbar-form navbar-left">	
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="搜索">
+							</div>	
+							<button type="submit" class="btn btn-default">发现</button>
+						</form>
+						<div class="utility-nav">
+							<ul>
+								<li><a href="#" title="register"><i class="icon fa fa-user fa-lg"></i>登录</a></li>
+								<li><a href="#" title="view cart"><i class="icon fa fa-shopping-cart fa-lg"></i>购物车</a></li>
+							</ul>
+						</div>	
+					<!--</div>--><!--navbar-->
+				</div><!--container-->
+			</nav>	
+		</header>
+
