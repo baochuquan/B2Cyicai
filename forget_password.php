@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 			// Send an email:
 			$body = "你可以使用临时密码：'$p' 登陆【衣彩】账户。登陆后，你可以自行修改密码。";
-			mail ($_POST['usermail'], '衣彩账户临时密码', $body, 'From: shuimuyicai@yicai.net');
+			mail ($_POST['usermail'], '【衣彩】账户临时密码', $body, 'From: shuimuyicai@yicai.net');
 			
 			// Print a message and wrap up:
 			echo '<main role="main">
@@ -55,18 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			include ('includes/footer.html');
 
 			header('Refresh: 3; login.php');
-			exit(); // Stop the script.
-			
+			exit(); // Stop the script.			
 		} else { // If it did not run OK.
 			//echo '<p class="error">Your password could not be changed due to a system error. We apologize for any inconvenience.</p>'; 
 		}
-
 	} else { // Failed the validation test.
 		//echo '<p class="error">Please try again.</p>';
 	}
-
 	mysqli_close($dbc);
-
 } // End of the main Submit conditional.
 ?>
 

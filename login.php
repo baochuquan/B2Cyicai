@@ -4,7 +4,7 @@
 require ('includes/config.inc.php');
 
 //set the page title and include the HTML header:
-$page_title = '登陆';
+$page_title = '登录';
 include ('includes/header.html');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			mysqli_close($dbc);
 							
 			// Redirect the user:
-			$url = BASE_URL . 'index_new.php'; // Define the URL.
+			$url = BASE_URL . 'index.php'; // Define the URL.
 			ob_end_clean(); // Delete the buffer.
 			header("Location: $url");
 			exit(); // Quit the script.				

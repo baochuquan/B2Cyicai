@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	$n = $e = $p = FALSE;
 	
 	// Check for a first name:
-	if (preg_match ('/^[A-Z \'.-]{2,20}$/i', $trimmed['username'])) {
+	if (preg_match ('/^[A-Z \'.-]{2,60}$/i', $trimmed['username'])) {
 		$n = mysqli_real_escape_string ($dbc, $trimmed['username']);
 	} else {
 		//echo '<p class="error">请输入用户名！</p>';

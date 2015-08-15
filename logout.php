@@ -10,7 +10,7 @@ include ('includes/header.html');
 // If no username session variable exists, redirect the user:
 if (!isset($_SESSION['username'])) {
 
-	$url = BASE_URL . 'index_new.php'; // Define the URL.
+	$url = BASE_URL . 'index.php'; // Define the URL.
 	ob_end_clean(); // Delete the buffer.
 	header("Location: $url");
 	exit(); // Quit the script.
@@ -19,7 +19,7 @@ if (!isset($_SESSION['username'])) {
 	$_SESSION = array(); // Destroy the variables.
 	session_destroy(); // Destroy the session itself.
 	setcookie (session_name(), '', time()-3600); // Destroy the cookie.
-	$url = BASE_URL . 'index_new.php';
+	$url = BASE_URL . 'index.php';
 	ob_end_clean();
 	header("Location: $url");
 	exit();
