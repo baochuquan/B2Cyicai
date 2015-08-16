@@ -1,5 +1,5 @@
 $(documnet).ready(function() {
   $('.carousel').carousel({
-    interval: 3000
+    interval: 2000
   });
 });
