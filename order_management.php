@@ -99,6 +99,8 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 					  		</div>
 							</div>';
 					}
+					mysqli_free_result($r);
+					mysqli_close($dbc);
 					?>
 				</div>
 
