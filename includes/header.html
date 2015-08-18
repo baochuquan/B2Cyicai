@@ -115,7 +115,7 @@ if (!isset($page_title)) {
 								if(isset($_SESSION['username'])) {
 									echo '<li class="dropdown">
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon fa fa-user fa-lg"></i>';
-									echo "{$_SESSION['username']}";
+									echo " {$_SESSION['username']}";
 									echo '<span class="caret"></span></a>';
 									echo '<ul class="dropdown-menu">
 											<li><a href="change_password.php">修改密码</a></li>
@@ -134,7 +134,7 @@ if (!isset($page_title)) {
 									echo '<li><a href="#" title="view cart"><i class="icon fa fa-shopping-cart fa-lg"></i> 购物车</a></li>';
 
 								}
-								else {	//not logged in, then redirect to index
+								else {	//not logged in, then redirect to index 
 									echo '<li><a href="register.php" title="register"></i>注册</a></li>
 										<li><a href="login.php" title="login"><i class="icon fa fa-user fa-lg"></i> 登录</a></li>';
 								}

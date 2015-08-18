@@ -10,7 +10,7 @@ include ('includes/header.html')
 
 <main role="main">
 	<!--picture carousel-->
-	<div id="homepage-feature" class="carousel slide container">
+	<div id="homepage-feature" class="carousel slide">
 		<ol class="carousel-indicators">
 			<li data-target="#homepage-feature" data-slide-to="0" class="active"></li>
 			<li data-target="#homepage-feature" data-slide-to="1"></li>
