@@ -37,7 +37,7 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 					$r = @mysqli_query($dbc, $q);
 					// Get the mount of registered users
 					$usermount = mysqli_fetch_array($r, MYSQLI_NUM);
-					echo '<div class="panel panel-info">
+					echo '<div class="panel panel-info mt20">
 					  			<div class="panel-heading">
 					    			<h3 class="panel-title">总客户量：' . $usermount[0] . '</h3>
 					  			</div>

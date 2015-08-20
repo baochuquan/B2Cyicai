@@ -57,40 +57,55 @@ include ('includes/header.html')
 		</div>
 	</div><!--.container-->
 
-	<div class="container">
-		<div class="page-header">
-			<h2 class="text-center"><small>全部宝贝</small></h2>
+	<section id="allproducts">
+		<div class="container">
+			<div class="page-header">
+				<h2 class="text-center"><small>全部宝贝</small></h2>
+			</div>
+
+			<div class="js-masonry" data-masonry-option='{"itemSelector": ".hreview" }'>
+				<div class="hreview thumbnail col-xs-12 col-sm-6 col-md-4 col-lg-3 pl10 pr10">
+					<div class="product-wrapper">
+						<a href="#"><img src="holder.js/100%x400" alt="product1"></a>
+						<div class="caption">
+		           			<h3><a href="#">产品1</a></h3>
+		           			<p>Lorem ipsum dolor sit amet,consectetur adipiscing elit. Proin euismod, nulla pretium commodo ultricies</p>
+		           			<p><a href="#" class="btn btn-primary" role="button">详细...</a></p>
+		           		</div><!-- /.caption -->
+	           		</div>
+	       		</div><!-- /.hreview -->
+	       		<div class="hreview thumbnail col-xs-12 col-sm-6 col-md-4 col-lg-3 pl10 pr10">
+	       			<div class="product-wrapper">
+						<a href="#"><img src="holder.js/100%x400" alt="product1"></a>
+						<div class="caption">
+		           			<h3>产品1</h3>
+		           			<p>Lorem ipsum dolor sit amet,consectetur adipiscing elit. Proin euismod, nulla pretium commodo ultricies</p>
+		           			<p><a href="#" class="btn btn-primary" role="button">详细...</a></p>
+		           		</div><!-- /.caption -->
+		           	</div>
+	       		</div><!-- /.hreview -->
+	       		<div class="hreview thumbnail col-xs-12 col-sm-6 col-md-4 col-lg-3 pl10 pr10">
+	       			<div class="product-wrapper">
+						<a href="#"><img src="holder.js/100%x400" alt="product1"></a>		
+						<div class="caption">
+		           			<h3>产品1</h3>
+		           			<p>Lorem ipsum dolor sit amet,consectetur adipiscing elit. Proin euismod, nulla pretium commodo ultricies</p>
+		           			<p><a href="#" class="btn btn-primary" role="button">详细...</a></p>
+		           		</div><!-- /.caption -->
+		           	</div>
+	       		</div><!-- /.hreview -->
+	       		<div class="hreview thumbnail col-xs-12 col-sm-6 col-md-4 col-lg-3 pl10 pr10">
+	       			<div class="product-wrapper">
+						<a href="#"><img src="holder.js/100%x400" alt="product1"></a>
+						<div class="caption">
+		           			<h3>产品1</h3>
+		           			<p>Lorem ipsum dolor sit amet,consectetur adipiscing elit. Proin euismod, nulla pretium commodo ultricies</p>
+		           			<p><a href="#" class="btn btn-primary" role="button">详细...</a></p>
+		           		</div><!-- /.caption -->
+		           	</div>
+	       		</div><!-- /.hreview -->
+	       	</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-4">
-				<div class="thumbnail">
-					<img src="holder.js/300x300/auto" alt="picture">
-					
-						<h3>Product</h3>
-						<p>This text describes the above product a little not too much but just enough or maybe a little more.this product just really deserves it!</p>
-						<p><a href="#" class="btn btn-primary" role="button">加入购物车</a></p>
-				
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<div class="thumbnail">
-					<img src="holder.js/300x300/auto" alt="picture">
-						<h3>Product</h3>
-						<p>This text describes the above product a little not too much.</p>
-						<p><a href="#" class="btn btn-primary" role="button">加入购物车</a></p>
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<div class="thumbnail">
-					<img src="holder.js/300x300/auto" alt="picture">
-						<h3>Product</h3>
-						<p>This text describes the above produ and, well, this product just really deserves it!</p>
-						<p><a href="#" class="btn btn-primary" role="button">加入购物车</a></p>
-				
-				</div>
-			</div>
-			<!--a set of three products-->
-		</div>
-	</div>
+	</section>
 </main>
 <?php include ('includes/footer.html')  ?>

@@ -37,7 +37,7 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 
 					// Fetch and print all the record
 					while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-						echo '<div class="panel panel-info">
+						echo '<div class="panel panel-info mt20">
 					  			<div class="panel-heading">
 					    			<h3 class="panel-title"><span>' . $row['order_date'] . '</span>
 					    								<span>订单号：' . $row['order_id'] . '</span>
