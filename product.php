@@ -6,12 +6,14 @@ require ('includes/config.inc.php');
 //set the page title and include the HTML header:
 $page_title = '登录';
 include ('includes/header.html');
+
+
+
 ?>
 
 <main role="main">
 	<div class="container">
 		<div class="row">
-			</div>
 			<!--picture carousel-->
 			<div class="col-xs-6 col-xs-push-3">
 				<!--picture carousel-->

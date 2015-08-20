@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 	$('.carousel').carousel({
-    	interval: 2000
+    	interval: 3000
 	});
 	
 	$(function(){
@@ -9,7 +9,12 @@ $( document ).ready(function() {
      	   t.val(parseInt(t.val())+1)
     	});
     	$("#min").click(function(){
-    	    t.val(parseInt(t.val())-1)
+			if(t.val() <= 0){
+				t.val(0);
+			}
+			else {
+    	    	t.val(parseInt(t.val())-1)
+			}
     	});
 	});
 });

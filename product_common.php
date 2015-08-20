@@ -10,63 +10,77 @@ include ('includes/header.html');
 if (isset($_GET['productid'])) {
 	// Update the database...
 	require (MYSQL);
-	$q = "SELECT * FROM products WHERE product_id=" . $_GET['productid'];
+	$q = "SELECT pre_price, cur_price, product_name, decription FROM products WHERE product_id=" . $_GET['productid'];
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	$productinfo = mysqli_fetch_array($r, MYSQLI_ASSOC);
+	echo '	
 
-	if (mysqli_affected_rows($dbc) == 1) {
-		echo '
 <main role="main">
 	<div class="container">
 		<div class="row">
-			</div>
-			<!--picture carousel-->
 			<div class="col-xs-6 col-xs-push-3">
-				<!--picture carousel-->
 				<div id="homepage-feature" class="carousel slide mt20">
 					<ol class="carousel-indicators">';
+					
+	$q = "SELECT COUNT(img_id) FROM imges WHERE product_id=" . $_GET['productid'];
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	$num = mysqli_fetch_array($r, MYSQLI_NUM);
 
-		$q = "SELECT COUNT(*) FROM imges WHERE product_id=" . $_GET['productid'];
-		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-		$num = mysqli_fetch_array($r, MYSQLI_NUM);
-
-
-		for ($i=0; $i < $num[0]; $i) { 
-			echo '
+	
+	for ($i=0; $i < $num[0]; $i++) { 
+		echo '
 						<li data-target="#homepage-feature" data-slide-to="' . $i . '" ';
-			if ($i == 0) {
-				echo 'class="active"';
-			}
-			echo '></li>';
-
+		if ($i == 0) {
+			echo 															'class="active"';
 		}
-		echo '						
+		echo 																				'></li>';
+	}
+	echo '						
 					</ol>
-					<!--Wrappers for slides-->
 					<div class="carousel-inner">';
 
-		$q = "SELECT img_name FROM imges WHERE product_id=" . $_GET['productid'];
-		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-		while ($imges = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			echo '
-						<div class="item ';
-			if ($i == 0) {
-				echo 'avtive">';
-			}
-			echo '
+/*
+	echo '
+						<div class="item active">
+							<img src="img/okwu.jpg" alt="Product one">
+						</div>
+						<div class="item">	<!--item-->
+							<img src="img/okwu-athletics.jpg" alt="Product two">
+						</div>
+						<div class="item">
+							<img src="img/bartlesvillecf.jpg" alt="Product three">
+						</div>
+						<div class="item">
+							<img src="img/emancipation.jpg" alt="Product four">
+						</div>';
+*/
+	$q = "SELECT img_name FROM imges WHERE product_id=" . $_GET['productid'];
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	$i = 0;
+	while($imges = mysqli_fetch_array($r, MYSQLI_ASSOC)) { 
+		if ($i == 0) {
+			echo 		'<div class="item active">
 							<img src="img/' . $imges['img_name'] . '" alt="ProductImg">
 						</div>';
 		}
-		echo '
+		else {
+			echo 		'<div class="item">
+							<img src="img/' . $imges['img_name'] . '" alt="ProductImg">
+						</div>';
+		}
+		$i += 1;
+	}
+	echo '
 					</div>
-					<!--controls-->
+
 					<a class="carousel-control left" href="#homepage-feature" data-slide="prev">
 						<span class="icon fa fa-chevron-left"></span>
 
 					<a class="carousel-control right" href="#homepage-feature" data-slide="next">
 						<span class="icon fa fa-chevron-right"></span>
 					</a>
-				</div>	<!--carousel-->
+				</div>
+
 				<hr class="mt20 mb20"></hr>
 				<div class="row">
 					<div class="col-xs-6 text-center">
@@ -77,7 +91,8 @@ if (isset($_GET['productid'])) {
 					</div>
 				</div>
 			</div>
-			<!--the first column-->
+
+			
 			<div class="col-xs-3 col-xs-pull-6 pr50">
 				<div class="row ">
 					<div class="col-xs-12 mt20 mb20">
@@ -91,21 +106,19 @@ if (isset($_GET['productid'])) {
 							</div>
 						</a>
 					</div>
-					<div class="col-xs-12">';
-		echo '
+					<div class="col-xs-12">
 						<p class="mb5"><strong>'. $productinfo['product_name'] . '</strong></p>
 						<div>';
 
-		$q = "select tag_name from tags INNER JOIN product_tag USING(tag_id) INNER JOIN products USING(product_id) WHERE product_id="
-			. $_GET['productid'];
-		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	$q = "select tag_name from tags INNER JOIN product_tag USING(tag_id) INNER JOIN products USING(product_id) WHERE product_id="
+		. $_GET['productid'];
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
-		while ($tagname = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			echo 		'<span class="mr10">' . $tagname['tag_name'] . '</span>
-						</div>
+	while ($tagname = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+		echo  				'<span class="mr10">' . $tagname['tag_name'] . '</span>					
 						';
-		}
-		echo '
+	}
+	echo '				</div>
 						<div class="text-muted mt30">
 							<h5 class="mt5 mb5">产品描述</h5>
 							<div>' . 
@@ -133,10 +146,8 @@ if (isset($_GET['productid'])) {
 						<hr></hr>
 					</div>
 				</div>
-			</div><!--the first column-->
-			<!--the third column-->
-			';
-		echo '
+			</div>
+		
 			<div class="col-xs-3">
 				<hr class="mb10"></hr>
 				<div class="row">
@@ -150,138 +161,136 @@ if (isset($_GET['productid'])) {
 					</div>
 				</div>
 				<hr class="mb10 mt10"></hr>
-				';
-		echo '
 				<div class="row">
 					<div class="col-xs-12">
 						<span class="clearfix" style="font-size:1.2em"><strong>尺寸选择</strong></span>';
 						
 
-		$q = "SELECT size_name FROM size INNER JOIN product_size USING(size_id) INNER JOIN products USING(product_id) WHERE product_id="
-			. $_GET['productid'];
-		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	$q = "SELECT size_name FROM size INNER JOIN product_size USING(size_id) INNER JOIN products USING(product_id) WHERE product_id="
+		. $_GET['productid'];
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
-		while ($sizename = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			switch ($sizename['size_name']) {
-				case 'S':
-					echo '
-					<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-						    <div>
-						    	<span class="pr20"><strong>型号:S<strong></span>
-						    	<span class="pr20"><strong>尺码:168<strong></span>
-						    </div>
-						    <div>
-						    	<span class="text-muted pr5"><small>衣长:68</small></span>
-						    	<span class="text-muted pr5"><small>肩宽:40</small></span>
-						    	<span class="text-muted pr5"><small>胸围:89</small></span>
-						    	<span class="text-muted pr5"><small>袖长:17</small></span>
-						    	<span class="text-muted pr5"><small>领围:40.5</small></span>
-						    </div>
-						  </label>
-						</div>';
-					break;
-				case 'M':
-					echo '
-					<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-						    <div>
-						    	<span class="pr20"><strong>型号:M<strong></span>
-						    	<span class="pr20"><strong>尺码:170<strong></span>
-						    </div>
-						    <div>
-						    	<span class="text-muted pr5"><small>衣长:69.5</small></span>
-						    	<span class="text-muted pr5"><small>肩宽:41.5</small></span>
-						    	<span class="text-muted pr5"><small>胸围:93</small></span>
-						    	<span class="text-muted pr5"><small>袖长:18</small></span>
-						    	<span class="text-muted pr5"><small>领围:40.5</small></span>
-						    </div>
-						  </label>
-						</div>';
-					break;
-				case 'L':
-					echo '
-					<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-						    <div>
-						    	<span class="pr20"><strong>型号:L<strong></span>
-						    	<span class="pr20"><strong>尺码:175<strong></span>
-						    </div>
-						    <div>
-						    	<span class="text-muted pr5"><small>衣长:71</small></span>
-						    	<span class="text-muted pr5"><small>肩宽:43</small></span>
-						    	<span class="text-muted pr5"><small>胸围:98</small></span>
-						    	<span class="text-muted pr5"><small>袖长:19</small></span>
-						    	<span class="text-muted pr5"><small>领围:42</small></span>
-						    </div>
-						  </label>
-						</div>';
-					break;
-				case 'XL':
-					echo '
-					<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-						    <div>
-						    	<span class="pr20"><strong>型号:XL<strong></span>
-						    	<span class="pr20"><strong>尺码:180<strong></span>
-						    </div>
-						    <div>
-						    	<span class="text-muted pr5"><small>衣长:72.5</small></span>
-						    	<span class="text-muted pr5"><small>肩宽:44.5</small></span>
-						    	<span class="text-muted pr5"><small>胸围:103</small></span>
-						    	<span class="text-muted pr5"><small>袖长:20</small></span>
-						    	<span class="text-muted pr5"><small>领围:43.5</small></span>
-						    </div>
-						  </label>
-						</div>';
-					break;
-				case 'XXL':
-					echo '
-					<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-						    <div>
-						    	<span class="pr20"><strong>型号:XXL<strong></span>
-						    	<span class="pr20"><strong>尺码:180<strong></span>
-						    </div>
-						    <div>
-						    	<span class="text-muted pr5"><small>衣长:73.5</small></span>
-						    	<span class="text-muted pr5"><small>肩宽:46</small></span>
-						    	<span class="text-muted pr5"><small>胸围:110</small></span>
-						    	<span class="text-muted pr5"><small>袖长:21</small></span>
-						    	<span class="text-muted pr5"><small>领围:43.5</small></span>
-						    </div>
-						  </label>
-						</div>';
-					break;
-				case 'XXXL':
-					echo '
-					<div class="radio">
-						  <label>
-						    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-						    <div>
-						    	<span class="pr20"><strong>型号:XXXL<strong></span>
-						    	<span class="pr20"><strong>尺码:185<strong></span>
-						    </div>
-						    <div>
-						    	<span class="text-muted pr5"><small>衣长:75</small></span>
-						    	<span class="text-muted pr5"><small>肩宽:47.5</small></span>
-						    	<span class="text-muted pr5"><small>胸围:117</small></span>
-						    	<span class="text-muted pr5"><small>袖长:23</small></span>
-						    	<span class="text-muted pr5"><small>领围:45</small></span>
-						    </div>
-						  </label>
-						</div>';
-					break;
-				default:
-					break;
-			}
+	while ($sizename = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+		switch ($sizename['size_name']) {
+			case 'S':
+				echo '
+						<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							    <div>
+							    	<span class="pr20"><strong>型号:S<strong></span>
+							    	<span class="pr20"><strong>尺码:168<strong></span>
+							    </div>
+							    <div>
+							    	<span class="text-muted pr5"><small>衣长:68</small></span>
+							    	<span class="text-muted pr5"><small>肩宽:40</small></span>
+							    	<span class="text-muted pr5"><small>胸围:89</small></span>
+							    	<span class="text-muted pr5"><small>袖长:17</small></span>
+							    	<span class="text-muted pr5"><small>领围:40.5</small></span>
+							    </div>
+							  </label>
+							</div>';
+				break;
+			case 'M':
+				echo '
+						<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							    <div>
+							    	<span class="pr20"><strong>型号:M<strong></span>
+							    	<span class="pr20"><strong>尺码:170<strong></span>
+							    </div>
+							    <div>
+							    	<span class="text-muted pr5"><small>衣长:69.5</small></span>
+							    	<span class="text-muted pr5"><small>肩宽:41.5</small></span>
+							    	<span class="text-muted pr5"><small>胸围:93</small></span>
+							    	<span class="text-muted pr5"><small>袖长:18</small></span>
+							    	<span class="text-muted pr5"><small>领围:40.5</small></span>
+							    </div>
+							  </label>
+							</div>';
+				break;
+			case 'L':
+				echo '
+						<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							    <div>
+							    	<span class="pr20"><strong>型号:L<strong></span>
+							    	<span class="pr20"><strong>尺码:175<strong></span>
+							    </div>
+							    <div>
+							    	<span class="text-muted pr5"><small>衣长:71</small></span>
+							    	<span class="text-muted pr5"><small>肩宽:43</small></span>
+							    	<span class="text-muted pr5"><small>胸围:98</small></span>
+							    	<span class="text-muted pr5"><small>袖长:19</small></span>
+							    	<span class="text-muted pr5"><small>领围:42</small></span>
+							    </div>
+							  </label>
+							</div>';
+				break;
+			case 'XL':
+				echo '
+						<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							    <div>
+							    	<span class="pr20"><strong>型号:XL<strong></span>
+							    	<span class="pr20"><strong>尺码:180<strong></span>
+							    </div>
+							    <div>
+							    	<span class="text-muted pr5"><small>衣长:72.5</small></span>
+							    	<span class="text-muted pr5"><small>肩宽:44.5</small></span>
+							    	<span class="text-muted pr5"><small>胸围:103</small></span>
+							    	<span class="text-muted pr5"><small>袖长:20</small></span>
+							    	<span class="text-muted pr5"><small>领围:43.5</small></span>
+							    </div>
+							  </label>
+							</div>';
+				break;
+			case 'XXL':
+				echo '
+						<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							    <div>
+							    	<span class="pr20"><strong>型号:XXL<strong></span>
+							    	<span class="pr20"><strong>尺码:180<strong></span>
+							    </div>
+							    <div>
+							    	<span class="text-muted pr5"><small>衣长:73.5</small></span>
+							    	<span class="text-muted pr5"><small>肩宽:46</small></span>
+							    	<span class="text-muted pr5"><small>胸围:110</small></span>
+							    	<span class="text-muted pr5"><small>袖长:21</small></span>
+							    	<span class="text-muted pr5"><small>领围:43.5</small></span>
+							    </div>
+							  </label>
+							</div>';
+				break;
+			case 'XXXL':
+				echo '
+						<div class="radio">
+							  <label>
+							    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							    <div>
+							    	<span class="pr20"><strong>型号:XXXL<strong></span>
+							    	<span class="pr20"><strong>尺码:185<strong></span>
+							    </div>
+							    <div>
+							    	<span class="text-muted pr5"><small>衣长:75</small></span>
+							    	<span class="text-muted pr5"><small>肩宽:47.5</small></span>
+							    	<span class="text-muted pr5"><small>胸围:117</small></span>
+							    	<span class="text-muted pr5"><small>袖长:23</small></span>
+							    	<span class="text-muted pr5"><small>领围:45</small></span>
+							    </div>
+							  </label>
+							</div>';
+				break;
+			default:
+				break;
 		}
-		echo '						
+	}
+	echo '
 					</div>
 				</div>	
 				<hr class="mb10 mt10"></hr>
@@ -290,19 +299,19 @@ if (isset($_GET['productid'])) {
 						<span class="clearfix" style="font-size:1.2em"><strong>颜色分类</strong></span>
 						<div class="radio">';
 
-		$q = "select color_name from color INNER JOIN product_color USING(color_id) INNER JOIN products USING(product_id) WHERE product_id="
-			. $_GET['productid'];
-		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	$q = "select color_name from color INNER JOIN product_color USING(color_id) INNER JOIN products USING(product_id) WHERE product_id="
+		. $_GET['productid'];
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 
-		$j = 0;
-		while ($colorname = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			echo '
+	$j = 0;
+	while ($colorname = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+		echo '
 							<label class="radio-inline">
 								<input type="radio" name="inlineRadioOptions" id="inlineRadio' . $j . '" value="' . $colorname['color_name'] . '"> ' . $colorname['color_name'] . '
 							</label>
 					';
-		}
-		echo '
+	}
+	echo '
 						</div>
 					</div>
 					<div class="col-xs-4">
@@ -315,18 +324,16 @@ if (isset($_GET['productid'])) {
 					</div>
 				</div>
 				<hr class="mb10 mt10"></hr>
-			</div><!--the third column-->
+			</div>
 		</div>
 	</div>
-</main>
-			';
-	}/*
-	else { // Redirect.
-		$url = BASE_URL . 'index.php'; // Define the URL.
-		ob_end_clean(); // Delete the buffer.
-		header("Location: $url");
-		exit(); // Quit the script.
-	} // End of main IF-ELSE.*/
+</main>';
+}
+else { // Redirect.
+	$url = BASE_URL . 'index.php'; // Define the URL.
+	ob_end_clean(); // Delete the buffer.
+	header("Location: $url");
+	exit(); // Quit the script.
 }
 ?>
 
