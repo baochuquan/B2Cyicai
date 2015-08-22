@@ -39,21 +39,6 @@ if (isset($_GET['productid'])) {
 					</ol>
 					<div class="carousel-inner">';
 
-/*
-	echo '
-						<div class="item active">
-							<img src="img/okwu.jpg" alt="Product one">
-						</div>
-						<div class="item">	<!--item-->
-							<img src="img/okwu-athletics.jpg" alt="Product two">
-						</div>
-						<div class="item">
-							<img src="img/bartlesvillecf.jpg" alt="Product three">
-						</div>
-						<div class="item">
-							<img src="img/emancipation.jpg" alt="Product four">
-						</div>';
-*/
 	$q = "SELECT img_name FROM imges WHERE product_id=" . $_GET['productid'];
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	$i = 0;

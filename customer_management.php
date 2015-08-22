@@ -26,6 +26,7 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 		</ul>
 		<div class="tab-content">
 			<div class="tab-content">
+				<!--show all the customers-->
 				<div role="tabpanel" class="tab-pane active" id="allusers">
 
 					<?php  

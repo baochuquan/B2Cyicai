@@ -91,15 +91,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	<div class="container">
 		<div class="jumbotron">	
 			<h2 class="text-center"><small>注册衣彩账号</small></h2>
-			<form class="form-horizontal" action="register.php" method="post">
-			  	<div class="form-group has-success has-feedback">
+			<form id="registerform" class="form-horizontal" action="register.php" method="post">
+			  	<div class="form-group has-feedback">
 			    	<label for="username" class="col-xs-4 control-label">用户名</label>
 			    	<div class="col-xs-4">
 			    		<input type="text" class="form-control" aria-describedby="inputsuccess2status" id="username" name="username" size="60" maxlength="60" placeholder="Userename" 
 			    			value="<?php if (isset($_POST['username'])) echo $_POST['username'];?>">   
-			    		<span class="fa fa-check form-control-feedback" aria-hidden="true"></span>
-			    		<span id="inputsuccess2status" class="sr-only"></span>
-			    	</div>
+			    	<!--	<span class="fa fa-check form-control-feedback" aria-hidden="true"></span>
+			    		<span id="inputsuccess2status" class="sr-only"></span>-->
+			    	</div><!--
+			    	<div class="col-xs-4 alert alert-danger" role="alert">
+			    		<span class="fa fa-exclamation-triangle" aria-hidden="true"></span>
+			    		<span>请输入一个有效的用户名</span>
+			    	</div>-->
 			    </div>
 				<div class="form-group">
 			    	<label for="usermail" class="col-xs-4 control-label">邮箱</label>
@@ -130,4 +134,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	</div>
 </main>
 
-<?php include ('includes/footer.html')  ?> 
+<?php include ('includes/footer.html')  ?>

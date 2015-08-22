@@ -45,18 +45,18 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 					    								<span>总金额：' . $row['total'] . '</span></h3>
 					  			</div>
 					  			<div class="panel-body">';
-					  	echo '<table class="table table-striped">
-			        			<thead>
-				            		<tr>
-					            		<th>产品</th>
-							            <th>颜色</th>
-							            <th>尺寸</th>
-							            <th>单价</th>
-							            <th>数量</th>
-							            <th>金额</th>
-						        	</tr>
-					    		</thead>
-					        	<tbody>';
+					  	echo 		'<table class="table table-striped">
+					        			<thead>
+						            		<tr>
+							            		<th>产品</th>
+									            <th>颜色</th>
+									            <th>尺寸</th>
+									            <th>单价</th>
+									            <th>数量</th>
+									            <th>金额</th>
+								        	</tr>
+							    		</thead>
+							        	<tbody>';
 
 					    // Define the detail query...
 					    $q = "SELECT product_name, color, size, cur_price, quantity, price FROM orders INNER JOIN order_content USING(order_id) INNER JOIN products USING(product_id) WHERE order_id=" . $row['order_id'];
@@ -64,39 +64,41 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 
 					    // Fetch and print all the detail
 					    while ($detail = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-					    	echo '<tr>
-								<td>' . $detail['product_name'] . '</td>
-								<td>' . $detail['color'] . '</td>
-								<td>' . $detail['size'] . '</td>
-								<td>' . $detail['cur_price'] . '</td>
-								<td>' . $detail['quantity'] . '</td>
-								<td>' . $detail['price'] . '</td>
-							</tr>';
-					    }
-					  	echo '</tbody>
-					  		</table>
-					  		<div class="highlight">
-					  			<p>
-					  				<span>收件人：' . $row['reciver'] . '</span>
-					  				<span>收件人联系方式：' . $row['reci_phone'] . '</span>';
+							echo 			'<tr>
+												<td>' . $detail['product_name'] . '</td>
+												<td>' . $detail['color'] . '</td>
+												<td>' . $detail['size'] . '</td>
+												<td>' . $detail['cur_price'] . '</td>
+												<td>' . $detail['quantity'] . '</td>
+												<td>' . $detail['price'] . '</td>
+											</tr>';
+						}
+					  	echo 			'</tbody>
+							  		</table>
+							  	</div>
+							  	<div class="panel-footer">
+							  		<div class="highlight">
+							  			<p>
+							  				<span>收件人：' . $row['reciver'] . '</span>
+							  				<span>收件人联系方式：' . $row['reci_phone'] . '</span>';
 					  	if ($row['paystate'] == 'Y') {
-					  		echo '<span>已支付</span>';
+					  		echo 			'<span>已支付</span>';
 					  	}
 					  	else {
-					  		echo '<span>未支付</span>';
+					  		echo 			'<span>未支付</span>';
 					  	}
 					  	if ($row['sendstate'] == 'Y') {
-					  		echo '<span>已发货</span>';
+					  		echo 			'<span>已发货</span>';
 					  	}
 					  	else {
-					  		echo '<span>未发货</span>';
+					  		echo 			'<span>未发货</span>';
 					  	}
 
-					  	echo '</p>
-					  			<p>收件地址：' . $row['addr'] . '</p>
-					  			<p>备注：' . $row['user_info'] . '</p>
-					  		</div>
-					  		</div>
+					  	echo 			'</p>
+							  			<p>收件地址：' . $row['addr'] . '</p>
+							  			<p>备注：' . $row['user_info'] . '</p>
+							  		</div>
+							  	</div>
 							</div>';
 					}
 					mysqli_free_result($r);

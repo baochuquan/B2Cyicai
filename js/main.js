@@ -18,3 +18,39 @@ $( document ).ready(function() {
     	});
 	});
 });
+
+//for register.php
+$(function(){
+	$('#registerform :input').blur(function(){
+		var $parent = $(this).parent();
+	/*	$parent.parent().removeClass("has-success");
+		$parent.parent().find(".alert").remove();
+		$parent.find(".fa-check").remove();*/
+		//validate username
+		if( $(this).is('#username') ){
+			$parent.parent().removeClass("has-success");
+			$parent.parent().find(".alert").remove();
+			$parent.find(".fa-check").remove();
+			if( this.value == "" || this.value.length < 6 ) {
+				var errorMsg = "请输入至少6位的用户名.";
+				$parent.after('<div class="col-xs-4 alert alert-danger" role="alert" <span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
+			}
+			else {
+				$parent.parent().addClass("has-success");
+				$parent.append('<span class="fa fa-check form-control-feedback" aria-hidden="true"></span><span id="inputsuccess2status" class="sr-only"></span>');
+			}
+		}
+		//validate usermail
+		/*
+		if( $(this).is('#usemail') ){
+			if( this.value == "" || !/^/w+([-+.]/w)*@/w+([-+.]/w+)/./w+([-+.]/w+)*$/.test(this.value)) {
+				var errorMsg = "请输入正确的Email地址.";
+				$parent.after('<div class="col-xs-4 alert alert-danger" role="alert" <span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
+				
+			}
+			else {
+				$parent.append('<span class="fa fa-check form-control-feedback" aria-hidden="true"></span><span id="inputsuccess2status" class="sr-only"></span>');
+			}
+		}*/
+	});
+});
