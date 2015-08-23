@@ -21,15 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	// Check for a first name:
 	if (preg_match ('/^[A-Z \'.-]{2,60}$/i', $trimmed['username'])) {
 		$n = mysqli_real_escape_string ($dbc, $trimmed['username']);
-	} else {
-		//echo '<p class="error">请输入用户名！</p>';
 	}
-	
 	// Check for an email address:
 	if (filter_var($trimmed['usermail'], FILTER_VALIDATE_EMAIL)) {
 		$e = mysqli_real_escape_string ($dbc, $trimmed['usermail']);
-	} else {
-		//echo '<p class="error">邮箱地址无效！</p>';
 	}
 
 	// Check for a password and match against the confirmed password:
@@ -89,32 +84,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 
 <main role="main">
 	<div class="container">
-		<div class="jumbotron">	
+		<div class="jumbotron mt15">	
 			<h2 class="text-center"><small>注册衣彩账号</small></h2>
-			<form class="form-horizontal" action="register.php" method="post">
-			  	<div class="form-group has-success has-feedback">
+			<form id="registerform" class="form-horizontal" action="register.php" method="post">
+			  	<div class="form-group has-feedback">
 			    	<label for="username" class="col-xs-4 control-label">用户名</label>
 			    	<div class="col-xs-4">
-			    		<input type="text" class="form-control" aria-describedby="inputsuccess2status" id="username" name="username" size="60" maxlength="60" placeholder="Userename" 
+			    		<input type="text" class="form-control" id="username" name="username" size="60" maxlength="60" placeholder="Userename" 
 			    			value="<?php if (isset($_POST['username'])) echo $_POST['username'];?>">   
-			    		<span class="fa fa-check form-control-feedback" aria-hidden="true"></span>
-			    		<span id="inputsuccess2status" class="sr-only"></span>
 			    	</div>
 			    </div>
-				<div class="form-group">
+				<div class="form-group has-feedback">
 			    	<label for="usermail" class="col-xs-4 control-label">邮箱</label>
 			    	<div class="col-xs-4">
 			    		<input type="email" class="form-control" id="usermail" name="usermail" size="60" maxlength="60" placeholder="Useremail" 
 			    			value="<?php if (isset($_POST['usermail'])) echo $_POST['usermail'];?>">   
 			    	</div>	  
 			  	</div>
-			  	<div class="form-group">
+			  	<div class="form-group has-feedback">
 			  		<label for="password1" class="col-xs-4 control-label">输入密码</label>
 			  		<div class="col-xs-4">
 			  			<input type="password" class="form-control" id="password1" name="password1" size="20" maxlength="20" placeholder="Password">
 			  		</div>
 			  	</div>
-			  	<div class="form-group">
+			  	<div class="form-group has-feedback">
 			  		<label for="password2" class="col-xs-4 control-label">确认密码</label>
 			  		<div class="col-xs-4">
 			  			<input type="password" class="form-control" id="password2" name="password2" size="20" maxlength="20" placeholder="Password">
@@ -122,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 			  	</div>			  	
         		<div class="form-group">
         			<div class="col-xs-offset-4 col-xs-4">
-			  			<button type="submit" class="btn btn-success">注册</button>
+			  			<button type="submit" id="registersubmit" class="btn btn-success">注册</button>
 			  		</div>
 			  	</div>
 			</form>
@@ -130,4 +123,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	</div>
 </main>
 
-<?php include ('includes/footer.html')  ?> 
+<?php include ('includes/footer.html')  ?>
