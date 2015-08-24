@@ -56,24 +56,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main role="main">
 	<div class="container">
-		<div class="jumbotron">	
+		<div class="jumbotron mt15">	
 			<h2 class="text-center"><small>登录衣彩账号</small></h2>
 			<form class="form-horizontal" action="login.php" method="post">
 			  	<div class="form-group">
-			    	<label for="usermail" class="col-xs-2 control-label">邮箱</label>
-			    	<div class="col-xs-10">
+			    	<label for="usermail" class="col-xs-4 control-label">邮箱</label>
+			    	<div class="col-xs-4">
 			    		<input type="email" class="form-control" id="usermail" name="usermail" size="60" maxlength="60" placeholder="Useremail" 
 			    			value="<?php if (isset($_POST['usermail'])) echo $_POST['usermail'];?>">			   
 			    	</div>
 			  	</div>
 			  	<div class="form-group">
-			  		<label for="pass" class="col-xs-2 control-label">密码</label>
-			  		<div class="col-xs-10">
+			  		<label for="pass" class="col-xs-4 control-label">密码</label>
+			  		<div class="col-xs-4">
 			  			<input type="password" class="form-control" id="pass" name="pass" size="20" maxlength="20" placeholder="Password">
 			  		</div>
 			  	</div>		  	
 			  	<div class="form-group">
-			  		<div class="col-xs-offset-2 col-xs-10">
+			  		<div class="col-xs-offset-4 col-xs-4">
 			  			<div class="checkbox">			  	
         					<label>
         						<input type="checkbox"> 记住我
@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         			</div>
         		</div>
         		<div class="form-group">
-        			<div class="col-xs-offset-2 col-xs-10">
+        			<div class="col-xs-offset-4 col-xs-4">
 			  			<button type="submit" class="btn btn-success">登录</button>
 			  			<a href="forget_password.php">忘记密码了？</a>
 			  		</div>

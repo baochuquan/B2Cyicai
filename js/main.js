@@ -65,7 +65,7 @@ $(function(){
 		if( $(this).is('#password2') ){
 			var pwd1 = $('#password1').val().trim();
 			var pwd2 = $('#password2').val().trim();
-			if(pwd1 == pwd2) {
+			if(pwd1 == pwd2 && $('#password2').val().trim().length > 0) {
 				$parent.parent().addClass("has-success");
 				$parent.append('<span class="fa fa-check form-control-feedback" aria-hidden="true"></span><span class="sr-only"></span>');
 			}

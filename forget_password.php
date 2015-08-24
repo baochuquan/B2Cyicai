@@ -68,18 +68,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <main role="main">
 	<div class="container">
-		<div class="jumbotron">	
+		<div class="jumbotron mt15">	
 			<h2 class="text-center"><small>输入您的注册邮箱，系统将自动发送为您发送一个临时登陆密码。</small></h2>
 			<form class="form-horizontal" action="forget_password.php" method="post"> 
 			  	<div class="form-group">
-			    	<label for="usermail" class="col-xs-2 control-label">邮箱</label>
-			    	<div class="col-xs-10">
+			    	<label for="usermail" class="col-xs-4 control-label">邮箱</label>
+			    	<div class="col-xs-4">
 			    		<input type="email" class="form-control" id="usermail" name="usermail" size="60" maxlength="60" placeholder="Useremail" 
 			    			value="<?php if (isset($_POST['usermail'])) echo $_POST['usermail'];?>">			   
 			    	</div>
 			  	</div>
         		<div class="form-group">
-        			<div class="col-xs-offset-2 col-xs-10">
+        			<div class="col-xs-offset-4 col-xs-4">
 			  			<button type="submit" class="btn btn-success">确定</button>
 			  		</div>
 			  	</div>

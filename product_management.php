@@ -20,14 +20,14 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 	<div class="container">
 		<h1 class="page-header">产品管理</h1>
 		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#allusers" aria-controls="allusers" role="tab" data-toggle="tab">所有产品</a></li>
-			<li role="presentation"><a href="#adduser" aria-controls="adduser" role="tab" data-toggle="tab">添加产品</a></li>
-			<li role="presentation"><a href="#edituser" aria-controls="edituser" role="tab" data-toggle="tab">编辑产品</a></li>
+			<li role="presentation" class="active"><a href="#allproduct" aria-controls="allproduct" role="tab" data-toggle="tab">所有产品</a></li>
+			<li role="presentation"><a href="#addproduct" aria-controls="addproduct" role="tab" data-toggle="tab">添加产品</a></li>
+			<li role="presentation"><a href="#editproduct" aria-controls="editproduct" role="tab" data-toggle="tab">编辑产品</a></li>
 		</ul>
 		<div class="tab-content">
 			<div class="tab-content">
 				<!--show allt the products-->
-				<div role="tabpanel" class="tab-pane active" id="allusers">
+				<div role="tabpanel" class="tab-pane active" id="allproduct">
 					<div class="panel panel-info mt20">
 						<div class="panel-heading">
 <?php
@@ -84,38 +84,67 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 					  	</div>
 					</div>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="adduser">
+				<div role="tabpanel" class="tab-pane" id="addproduct">
 					<div class="jumbotron mt20">
-						<form class="form-horizontal" action="add_product.php" method="post">
-							<div class="form-group">
-						    	<label for="ProductName" class="col-xs-2 control-label">产品名称</label>
-						    	<div class="col-xs-8">
-						    		<input type="text" class="form-control" id="ProductName" name="product_name" placeholder="产品名称">
-						    	</div>
-						  	</div>
-					    	<div class="form-group">
-							    <label for="PrePrice" class="col-xs-2 control-label">原价(元)</label>
-							    <div class="col-xs-3">
-							    	<input type="text" class="form-control" id="PrePrice" placeholder="原价">
-							    </div>
-							    <label for="CurPrice" class="col-xs-2 control-label">现价(元)</label>
-							   	<div class="col-xs-3">
-							    	<input type="text" class="form-control" id="CurPrice" placeholder="现价">
-							    </div>
-							</div>
-
-							<fieldset class="col-xs-4 col-xs-offset-4">
-								<legend>上传产品图片</legend>
-								<p>
-									<b>选择文件(支持多文件)</b>
-									<input type="file" multipe="multipe" name="upload">
-								</p>
-							</fieldset>
-						  	<button type="submit" class="btn btn-default">Submit</button>
+						<form class="form-horizontal" enctype="multipart/form-data" action="add_product.php" method="post">
+							<fieldset>
+								<div class="form-group">
+							    	<label for="ProductName" class="col-xs-2 control-label">产品名称</label>
+							    	<div class="col-xs-8">
+							    		<input type="text" class="form-control" id="ProductName" name="product_name" placeholder="产品名称">
+							    	</div>
+							  	</div>
+						    	<div class="form-group">
+								    <label for="PrePrice" class="col-xs-2 control-label">原价(元)</label>
+								    <div class="col-xs-3">
+								    	<input type="text" class="form-control" id="PrePrice" name="pre_price" placeholder="原价">
+								    </div>
+								    <label for="CurPrice" class="col-xs-2 control-label">现价(元)</label>
+								   	<div class="col-xs-3">
+								    	<input type="text" class="form-control" id="CurPrice" name="cur_price" placeholder="现价">
+								    </div>
+								</div>';
+	echo '
+								<div class="form-group">
+									<label for="AddTag" class="col-xs-2 control-label">添加标签</label>
+									<div class="col-xs-8">
+										<input type="text" class="form-control" id="AddTag" name="add_tag" placeholder="多个标签之间用分号隔开，如：男装;短袖;">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="AddColor" class="col-xs-2 control-label">添加颜色</label>
+									<div class="col-xs-8">
+										<input type="text" class="form-control" id="AddColor" name="add_color" placeholder="多种颜色之间用分号隔开，如：黑色;白色;">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="Description" class="col-xs-2 control-label">产品介绍</label>
+									<div class="col-xs-8">
+										<textarea class="form-control" rows="5" id="Description" name="description"></textarea>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-2 control-label">添加产品图片</label>
+									<div class="col-xs-8">
+										<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+										选择图片1：<input type="file" name="myfile[]"><br/>
+										选择图片2：<input type="file" name="myfile[]"><br/>
+										选择图片3：<input type="file" name="myfile[]"><br/>
+										选择图片4：<input type="file" name="myfile[]"><br/>
+									</div>	
+								</div>';
+	echo '						
+								<div class="form-group">
+									<div class="col-xs-2 col-xs-offset-2">
+										<button type="submit" class="btn btn-primary">确定</button>				  		
+									</div>
+								</div>
+						  	</fieldset>
 						</form>
 					</div>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="edituser">
+
+				<div role="tabpanel" class="tab-pane" id="editproduct">
 					<div>
 						<h1>喝喝喝</h1>
 					</div>
