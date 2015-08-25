@@ -1,3 +1,9 @@
+
+//-------------------------------------------------------------
+//for index.html
+//-------------------------------------------------------------
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//for carousel time
 $( document ).ready(function() {
 	$('.carousel').carousel({
     	interval: 3000
@@ -18,8 +24,27 @@ $( document ).ready(function() {
     	});
 	});
 });
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//for navbar userstate 
+$(function(){
+	var COOKIE_NAME = 'username';
+ 	var COOKIE_LEVEL = 'userlevel';
+	if ($.cookie(COOKIE_NAME)) {
+		//show username, dropdown, and shopping cart
+		$("#cookiedeal li").hide();
+		var content = '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon fa fa-user fa-lg"></i>' + $.cookie(COOKIE_NAME) + '<span class="caret"></span></a><ul class="dropdown-menu">	<li><a href="change_password.html">修改密码</a></li><li><a href="#">账户设置</a></li><li><a href="#">已买到宝贝</a></li>';
+		if ($.cookie(COOKIE_LEVEL) == 1) {
+			content += '<li role="separator" class="divider"></li><li><a href="order_management.php">订单管理</a></li><li><a href="product_management.php">产品管理</a></li><li><a href="customer_management.php">客户管理</a></li><li role="separator" class="divider"></li><li><a href="logout.php">退出账户</a></li>';
+		}
+		content += '</ul></li><li><a href="#" title="view cart"><i class="icon fa fa-shopping-cart fa-lg"></i> 购物车</a></li>';
+	 	$("#cookiedeal").html(content);
+	};
+});
+
+
 //-------------------------------------------------------------
-//for register.php
+//for register.html
 //-------------------------------------------------------------
 $(function(){
 	$('#registerform :input').blur(function(){
