@@ -79,12 +79,10 @@ $(function(){
 						$("#registerform").hide();
 						$("#registertitle small").text("注册成功");
 						$("#registertitle").after('<div class="text-center"><span class="center icon fa fa-check fa-4x"></span></div><p class="text-center"><small>感谢您的注册！激活码已经发送至您的邮箱。请点击邮件中的链接以激活您的账户。<small></p><p id="timedown" class="text-center"></p>');
-						$.cookie('username', $("#username").val(), { path: '/', expires: 1 });
-						$.cookie('userlevel', 0, { path: '/', expires: 1 });	
 						var t1 = setTimeout("$('#timedown').text('3秒后自动跳转到首页.')",0);
 						var t2 = setTimeout("$('#timedown').text('2秒后自动跳转到首页.')",1000);
 						var t3 = setTimeout("$('#timedown').text('1秒后自动跳转到首页.')",2000);
-						var t4 = setTimeout("window.location.assign('index.html')",4000);
+						var t4 = setTimeout("window.location.assign('index.html')",3000);
 						break;
 					case "Error":
 					case "Retry":

@@ -31,10 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 			if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
 				$body = "感谢您注册【衣彩】账户https://www.yicai.net/点击以下链接激活您的账号:\n\n";
-				$body .= BASE_URL . 'activate.php?x=' . urlencode($e) . "&y=$a";
+				$body .= BASE_URL . 'activate.html?x=' . urlencode($e) . "&y=$a";
 				mail($trimmed['usermail'], '衣彩账户注册激活', $body, 'From: baochuquan@163.com');
 
-				//echo '<h3>感谢您的注册！激活码已经发送至您的邮箱。请点击邮件中的链接以激活您的账户。</h3>';
 				echo 'Success';
 				exit(); // Stop the page.	
 			} else { // If it did not run OK.
