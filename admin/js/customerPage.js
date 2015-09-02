@@ -8,9 +8,9 @@ $(function(){
 		$target.parent().siblings().removeClass("active");
 		$target.parent().addClass("active");
 
-		var $start = parseInt("10", $(this).text());
+		var $start = Number($(this).text());
 		$start = ($start - 1) * 20;
-		$.post("admin/php/customer_page.php", { start: $start }, function (data, textStatus){
+\		$.post("admin/php/customer_page.php", { start: $start }, function (data, textStatus){
 			$("#userdisplaytable").append(data);
 		});
 		//var pagenum = parseInt("10", $(this).children()text());

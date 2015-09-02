@@ -1,6 +1,5 @@
+
 <?php
-//this is the main page for the site.
-//include the configuration file:
 require ('../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
@@ -15,10 +14,13 @@ else {
 	$start = $_POST["start"];
 
 	// Fetch all the information of users;
-	$q = "SELECT user_id, username, usermail, regist_date FROM users WHERE userlevel=0 ORDER BY regist_date DESC LIMIT " + $start + ",20";
+	$q = "SELECT user_id, username, usermail, regist_date FROM users WHERE userlevel=0 ORDER BY regist_date DESC LIMIT {$start},20";
 	$r = @mysqli_query($dbc, $q);
-
-	$i = 0;
+	if (!$r) {
+ 		printf("Error: %s\n", mysqli_error($dbc));
+ 		exit();
+ 	}
+ 	$i = 0;
 	while ($eachuser = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 		$i++;
 		echo 	'<tr>
@@ -31,7 +33,5 @@ else {
 	}
 	mysqli_free_result($r);
 	mysqli_close($dbc);
-
-
 }
 ?>
