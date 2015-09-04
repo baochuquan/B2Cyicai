@@ -12,9 +12,8 @@ else {
 	// Need the database connection:
 	require (MYSQL);
 	$start = $_POST["start"];
-	if ($_POST["id"] == 'allusers')	{
-		// Fetch all the information of users;
-		$q = "SELECT user_id, username, usermail, regist_date, active FROM users WHERE userlevel=0 ORDER BY regist_date DESC LIMIT {$start},20";
+	if ($_POST["id"] == 'unsuccessusers') {
+		$q = "SELECT user_id, username, usermail, regist_date, active FROM users WHERE userlevel=0 AND active IS NOT NULL ORDER BY regist_date DESC LIMIT {$start},20";
 		$r = @mysqli_query($dbc, $q);
 		if (!$r) {
 	 		printf("Error: %s\n", mysqli_error($dbc));
@@ -28,15 +27,11 @@ else {
 						<td>' . $eachuser['user_id'] . '</td>
 						<td>' . $eachuser['username'] . '</td>
 						<td>' . $eachuser['usermail'] . '</td>
-						<td>' . $eachuser['regist_date'] . '</td>';
-			if ($eachuser['active'] != NULL) {
-				echo 	'<td>未激活</td>';
-			}
-			else {
-				echo 	'<td>已激活</td>';
-			}
-			echo 	'</tr>';
-		}
+						<td>' . $eachuser['regist_date'] . '</td>
+					 	<td>未激活</td>
+					 	<td>激活</td>
+					</tr>';
+		} 
 	}
 	mysqli_free_result($r);
 	mysqli_close($dbc);

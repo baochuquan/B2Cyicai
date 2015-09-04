@@ -110,63 +110,138 @@
 		<h1 class="page-header">客户管理</h1>
 		<ul class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a href="#allusers" aria-controls="allusers" role="tab" data-toggle="tab">所有客户</a></li>
-			<li role="presentation"><a href="#adduser" aria-controls="adduser" role="tab" data-toggle="tab">添加客户</a></li>
-			<li role="presentation"><a href="#edituser" aria-controls="edituser" role="tab" data-toggle="tab">编辑客户</a></li>
+			<li role="presentation"><a href="#successusers" aria-controls="successusers" role="tab" data-toggle="tab">已激活客户</a></li>
+			<li role="presentation"><a href="#unsuccessusers" aria-controls="unsuccessusers" role="tab" data-toggle="tab">未激活客户</a></li>
 		</ul>
 		<div class="tab-content">
-			<div class="tab-content">
-				<!--show all the customers-->
-				<div role="tabpanel" class="tab-pane active" id="allusers">
-					<div class="text-center"> 
-						<h1></h1>
-						<div class="panel panel-info mt20">
-				  			<div class="panel-heading">
-				    			<h3 id="totalcustomeramount" class="panel-title">总客户量: </h3>
-				  			</div>
-				  			<div class="panel-body text-center">
-								<table class="table table-striped">
-									<thead>
-				    					<tr>
-						            		<th>编号</th>
-								            <th>用户ID</th>
-								            <th>用户名</th>
-								            <th>用户邮箱</th>
-								            <th>注册时间</th>							            
-							        	</tr>
-						    		</thead>
-						    		<tbody id="userdisplaytable">
-						    		</tbody>
-								</table>
-							</div>
+			<!--show all the customers-->
+			<div role="tabpanel" class="tab-pane active" id="allusers">
+				<div class="text-center"> 
+					<h1></h1>
+					<div class="panel panel-info mt20">
+			  			<div class="panel-heading">
+			    			<h3 class="customeramount panel-title">总客户量: </h3>
+			  			</div>
+			  			<div class="panel-body text-center">
+							<table class="table table-striped">
+								<thead>
+			    					<tr>
+					            		<th class="text-center">编号</th>
+							            <th class="text-center">用户ID</th>
+							            <th class="text-center">用户名</th>
+							            <th class="text-center">用户邮箱</th>
+							            <th class="text-center">注册时间</th>		
+							            <th class="text-center">注册状态</th>					            
+						        	</tr>
+					    		</thead>
+					    		<tbody class="userdisplaytable">
+					    		</tbody>
+							</table>
 						</div>
-						<nav>
-						  	<ul id="pagination" class="pagination">
-						    	<li id="previoustag">
-						    	  	<a href="#" aria-label="Previous">
-						        		<span aria-hidden="true">&laquo;</span>
-						      		</a>
-						    	</li>
-						    	<li id="nexttag">
-						      		<a href="#" aria-label="Next">
-						        		<span aria-hidden="true">&raquo;</span>
-						      		</a>
-						    	</li>
-						  	</ul>
-						</nav>
 					</div>
-				</div>
-
-				<div role="tabpanel" class="tab-pane" id="adduser">
-					<div class="text-center">
-						<h1>哈哈哈哈...</h1>
-					</div>
-				</div>
-				<div role="tabpanel" class="tab-pane" id="edituser">
-					<div class="text-center">
-						<h1>喝喝喝</h1>
-					</div>
+					<nav>
+					  	<ul class="pagination"><!--id=...-->
+					    	<li class="previoustag">
+					    	  	<a href="" aria-label="Previous">
+					        		<span aria-hidden="true">&laquo;</span>
+					      		</a>
+					    	</li>
+					    	<!--js insert-->
+					    	<li class="nexttag">
+					      		<a href="" aria-label="Next">
+					        		<span aria-hidden="true">&raquo;</span>
+					      		</a>
+					    	</li>
+					  	</ul>
+					</nav>
 				</div>
 			</div>
+			<!--success users-->
+			<div role="tabpanel" class="tab-pane" id="successusers">
+				<div class="text-center">
+					<div class="panel panel-info mt20">
+			  			<div class="panel-heading">
+			    			<h3 class="customeramount panel-title">已激活客户量: </h3>
+			  			</div>
+			  			<div class="panel-body text-center">
+							<table class="table table-striped">
+								<thead>
+			    					<tr>
+					            		<th class="text-center">编号</th>
+							            <th class="text-center">用户ID</th>
+							            <th class="text-center">用户名</th>
+							            <th class="text-center">用户邮箱</th>
+							            <th class="text-center">注册时间</th>		
+							            <th class="text-center">注册状态</th>	
+							            <th class="text-center"><strong class="danger">删除用户</strong></th>	  
+						        	</tr>
+					    		</thead>
+					    		<tbody class="userdisplaytable">
+					    		</tbody>
+							</table>
+						</div>
+					</div>
+					<nav>
+					  	<ul class="pagination">
+					    	<li class="previoustag">
+					    	  	<a href="" aria-label="Previous">
+					        		<span aria-hidden="true">&laquo;</span>
+					      		</a>
+					    	</li>
+					    	<!--js insert-->
+					    	<li class="nexttag">
+					      		<a href="" aria-label="Next">
+					        		<span aria-hidden="true">&raquo;</span>
+					      		</a>
+					    	</li>
+					  	</ul>
+					</nav>
+				</div>
+			</div>
+			<!--unsuccess users-->
+			<div role="tabpanel" class="tab-pane" id="unsuccessusers">
+				<div class="text-center">
+					<div class="panel panel-info mt20">
+			  			<div class="panel-heading">
+			    			<h3 class="customeramount panel-title">未激活客户量: </h3>
+			  			</div>
+			  			<div class="panel-body text-center">
+							<table class="table table-striped">
+								<thead>
+			    					<tr>
+					            		<th class="text-center">编号</th>
+							            <th class="text-center">用户ID</th>
+							            <th class="text-center">用户名</th>
+							            <th class="text-center">用户邮箱</th>
+							            <th class="text-center">注册时间</th>		
+							            <th class="text-center">注册状态</th>	
+							            <th class="text-center"><strong class="danger">激活用户</strong></th>
+							            <th class="text-center"><strong class="danger">删除用户</strong></th>	  
+						        	</tr>
+					    		</thead>
+					    		<tbody class="userdisplaytable">
+					    		</tbody>
+							</table>
+						</div>
+					</div>
+					<nav>
+					  	<ul class="pagination">
+					    	<li class="previoustag">
+					    	  	<a href="" aria-label="Previous">
+					        		<span aria-hidden="true">&laquo;</span>
+					      		</a>
+					    	</li>
+					    	<!--js insert-->
+					    	<li class="nexttag">
+					      		<a href="" aria-label="Next">
+					        		<span aria-hidden="true">&raquo;</span>
+					      		</a>
+					    	</li>
+					  	</ul>
+					</nav>		
+				</div>
+			</div>
+			
 		</div>
 	</div>
 </main>
