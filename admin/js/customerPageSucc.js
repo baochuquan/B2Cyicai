@@ -42,4 +42,6 @@ $(function(){
 			$("#successusers .nexttag").addClass("disabled");
 		}
 	});
+	//for manuactivate.js s
+	$.getScript("admin/js/manudelete.js");	
 });	

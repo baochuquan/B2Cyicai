@@ -241,10 +241,45 @@
 					</nav>		
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </main>
+<!--modal activate-->
+<div class="modal fade manuactivate" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel1">警告</h4>
+			</div>
+			<div class="modal-body">
+				用户<strong class="modaluseremail"></strong>尚未激活账户，有可能是恶意用户，请慎重激活.
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmactivate">确认激活</button>
+				</div>
+			</div>
+		</div>
+</div>
+<!--modal delete-->
+<div class="modal fade manudelete" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel2">警告</h4>
+			</div>
+			<div class="modal-body">
+				删除操作将导致用户<strong class="modaluseremail"></strong>必须重新申请账户，请确认是否删除。
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmdelete">确认删除</button>
+				</div>
+			</div>
+		</div>
+</div>
 <!-------------------------------------------------------------------------------------------------------------------->
 	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
 		<p><a href="index.php"><img src="img/logo.png" width="80" alt="Logo"></a></p>

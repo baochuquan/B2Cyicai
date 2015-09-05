@@ -25,11 +25,12 @@ else {
 			echo 	'<tr>
 						<td>' . $i . '</td>
 						<td>' . $eachuser['user_id'] . '</td>
-						<td>' . $eachuser['username'] . '</td>
+						<td><a href="#">' . $eachuser['username'] . '</a></td>
 						<td>' . $eachuser['usermail'] . '</td>
 						<td>' . $eachuser['regist_date'] . '</td>
 					 	<td>未激活</td>
-					 	<td>激活</td>
+					 	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target=".manuactivate" data-whatever="' . $eachuser['usermail'] . '">激活</button></td>
+					 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudelete" data-whatever="' . $eachuser['usermail'] . '">删除</button></td>
 					</tr>';
 		} 
 	}

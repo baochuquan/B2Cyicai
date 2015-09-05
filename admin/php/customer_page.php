@@ -26,7 +26,7 @@ else {
 			echo 	'<tr>
 						<td>' . $i . '</td>
 						<td>' . $eachuser['user_id'] . '</td>
-						<td>' . $eachuser['username'] . '</td>
+						<td><a href="#">' . $eachuser['username'] . '</a></td>
 						<td>' . $eachuser['usermail'] . '</td>
 						<td>' . $eachuser['regist_date'] . '</td>';
 			if ($eachuser['active'] != NULL) {

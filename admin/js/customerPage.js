@@ -43,4 +43,6 @@ $(function(){
 			$("#allusers .nexttag").addClass("disabled");
 		}
 	});
+	//for manuactivate.js
+	$.getScript("admin/js/manuactivate.js");
 });	

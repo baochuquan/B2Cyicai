@@ -47,26 +47,3 @@ $(function(){
 		$.getScript("admin/js/customerPageUnsu.js");
 	});
 });
-/*
-	$("li[role=presentation]").each(function(index, element) {
-		var $idstring = $(this).children().attr("aria-controls");
-		//alert("NUM: "+$idstring);	
-		$.post("admin/php/customer_amount.php", { id: $idstring }, function (data, textStatus){
-			var amount = Math.ceil(parseInt("10", data)/PAGE);
-			var amountcontent = "<strong>" + data + "</strong>";
-			$("div[id=" + $idstring + "] .totalcustomeramount").append(amountcontent);
-			
-			//add pages 
-			var $target = $("div[id=" + $idstring + "] .previoustag");
-			for(var i = 1; i <= amount; i++){
-				var content = '<li class="tableitem"><a href="#" class="' + i + 'page">' + i + '</a></li>'
-				$target.after(content);
-				$target = $target.next();
-			}
-			//alert("DATA: " + data + "\nNUM: "+$idstring);
-			//$.getScript("admin/js/customerPage.js");		
-		});
-
-
-	});
-*/

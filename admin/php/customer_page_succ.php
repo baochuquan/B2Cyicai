@@ -26,11 +26,12 @@ else {
 				echo 	'<tr>
 							<td>' . $i . '</td>
 							<td>' . $eachuser['user_id'] . '</td>
-							<td>' . $eachuser['username'] . '</td>
+							<td><a href="#">' . $eachuser['username'] . '</a></td>
 							<td>' . $eachuser['usermail'] . '</td>
 							<td>' . $eachuser['regist_date'] . '</td>
 						 	<td>已激活</td>
-						</tr>';
+						 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudelete" data-whatever="' . $eachuser['usermail'] . '">删除</button></td>
+						 </tr>';
 			}
 	}
 	mysqli_free_result($r);

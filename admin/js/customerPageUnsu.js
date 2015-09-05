@@ -33,6 +33,7 @@ $(function(){
 		$.post("admin/php/customer_page_unsu.php", { start: $start, id: "unsuccessusers" }, 
 			function (data, textStatus){
 				$("div[id=unsuccessusers] .userdisplaytable").append(data);
+
 		});
 		//deal with pagination "pre" & "next"		
 		if($("#unsuccessusers .previoustag").next().hasClass("active")) {
@@ -42,4 +43,9 @@ $(function(){
 			$("#unsuccessusers .nexttag").addClass("disabled");
 		}
 	});
+
+	//for manuactivate.js s
+	$.getScript("admin/js/manuactivate.js");
+	//for manudelete.js s
+	$.getScript("admin/js/manudelete.js");
 });	
