@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>衣彩</title>
+    <meta name="description" content="">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+	<!-- Modernizr -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<!-- Respond.js for IE 8 or less only -->
+	 	<!--[if (lt IE 9) & (!IEMobile)]>
+	 	<script src="js/vendor/respond.min.js"></script>
+	 	<![endif]-->
+</head>
+<body>
+	<!--[if lt IE 8]>
+	<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+
+	<!-- Add your site or application content here -->
+	<header role="banner" class="navbar">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="./index.html">
+						<img src="img/logo.png" alt="Logo" width="100"></img>
+					</a>
+				</div><!--navbar-header-->
+				<!--<div class="navbar">-->
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="./index.html">首页</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">主题<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">DIY</a></li>
+								<li role="separator" class="divider"></a></li>
+								<li><a href="#">毕业季</a></li>
+								<li><a href="#">情侣装</a></li>
+								<li><a href="#">日系</a></li>
+								<li><a href="#">文艺</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">男装<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">衬衫</a></li>
+								<li role="separator" class="divider"></a></li>
+								<li><a href="#">T 恤</a></li>
+								<li><a href="#">长袖</a></li>
+								<li><a href="#">毛衣</a></li>
+								<li role="separator" class="divider"></a></li>
+								<li><a href="#">外套</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">女装<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">衬衫</a></li>
+								<li><a href="#">裙子</a></li>
+								<li role="separator" class="divider"></a></li>
+								<li><a href="#">T 恤</a></li>
+								<li><a href="#">长袖</a></li>
+								<li><a href="#">毛衣</a></li>
+								<li role="separator" class="divider"></a></li>
+								<li><a href="#">外套</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">更多<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">帽子</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">领带</a></li>
+								<li><a href="#">领结</a></li>
+								<li><a href="#">围巾</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">手套</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">袜子</a></li>
+							</ul>
+						</li>
+					</ul>
+					<form role="search" class="navbar-form navbar-left">	
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="搜索">
+						</div>	
+						<button type="submit" class="btn btn-default">发现</button>
+					</form>
+
+					<div class="utility-nav">
+						<ul id="cookiedeal">
+							<li><a href="register.html" title="register"></i>注册</a></li>
+							<li><a href="login.html" title="login"><i class="icon fa fa-user fa-lg"></i> 登录</a></li>
+						</ul>
+					</div>	
+				<!--</div>--><!--navbar-->
+			</div><!--container-->
+		</nav>	
+	</header>
+<!-------------------------------------------------------------------------------------------------------------------->
+<main role="main">
+	<div class="container">
+		<h1 class="page-header">产品管理</h1>
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#allproducts" aria-controls="allproducts" role="tab" data-toggle="tab">所有产品</a></li>
+			<li role="presentation"><a href="#uploadproducts" aria-controls="uploadproducts" role="tab" data-toggle="tab">添加产品</a></li>
+		</ul>
+		<div class="tab-content">
+			<!--show all the products-->
+			<div role="tabpanel" class="tab-pane active" id="allproducts">
+				<!--query-->
+				<div class="container">
+					<form id="productsqueryform" class="form-horizontal mt20" action="#">
+					  	<div class="form-group has-feedback">
+					  		<!--first query-->
+					    	<label for="productname" class="col-xs-offset-1 col-xs-1 control-label">名称</label>
+					    	<div class="col-xs-2">
+					    		<input type="text" class="form-control" id="tagname" size="60" maxlength="60" placeholder="按名称查询产品">
+					    	</div>
+					    	<div class="col-xs-1">
+					  			<button type="button" id="registersubmit" class="btn btn-success">查询</button>
+					  		</div>
+					  		<!--second query-->
+					  		<label for="tagname" class="col-xs-1 control-label">标签</label>
+					    	<div class="col-xs-1">
+								<input type="text" class="form-control" id="tagname" size="60" maxlength="60" placeholder="按标签查询产品">
+					    	</div>
+					    	<div class="col-xs-1">
+					  			<button type="button" id="registersubmit" class="btn btn-success">查询</button>
+					  		</div>
+					  		<!--third query-->
+					  		<label for="pricearrange" class="col-xs-1 control-label">价格区间</label>
+					  		<div class="col-xs-1">
+					  			<select class="form-control" id="pricearrange">
+					  				<option value="volvo">1-50</option>
+									<option value="saab">50-100</option>
+									<option value="fiat">100-150</option>
+									<option value="audi">150-200</option>
+									<option value="adsd">200-300</option>
+									<option value="hehe">300以上</option>
+					  			</select>
+					  		</div>
+					  		<div class="col-xs-1">
+					  			<button type="button" id="registersubmit" class="btn btn-success">查询</button>
+					  		</div>
+					    </div>			  	
+					</form>
+				</div>
+				<!--end of query-->
+				<div class="text-center"> 
+					<h1></h1>
+					<div class="panel panel-info mt20">
+			  			<div class="panel-heading">
+			    			<h3 class="productsamount panel-title">产品数量: </h3>
+			  			</div>
+			  			<div class="panel-body text-center">
+							<table class="table table-striped">
+								<thead>
+			    					<tr>
+					            		<th class="text-center">产品ID</th>
+							            <th class="text-center">产品名称</th>
+							            <th class="text-center">原价</th>
+							            <th class="text-center">现价</th>
+							            <th class="text-center">销量</th>		
+							            <th class="text-center">颜色</th>
+							       		<th class="text-center">尺寸</th>
+							       		<th class="text-center">标签</th>
+							       		<th class="text-center">编辑</th>
+							       		<th class="text-center">删除</th>
+						        	</tr>
+					    		</thead>
+					    		<tbody class="productsdisplaytable">
+					    		</tbody>
+							</table>
+						</div>
+					</div>
+					<nav>
+					  	<ul class="pagination"><!--id=...-->
+					    	<li class="previoustag">
+					    	  	<a href="" aria-label="Previous">
+					        		<span aria-hidden="true">&laquo;</span>
+					      		</a>
+					    	</li>
+					    	<!--js insert-->
+					    	<li class="nexttag">
+					      		<a href="" aria-label="Next">
+					        		<span aria-hidden="true">&raquo;</span>
+					      		</a>
+					    	</li>
+					  	</ul>
+					</nav>
+				</div>
+			</div>
+
+			<!--upload products-->
+			<div role="tabpanel" class="tab-pane" id="uploadproducts">
+				<div class="text-center">
+					<div class="panel panel-info mt20">
+			  			<div class="panel-heading">
+			    			<h3 class="productsamount panel-title">添加产品: </h3>
+			  			</div>
+			  			<div class="panel-body text-center">
+						</div>
+					</div>		
+				</div>
+			</div>
+
+<!-------------------------------------------------------------------------------------------------------------------->
+	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
+		<p><a href="index.php"><img src="img/logo.png" width="80" alt="Logo"></a></p>
+		<ul class="social">
+			<li><a href="#" title="Tiwtter Profile"><span class="icon fa fa-twitter"></span></a></li>
+			<li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
+			<li><a href="#" title="qq Profile"><span class="icon fa fa-qq"></span></a></li>
+			<li><a href="#" title="weibo Profile"><span class="icon fa fa-weibo"></span></a></li>
+			<li><a href="#" title="weixin Profile"><span class="icon fa fa-weixin"></span></a></li>
+		</ul>
+		<p><small>Copyright &copy; baochuquan</small></p>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+	<script src="js/vendor/holder.js"></script>
+	<script src="js/plugins.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/carousel.js"></script>
+	<script src="js/navbar.js"></script>
+	<script src="js/logout.js"></script>
+	<script src="admin/js/defaultProductDisplay.js"></script>
+
+<!--	<script src="admin/js/customerPage.js"></script>-->
+
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+	    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+	    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+	    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+	    e.src='https://www.google-analytics.com/analytics.js';
+	    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+	    ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+	</script>
+</body>
+</html>
