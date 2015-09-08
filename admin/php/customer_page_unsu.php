@@ -19,22 +19,27 @@ else {
 	 		printf("Error: %s\n", mysqli_error($dbc));
 	 		exit();
 	 	}
-	 	$i = 0;
-		while ($eachuser = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			$i++;
-			echo 	'<tr>
-						<td>' . $i . '</td>
-						<td>' . $eachuser['user_id'] . '</td>
-						<td><a href="#">' . $eachuser['username'] . '</a></td>
-						<td>' . $eachuser['usermail'] . '</td>
-						<td>' . $eachuser['regist_date'] . '</td>
-					 	<td>未激活</td>
-					 	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target=".manuactivate" data-whatever="' . $eachuser['usermail'] . '">激活</button></td>
-					 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudelete" data-whatever="' . $eachuser['usermail'] . '">删除</button></td>
-					</tr>';
+	 	if (mysqli_affected_rows($dbc) != 0) {
+		 	$i = 0;
+			while ($eachuser = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+				$i++;
+				echo 	'<tr>
+							<td>' . $i . '</td>
+							<td>' . $eachuser['user_id'] . '</td>
+							<td><a href="#">' . $eachuser['username'] . '</a></td>
+							<td>' . $eachuser['usermail'] . '</td>
+							<td>' . $eachuser['regist_date'] . '</td>
+						 	<td>未激活</td>
+						 	<td><button type="button" class="btn btn-success" data-toggle="modal" data-target=".manuactivate" data-whatever="' . $eachuser['usermail'] . '">激活</button></td>
+						 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudelete" data-whatever="' . $eachuser['usermail'] . '">删除</button></td>
+						</tr>';
+			}
+			mysqli_free_result($r);
+		}
+		else {
+			//no result
 		} 
 	}
-	mysqli_free_result($r);
 	mysqli_close($dbc);
 }
 ?>

@@ -13,13 +13,14 @@ else {
 	require (MYSQL);
 	$start = $_POST["start"];
 	if ($_POST["id"] == "successusers") {
-			// Fetch all the information of users;
-			$q = "SELECT user_id, username, usermail, regist_date, active FROM users WHERE userlevel=0 AND active IS NULL ORDER BY regist_date DESC LIMIT {$start},20";
-			$r = @mysqli_query($dbc, $q);
-			if (!$r) {
-		 		printf("Error: %s\n", mysqli_error($dbc));
-		 		exit();
-		 	}
+		// Fetch all the information of users;
+		$q = "SELECT user_id, username, usermail, regist_date, active FROM users WHERE userlevel=0 AND active IS NULL ORDER BY regist_date DESC LIMIT {$start},20";
+		$r = @mysqli_query($dbc, $q);
+		if (!$r) {
+	 		printf("Error: %s\n", mysqli_error($dbc));
+	 		exit();
+	 	}
+	 	if (mysqli_affected_rows($dbc) != 0) {
 		 	$i = 0;
 			while ($eachuser = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 				$i++;
@@ -33,8 +34,12 @@ else {
 						 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudelete" data-whatever="' . $eachuser['usermail'] . '">删除</button></td>
 						 </tr>';
 			}
+			mysqli_free_result($r);
+		}
+		else {
+			//no result
+		}
 	}
-	mysqli_free_result($r);
 	mysqli_close($dbc);
 }
 ?>

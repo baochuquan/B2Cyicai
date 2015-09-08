@@ -24,6 +24,7 @@ else {
  	else {
  		echo "Failed";
  	}
+ 	mysqli_free_result($r);
  	mysqli_close($dbc);
 }
 ?>

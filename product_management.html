@@ -119,36 +119,43 @@
 				<div class="container">
 					<form id="productsqueryform" class="form-horizontal mt20" action="#">
 					  	<div class="form-group has-feedback">
-					  		<!--first query-->
-					    	<label for="productname" class="col-xs-offset-1 col-xs-1 control-label">名称</label>
+					  		<!--all query-->
+					    	<div class="col-xs-1">
+					  			<button type="button" id="allquery" class="btn btn-success">查看所有产品</button>
+					  		</div>
+
+					  		<!--name query-->
+					    	<label for="productname" class="col-xs-1 control-label">名称</label>
 					    	<div class="col-xs-2">
-					    		<input type="text" class="form-control" id="tagname" size="60" maxlength="60" placeholder="按名称查询产品">
+					    		<input type="text" class="form-control" id="productname" size="60" maxlength="60" placeholder="按名称查询产品">
 					    	</div>
 					    	<div class="col-xs-1">
-					  			<button type="button" id="registersubmit" class="btn btn-success">查询</button>
+					  			<button type="button" id="namequery" class="btn btn-success">查询</button>
 					  		</div>
-					  		<!--second query-->
+
+					  		<!--tag query-->
 					  		<label for="tagname" class="col-xs-1 control-label">标签</label>
 					    	<div class="col-xs-1">
 								<input type="text" class="form-control" id="tagname" size="60" maxlength="60" placeholder="按标签查询产品">
 					    	</div>
 					    	<div class="col-xs-1">
-					  			<button type="button" id="registersubmit" class="btn btn-success">查询</button>
+					  			<button type="button" id="tagquery" class="btn btn-success">查询</button>
 					  		</div>
-					  		<!--third query-->
-					  		<label for="pricearrange" class="col-xs-1 control-label">价格区间</label>
+
+					  		<!--price query-->
+					  		<label for="priceregion" class="col-xs-1 control-label">价格区间</label>
 					  		<div class="col-xs-1">
-					  			<select class="form-control" id="pricearrange">
-					  				<option value="volvo">1-50</option>
-									<option value="saab">50-100</option>
-									<option value="fiat">100-150</option>
-									<option value="audi">150-200</option>
-									<option value="adsd">200-300</option>
-									<option value="hehe">300以上</option>
+					  			<select class="form-control" id="priceregion">
+					  				<option value="0">0-50</option>
+									<option value="50">50-100</option>
+									<option value="100">100-150</option>
+									<option value="150">150-200</option>
+									<option value="200">200-300</option>
+									<option value="300">300以上</option>
 					  			</select>
 					  		</div>
 					  		<div class="col-xs-1">
-					  			<button type="button" id="registersubmit" class="btn btn-success">查询</button>
+					  			<button type="button" id="pricequery" class="btn btn-success">查询</button>
 					  		</div>
 					    </div>			  	
 					</form>
@@ -181,21 +188,6 @@
 							</table>
 						</div>
 					</div>
-					<nav>
-					  	<ul class="pagination"><!--id=...-->
-					    	<li class="previoustag">
-					    	  	<a href="" aria-label="Previous">
-					        		<span aria-hidden="true">&laquo;</span>
-					      		</a>
-					    	</li>
-					    	<!--js insert-->
-					    	<li class="nexttag">
-					      		<a href="" aria-label="Next">
-					        		<span aria-hidden="true">&raquo;</span>
-					      		</a>
-					    	</li>
-					  	</ul>
-					</nav>
 				</div>
 			</div>
 
@@ -211,10 +203,31 @@
 					</div>		
 				</div>
 			</div>
+		</div>
+	</div>
+</main>
+<!--modal delete-->
+<div class="modal fade manudeleteproduct" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="gridSystemModalLabel2">警告</h4>
+			</div>
+			<div class="modal-body">
+				请确认是否删除ID为【<strong class="modalproductid"></strong>】的产品。
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmdelete">确认删除</button>
+				</div>
+			</div>
+		</div>
+</div>
 
 <!-------------------------------------------------------------------------------------------------------------------->
 	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
-		<p><a href="index.php"><img src="img/logo.png" width="80" alt="Logo"></a></p>
+		<p><a href="index.html"><img src="img/logo.png" width="80" alt="Logo"></a></p>
 		<ul class="social">
 			<li><a href="#" title="Tiwtter Profile"><span class="icon fa fa-twitter"></span></a></li>
 			<li><a href="#" title="Facebook Page"><span class="icon fa fa-facebook"></span></a></li>
@@ -233,7 +246,9 @@
 	<script src="js/carousel.js"></script>
 	<script src="js/navbar.js"></script>
 	<script src="js/logout.js"></script>
-	<script src="admin/js/defaultProductDisplay.js"></script>
+	<script src="admin/js/productDisplay.js"></script>
+	<script src="admin/js/productAmount.js"></script>
+
 
 <!--	<script src="admin/js/customerPage.js"></script>-->
 
