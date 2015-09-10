@@ -193,14 +193,129 @@
 
 			<!--upload products-->
 			<div role="tabpanel" class="tab-pane" id="uploadproducts">
-				<div class="text-center">
-					<div class="panel panel-info mt20">
-			  			<div class="panel-heading">
-			    			<h3 class="productsamount panel-title">添加产品: </h3>
-			  			</div>
-			  			<div class="panel-body text-center">
-						</div>
-					</div>		
+				<div class="container">
+					<div class="jumbotron mt20">	
+						<h2 id="addproducttitle" class="text-center"><small>添加新产品</small></h2>
+						<form id="addproductform" class="form-horizontal mt20" action="#">
+							<!--new product name-->
+						  	<div class="form-group has-feedback">
+						  		<label for="newproductname" class="col-xs-4 control-label">产品名称</label>
+						    	<div class="col-xs-4">
+						    		<input type="text" class="form-control" id="newproductname" size="60" maxlength="60" placeholder="新添加的产品名称">
+						    	</div>
+						    </div>
+						    <!--new product preprice-->
+						    <div class="form-group has-feedback">
+						    	<label for="newproductpreprice" class="col-xs-4 control-label">原价(元)</label>
+						    	<div class="col-xs-2">
+							    	<div class="input-group">
+							    		<div class="input-group-addon">￥</div>
+							    		<input type="text" class="form-control" id="newproductpreprice" size="60" maxlength="60" placeholder="00.00">
+							    	</div>
+							    </div>
+						    </div>
+						    <!--new product curprice-->
+						    <div class="form-group has-feedback">
+						    	<label for="newproductcurprice" class="col-xs-4 control-label">现价(元)</label>
+						    	<div class="col-xs-2">
+							    	<div class="input-group">
+							    		<div class="input-group-addon">￥</div>
+							    		<input type="text" class="form-control" id="newproductcurprice" size="60" maxlength="60" placeholder="00.00">
+								    </div>
+								</div>
+						  	</div>
+						  	<!--new product color-->
+						  	<div class="form-group has-feedback">
+						  		<div class="row">
+							  		<label for="newproductcolor" class="col-xs-4 control-label">颜色</label>
+							  		<div class="col-xs-4">
+							  			<input type="text" class="form-control" id="newproductcolor" size="60" maxlength="60" placeholder="产品颜色种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔">
+							  		</div>
+							  	</div>
+							  	<div class="row">
+						  			<label for="usedproductcolor" class="col-xs-4 control-label"><small>可用颜色</small></label>
+							  		<div class="col-xs-4">
+									   	<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox2" value="option2"> 2
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
+										</label>	
+									</div>
+								</div>
+						  	</div>
+						  	<!--new product size-->
+						  	<div class="form-group has-feedback">
+						  		<div class="row">
+							  		<label for="newproductsize" class="col-xs-4 control-label">尺寸</label>
+							  		<div class="col-xs-4">
+							  			<input type="text" class="form-control" id="newproductsize" size="60" maxlength="60" placeholder="产品尺寸种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔">
+							  		</div>
+							  	</div>
+							  	<div class="row">
+						  			<label for="usedproductsize" class="col-xs-4 control-label"><small>可用尺寸</small></label>
+							  		<div class="col-xs-4">
+									   	<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox1" value="option1"> M
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox2" value="option2"> L
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox3" value="option3"> XL
+										</label>	
+									</div>
+								</div>
+						  	</div>
+						  	<!--new product tags-->
+						  	<div class="form-group has-feedback">
+						  		<div class="row">
+							  		<label for="newproducttag" class="col-xs-4 control-label">标签</label>
+							  		<div class="col-xs-4">
+							  			<input type="text" class="form-control" id="newproducttag" size="60" maxlength="60" placeholder="产品标签种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔">
+							  		</div>
+							  	</div>
+							  	<div class="row">
+						  			<label for="usedproducttag" class="col-xs-4 control-label"><small>可用标签</small></label>
+							  		<div class="col-xs-4">
+									   	<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox1" value="option1"> 短袖
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox2" value="option2"> 长袖
+										</label>
+										<label class="checkbox-inline">
+											<input type="checkbox" id="inlineCheckbox3" value="option3"> 男装
+										</label>	
+									</div>
+								</div>
+						  	</div>
+						  	<!--new product tags-->
+						  	<div class="form-group has-feedback">
+						  		<label for="newproductinfo" class="col-xs-4 control-label">产品描述</label>
+						  		<div class="col-xs-4">
+						  			<textarea class="form-control" id="newproductinfp" rows="4" placeholder="产品的相关介绍及具体描述"></textarea>
+						  		</div>
+						  	</div>
+
+							<div class="form-group has-feedback">
+								<label for="exampleInputFile" class="col-xs-4 control-label">选择图片</label>
+								<div class="col-xs-4">
+									<input type="file" id="exampleInputFile">
+								</div>
+								<!--<p class="help-block">Example block-level help text here.</p>-->
+							</div>
+							<!--submit button-->
+							<div class="form-group">
+			        			<div class="col-xs-offset-4 col-xs-2">
+						  			<button type="button" id="newproductsubmit" class="btn btn-success">确定</button>
+						  		</div>
+						  	</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -220,9 +335,9 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 				<button type="button" class="btn btn-primary" data-dismiss="modal" id="confirmdelete">确认删除</button>
-				</div>
 			</div>
 		</div>
+	</div>
 </div>
 
 <!-------------------------------------------------------------------------------------------------------------------->
@@ -248,7 +363,7 @@
 	<script src="js/logout.js"></script>
 	<script src="admin/js/productDisplay.js"></script>
 	<script src="admin/js/productAmount.js"></script>
-
+	<script src="admin/js/productAdd.js"></script>
 
 <!--	<script src="admin/js/customerPage.js"></script>-->
 

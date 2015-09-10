@@ -33,12 +33,12 @@ $(function(){
 		$.getScript("admin/js/manueditproduct.js");
 
 		//for save data into database
-		var colorarray = new Array();
-		var sizearray = new Array();
-		var tagarray = new Array();
-		colorarray = $productcolor.trim().split(",");
-		sizearray = $productsize.trim().split(",");
-		producttag = $producttag.trim().split(",");
+		var colorarray 	= new Array();
+		var sizearray 	= new Array();
+		var tagarray 	= new Array();
+		colorarray 	= $.trim($productcolor).split(",");
+		sizearray 	= $.trim($productsize).split(",");
+		tagarray 	= $.trim($producttag).split(",");
 
 		for (var i = colorarray.length - 1; i >= 0; i--) {
 			if (colorarray[i] == '') {
@@ -50,12 +50,12 @@ $(function(){
 				sizearray.splice(i, 1);
 			}
 		};
-		for (var i = producttag.length - 1; i >= 0; i--) {
-			if (producttag[i] == '') {
-				producttag.splice(i, 1);
+		for (var i = tagarray.length - 1; i >= 0; i--) {
+			if (tagarray[i] == '') {
+				tagarray.splice(i, 1);
 			}
 		};
-
+//		alert("DATA: "+producttag);
 		$.post("admin/php/product_edit.php",
 			 { 	productid: 			$productid, 
 			 	productname: 		$productname, 
@@ -65,7 +65,8 @@ $(function(){
 			 	productsize: 		sizearray,
 			 	producttag: 		tagarray
 			 }, function (data, textStatus){
-			 	alert("STRING: "+colorarray[2]);
+			 	alert("编辑成功");
+			 	//alert("STRING: "+colorarray[2]);
 		});
 	});
 });

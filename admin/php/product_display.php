@@ -87,7 +87,6 @@ else {
 						 	<td><button type="button" class="btn btn-success manueditproduct" data-whatever="' . $eachproduct['product_id'] . '">编辑</button></td>
 						 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudeleteproduct" data-whatever="' . $eachproduct['product_id'] . '">删除</button></td>
 						</tr>';	
-
 			} 	
 			mysqli_free_result($r);
 			mysqli_free_result($rr);
