@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/main.css">
 	<!-- Modernizr -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
 		<!-- Respond.js for IE 8 or less only -->
 	 	<!--[if (lt IE 9) & (!IEMobile)]>
 	 	<script src="js/vendor/respond.min.js"></script>
@@ -229,21 +230,14 @@
 						  		<div class="row">
 							  		<label for="newproductcolor" class="col-xs-4 control-label">颜色</label>
 							  		<div class="col-xs-4">
-							  			<input type="text" class="form-control" id="newproductcolor" size="60" maxlength="60" placeholder="产品颜色种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔">
+							  			<input type="text" class="form-control" id="newproductcolor" size="60" maxlength="60" placeholder="产品颜色种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔" value="">
 							  		</div>
 							  	</div>
 							  	<div class="row">
-						  			<label for="usedproductcolor" class="col-xs-4 control-label"><small>可用颜色</small></label>
-							  		<div class="col-xs-4">
-									   	<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox1" value="option1"> 1
-										</label>
-										<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox2" value="option2"> 2
-										</label>
-										<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 3
-										</label>	
+									<div class="col-xs-offset-4 col-xs-4" id="colorcollapse">
+										<div class="well well-sm">
+											<!--color button-->
+										</div>
 									</div>
 								</div>
 						  	</div>
@@ -252,21 +246,14 @@
 						  		<div class="row">
 							  		<label for="newproductsize" class="col-xs-4 control-label">尺寸</label>
 							  		<div class="col-xs-4">
-							  			<input type="text" class="form-control" id="newproductsize" size="60" maxlength="60" placeholder="产品尺寸种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔">
+							  			<input type="text" class="form-control" id="newproductsize" size="60" maxlength="60" placeholder="产品尺寸种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔" value="">
 							  		</div>
 							  	</div>
 							  	<div class="row">
-						  			<label for="usedproductsize" class="col-xs-4 control-label"><small>可用尺寸</small></label>
-							  		<div class="col-xs-4">
-									   	<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox1" value="option1"> M
-										</label>
-										<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox2" value="option2"> L
-										</label>
-										<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> XL
-										</label>	
+							  		<div class="col-xs-offset-4 col-xs-4" id="sizecollapse">
+										<div class="well well-sm">
+											<!--size button-->
+										</div>
 									</div>
 								</div>
 						  	</div>
@@ -275,21 +262,14 @@
 						  		<div class="row">
 							  		<label for="newproducttag" class="col-xs-4 control-label">标签</label>
 							  		<div class="col-xs-4">
-							  			<input type="text" class="form-control" id="newproducttag" size="60" maxlength="60" placeholder="产品标签种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔">
+							  			<input type="text" class="form-control" id="newproducttag" size="60" maxlength="60" placeholder="产品标签种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔" value="">
 							  		</div>
 							  	</div>
 							  	<div class="row">
-						  			<label for="usedproducttag" class="col-xs-4 control-label"><small>可用标签</small></label>
-							  		<div class="col-xs-4">
-									   	<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox1" value="option1"> 短袖
-										</label>
-										<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox2" value="option2"> 长袖
-										</label>
-										<label class="checkbox-inline">
-											<input type="checkbox" id="inlineCheckbox3" value="option3"> 男装
-										</label>	
+							  		<div class="col-xs-offset-4 col-xs-4" id="tagcollapse">
+										<div class="well well-sm">
+											<!--tag button-->
+										</div>
 									</div>
 								</div>
 						  	</div>
@@ -297,7 +277,7 @@
 						  	<div class="form-group has-feedback">
 						  		<label for="newproductinfo" class="col-xs-4 control-label">产品描述</label>
 						  		<div class="col-xs-4">
-						  			<textarea class="form-control" id="newproductinfp" rows="4" placeholder="产品的相关介绍及具体描述"></textarea>
+						  			<textarea class="form-control" id="newproductinfo" rows="4" placeholder="产品的相关介绍及具体描述"></textarea>
 						  		</div>
 						  	</div>
 
@@ -364,6 +344,8 @@
 	<script src="admin/js/productDisplay.js"></script>
 	<script src="admin/js/productAmount.js"></script>
 	<script src="admin/js/productAdd.js"></script>
+
+	<script src="js/jquery.tagsinput.js"></script>
 
 <!--	<script src="admin/js/customerPage.js"></script>-->
 

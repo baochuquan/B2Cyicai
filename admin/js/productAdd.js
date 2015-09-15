@@ -2,7 +2,80 @@
 //for product_management.html
 //to add new product.html
 //-------------------------------------------------------------
-$(function(){
+$(function(){			
+
+
+	//hide & show color, size, tags collapse
+	$("#colorcollapse").hide();
+	$("#sizecollapse").hide();
+	$("#tagcollapse").hide();
+	$('#addproductform :input').focus(function(){
+		// if color is focus
+		if($(this).is('#newproductcolor')) {
+			$("#colorcollapse").show();
+			$("#sizecollapse").hide();
+			$("#tagcollapse").hide();
+
+			$.post("admin/php/getColor.php", function (dataa, status){
+				//alert("Rec: "+dataa);				
+				$.getScript("admin/json/color.json", function (data){
+					data = JSON.parse(data);
+					$($("#colorcollapse").children()[0]).empty();
+					//var content = '<button type="button" id="shishi" class="btn btn-default btn-xs">黄色</button>';
+					var content = '';
+					$.each( data, function (index, colorinfo){
+						content += '<button type="button" data-whatever="' + colorinfo['color_id'] + '" class="btn btn-default btn-xs">' + colorinfo['color_name'] + '</button>';
+					});
+					$($("#colorcollapse").children()[0]).append(content);
+					// when click the color button
+					$.getScript("admin/js/colorButtonAdd.js");
+				});
+			});
+		}
+		// if size is focus
+		if($(this).is('#newproductsize')) {
+			$("#colorcollapse").hide();
+			$("#sizecollapse").show();
+			$("#tagcollapse").hide();
+
+			$.post("admin/php/getSize.php", function (dataa, status){	
+				
+				$.getScript("admin/json/size.json", function (data){
+					data = JSON.parse(data);
+					$($("#sizecollapse").children()[0]).empty();
+					var content = '';
+					$.each( data, function (index, sizeinfo){
+						content += '<button type="button" data-whatever="' + sizeinfo['size_id'] + '" class="btn btn-default btn-xs">' + sizeinfo['size_name'] + '</button>';
+					});
+					$($("#sizecollapse").children()[0]).append(content);
+					// when click the size button
+					$.getScript("admin/js/sizeButtonAdd.js");
+				});
+			});
+		}
+		// if tag is foucus
+		if($(this).is('#newproducttag')) {
+			$("#colorcollapse").hide();
+			$("#sizecollapse").hide();
+			$("#tagcollapse").show();
+
+			$.post("admin/php/getTag.php", function (dataa, status){	
+				
+				$.getScript("admin/json/tag.json", function (data){
+					data = JSON.parse(data);
+					$($("#tagcollapse").children()[0]).empty();
+					var content = '';
+					$.each( data, function (index, taginfo){
+						content += '<button type="button" data-whatever="' + taginfo['tag_id'] + '" class="btn btn-default btn-xs">' + taginfo['tag_name'] + '</button>';
+					});
+					$($("#tagcollapse").children()[0]).append(content);
+				});
+			});
+		}
+	});
+
+
+
 	$('#addproductform :input').blur(function(){
 		var $parent = $(this).parent();			//divs
 		$parent.parent().removeClass("has-success");
@@ -35,6 +108,6 @@ $(function(){
 				$parent.parent().append('<span class="fa fa-check form-control-feedback" aria-hidden="true"></span><span class="sr-only"></span>');
 			}
 		}
-
+		// color
 	});
 });
