@@ -4,7 +4,6 @@
 //-------------------------------------------------------------
 $(function(){			
 
-
 	//hide & show color, size, tags collapse
 	$("#colorcollapse").hide();
 	$("#sizecollapse").hide();
@@ -69,6 +68,8 @@ $(function(){
 						content += '<button type="button" data-whatever="' + taginfo['tag_id'] + '" class="btn btn-default btn-xs">' + taginfo['tag_name'] + '</button>';
 					});
 					$($("#tagcollapse").children()[0]).append(content);
+					// when click the size button
+					$.getScript("admin/js/tagButtonAdd.js");
 				});
 			});
 		}
@@ -109,5 +110,17 @@ $(function(){
 			}
 		}
 		// color
+		// size
+		// tag
+		if($(this).is('#newproductinfo')) {
+			if( this.value == "" ) {
+				var errorMsg = "请输入关于本产品简单描述.";
+				$parent.after('<div class="col-xs-4 alert alert-danger" role="alert"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
+			}
+			else {
+				$parent.parent().addClass("has-success");
+				$parent.append('<span class="fa fa-check form-control-feedback" aria-hidden="true"></span><span class="sr-only"></span>');
+			}
+		}
 	});
 });

@@ -32,11 +32,9 @@ $(function(){
 						newinputcontent = splitcontent.join("");
 					}
 					else {
-						if () {
-							//delete
-							var splitcontent = inputcontent.split(colorname);
-							newinputcontent = splitcontent.join("");
-						}
+						//delete
+						var splitcontent = inputcontent.split(colorname);
+						newinputcontent = splitcontent.join("");
 					}
 				}
 			}
