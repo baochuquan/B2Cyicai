@@ -123,4 +123,30 @@ $(function(){
 			}
 		}
 	});
+
+	// for upload mutil picture
+	$("#inputPicture").change(function(){
+		var data = new FormData();
+		$.each($('#inputPicture')[0].files, function(i, file){
+			data.append('upload'+i, file);//serialize
+		});	
+		$.ajax({
+			url:'admin/php/upload_image.php',
+			type:'POST',
+			data:data,
+			cache:false,
+			contentType:false,
+			processData:false,
+			success:function(data) {
+				data = $(data).html();
+				if($("#feedback").children('img').length == 0)
+					$("#feedback").append(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+				else
+					$("#feedback").children('img').eq(0).before(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+			},
+			error:function(){
+				alert('上传出错.');
+			}
+		});
+	});
 });

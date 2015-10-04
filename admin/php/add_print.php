@@ -9,7 +9,7 @@
 <?php # Script 19.2 - add_print.php
 // This page allows the administrator to add a print (product).
 
-require ('../../mysqli_connect.php');
+require ('../../includes/config.inc.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	if (is_uploaded_file ($_FILES['image']['tmp_name'])) {
 
 		// Create a temporary file name:
-		$temp = '../../uploads/' . md5($_FILES['image']['name']);
+		$temp = '../../../uploads/' . md5($_FILES['image']['name']);
 	
 		// Move the file over:
 		if (move_uploaded_file($_FILES['image']['tmp_name'], $temp)) {
