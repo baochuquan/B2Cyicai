@@ -236,7 +236,7 @@
 						  		<div class="row">
 							  		<label for="newproductcolor" class="col-xs-4 control-label">颜色</label>
 							  		<div class="col-xs-4">
-							  			<input type="text" class="form-control" id="newproductcolor" size="60" maxlength="60" placeholder="产品颜色种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔" value="">
+							  			<input type="text" class="form-control" id="newproductcolor" maxlength="60" placeholder="产品颜色种类(可多选)，若下列选项不具有，可自行添加，用“,”分隔" value="">
 							  		</div>
 							  	</div>
 							  	<div class="row">
@@ -289,18 +289,17 @@
 						  	<div class="form-group has-feedback">
 								<label for="inputPicture" class="col-xs-4 control-label">选择图片</label>
 							  	<div class="col-xs-4">	
-									<input type="hidden" name="MAX_FILE_SIZE" value="524288" />
-									<fieldset>
-										<legend><h6><small>请选择小于4MB的JPEG、PNG、GIF、JPG格式的图片上传，可上传多个</small></h6></legend>
-										<input type="file" multiple="multiple" id="inputPicture" name="upload"/>
+							  		<fieldset>
+										<legend><h6><small>请选择小于2MB的JPEG、PNG、GIF、JPG格式的图片上传，可上传多个</small></h6></legend>
+										<input type="file" multiple="multiple" id="newproductimg" name="upload"/>
+										<span><h6><small>默认第一张上传的图片为封面</small></h6></span>
 										<!--<button type="button" id="inputPictureSubmit" class="btn btn-primary btn-xs fr" style="display:inline-block">添加</button>-->
 									</fieldset>	
-									<div id="feedback"></div>					
+									<div id="inputimg"></div>					
 								</div>
-							<div id="feedback"></div>
 						  	</div>
 						  	<div class="col-xs-offset-4 col-xs-2">
-						 		<button type="button" id="allubmit" class="btn btn-success">确定</button>
+						 		<button type="button" id="allsubmit" class="btn btn-success">确定</button>
 					 		</div>
 						</form>
 					</div>
