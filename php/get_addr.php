@@ -23,7 +23,7 @@ else {
 		$save['user_id'] = mysqli_real_escape_string ($dbc, $trimmed['user_id']);
 				
 		// Need the database connection:
-		$q = "SELECT * FROM address WHERE user_id={$save['user_id']}";
+		$q = "SELECT * FROM address WHERE user_id={$_POST['user_id']}";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 			
 		$addrcontent = '[';
