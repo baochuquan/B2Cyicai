@@ -1,5 +1,6 @@
 //-------------------------------------------------------------
 //for myaccount.html
+// to add address
 //-------------------------------------------------------------
 $(document).ready(function() {
 	$("#addaddressform :input").blur(function(){
@@ -53,17 +54,19 @@ $(function(){
 		if(numError){
 			return false;
 		}
+		var $checkvalue = $("#setdefault").is(":checked") ? 'Y' : 'N';
 		$.post("php/add_address.php",{
 				user_id: $.cookie()['user_id'],
 				receivername: $("#receivername").val(),
 				receiverphone: $("#receiverphone").val(),
-				receiveraddr:$("#receiveraddr").val()
+				receiveraddr: $("#receiveraddr").val(),
+				setdefault: $checkvalue,
 			},function (data, status){
 				//alert("DATA: "+data);
 				if(data == "Success"){
 					$("#addaddressform").hide();
 					$("#addaddrtitle").text("添加成功");
-					$(".modal-body").append('<div class="text-center"><span class="center icon fa fa-check fa-4x" style="color:#ff6633"></span></div><p id="timedown" class="text-center"></p>');
+					$(".modal-body").append('<div class="text-center"><span class="center icon fa fa-check fa-4x" style="color:#99ff66"></span></div><p id="timedown" class="text-center"></p>');
 					var t1 = setTimeout("$('#timedown').text('3秒后自动跳转.')",0);
 					var t2 = setTimeout("$('#timedown').text('2秒后自动跳转.')",1000);
 					var t3 = setTimeout("$('#timedown').text('1秒后自动跳转.')",2000);
@@ -81,3 +84,5 @@ $(function(){
 		});
 	});
 });
+
+
