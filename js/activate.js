@@ -11,11 +11,11 @@ $(document).ready(function(){
 		    var ret = "";
 		    for(var i=0;i<str.length;i++) {
 		        var chr = str.charAt(i);
-		        if(chr == "+") {
+		        if(chr == "+") {	// + present space
 		            ret += " ";
-		        }else if(chr=="%") {
+		        }else if(chr == "%") {
 		            var asc = str.substring(i+1,i+3);
-		            if(parseInt("0x"+asc)>0x7f) {
+		            if(parseInt("0x"+asc)>0x7f) {	//ascii not exist
 		                ret += decodeURI("%"+ str.substring(i+1,i+9));
 		                i += 8;
 		            }else {
