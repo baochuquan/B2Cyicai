@@ -3,16 +3,111 @@
 //to add new product.html
 //-------------------------------------------------------------
 $(function(){			
+	//hide S,M,L,X,XXL,XXXL forms
+	$("#S-sizegroup-up").hide();
+	$("#S-sizegroup-down").hide();
+	$("#M-sizegroup-up").hide();
+	$("#M-sizegroup-down").hide();
+	$("#L-sizegroup-up").hide();
+	$("#L-sizegroup-down").hide();
+	$("#XL-sizegroup-up").hide();
+	$("#XL-sizegroup-down").hide();
+	$("#XXL-sizegroup-up").hide();
+	$("#XXL-sizegroup-down").hide();
+	$("#XXXL-sizegroup-up").hide();
+	$("#XXXL-sizegroup-down").hide();
+
+	$("#CheckboxS").click(function(){
+		if($("#CheckboxS").is(':checked')) {
+			if($("#feature2").val() == '上装'){
+				$("#S-sizegroup-up").show();
+			}
+			else
+				$("#S-sizegroup-down").show();
+		}
+		else {
+			$("#S-sizegroup-up").hide();
+			$("#S-sizegroup-down").hide();
+		}
+	});
+	$("#CheckboxM").click(function(){
+		if($("#CheckboxM").is(':checked')) {
+			if($("#feature2").val() == '上装'){
+				$("#M-sizegroup-up").show();
+			}
+			else
+				$("#M-sizegroup-down").show();
+		}
+		else {
+			$("#M-sizegroup-up").hide();
+			$("#M-sizegroup-down").hide();
+		}
+	});
+	$("#CheckboxL").click(function(){
+		if($("#CheckboxL").is(':checked')) {
+			if($("#feature2").val() == '上装'){
+				$("#L-sizegroup-up").show();
+			}
+			else
+				$("#L-sizegroup-down").show();
+		}
+		else {
+			$("#L-sizegroup-up").hide();
+			$("#L-sizegroup-down").hide();
+		}
+	});
+	$("#CheckboxXL").click(function(){
+		if($("#CheckboxXL").is(':checked')) {
+			if($("#feature2").val() == '上装'){
+				$("#XL-sizegroup-up").show();
+			}
+			else
+				$("#XL-sizegroup-down").show();
+		}
+		else {
+			$("#XL-sizegroup-up").hide();
+			$("#XL-sizegroup-down").hide();
+		}
+	});
+	$("#CheckboxXXL").click(function(){
+		if($("#CheckboxXXL").is(':checked')) {
+			if($("#feature2").val() == '上装'){
+				$("#XXL-sizegroup-up").show();
+			}
+			else
+				$("#XXL-sizegroup-down").show();
+		}
+		else {
+			$("#XXL-sizegroup-up").hide();
+			$("#XXL-sizegroup-down").hide();
+		}
+	});
+	$("#CheckboxXXXL").click(function(){
+		if($("#CheckboxXXXL").is(':checked')) {
+			if($("#feature2").val() == '上装'){
+				$("#XXXL-sizegroup-up").show();
+			}
+			else
+				$("#XXXL-sizegroup-down").show();
+		}
+		else {
+			$("#XXXL-sizegroup-up").hide();
+			$("#XXXL-sizegroup-down").hide();
+		}
+	});
+
+	$("#feature2").change(function(){
+		alert("haahhah");
+	});
 
 	//hide & show color, size, tags collapse
 	$("#colorcollapse").hide();
-	$("#sizecollapse").hide();
 	$("#tagcollapse").hide();
+
 	$('#addproductform :input').focus(function(){
 		// if color is focus
 		if($(this).is('#newproductcolor')) {
 			$("#colorcollapse").show();
-			$("#sizecollapse").hide();
 			$("#tagcollapse").hide();
 
 			$.post("admin/php/getColor.php", function (dataa, status){
@@ -31,31 +126,9 @@ $(function(){
 				});
 			});
 		}
-		// if size is focus
-		if($(this).is('#newproductsize')) {
-			$("#colorcollapse").hide();
-			$("#sizecollapse").show();
-			$("#tagcollapse").hide();
-
-			$.post("admin/php/getSize.php", function (dataa, status){	
-				
-				$.getScript("admin/json/size.json", function (data){
-					data = JSON.parse(data);
-					$($("#sizecollapse").children()[0]).empty();
-					var content = '';
-					$.each( data, function (index, sizeinfo){
-						content += '<button type="button" data-whatever="' + sizeinfo['size_id'] + '" class="btn btn-default btn-xs">' + sizeinfo['size_name'] + '</button>';
-					});
-					$($("#sizecollapse").children()[0]).append(content);
-					// when click the size button
-					$.getScript("admin/js/sizeButtonAdd.js");
-				});
-			});
-		}
 		// if tag is foucus
 		if($(this).is('#newproducttag')) {
 			$("#colorcollapse").hide();
-			$("#sizecollapse").hide();
 			$("#tagcollapse").show();
 
 			$.post("admin/php/getTag.php", function (dataa, status){	
@@ -75,8 +148,6 @@ $(function(){
 		}
 	});
 
-
-
 	$('#addproductform :input').blur(function(){
 		var $parent = $(this).parent();			//divs
 		$parent.parent().removeClass("has-success");
@@ -87,7 +158,7 @@ $(function(){
 		if($(this).is('#newproductname')) {
 			if( this.value == "" ) {
 				var errorMsg = "请输入产品名称.";
-				$parent.after('<div class="col-xs-4 alert alert-danger" role="alert"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
+				$parent.after('<div class="col-xs-2 alert alert-danger" role="alert"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
 			}
 			else {
 				$parent.parent().addClass("has-success");
@@ -110,12 +181,11 @@ $(function(){
 			}
 		}
 		// color
-		// size
 		// tag
 		if($(this).is('#newproductinfo')) {
 			if( this.value == "" ) {
 				var errorMsg = "请输入关于本产品简单描述.";
-				$parent.after('<div class="col-xs-4 alert alert-danger" role="alert"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
+				$parent.after('<div class="col-xs-2 alert alert-danger" role="alert"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
 			}
 			else {
 				$parent.parent().addClass("has-success");
@@ -157,7 +227,7 @@ $(function(){
 		var $test1 = $("#newproductname").val();
 		var numError = $('form .alert').length;
 		if(numError){
-			alert("尚有填写的项目");
+			alert("有必填项目未填写");
 			return false;
 		}
 		// if no img uploaded
@@ -171,14 +241,6 @@ $(function(){
 			$imgname.push($(this).attr("title"));
 		});
 		//alert("imgname: "+$imgname[0]+$imgname[1]);
-		/*alert("newproductname: " + $('#newproductname').val()+
-				"--newproductpreprice: " + $('#newproductpreprice').val()+
-				"--newproductcurprice: " + $('#newproductcurprice').val()+
-				"--newproductcolor: " + $('#newproductcolor').val()+
-				"--newproductsize: " + $('#newproductsize').val()+
-				"--newproducttag: " + $('#newproducttag').val()+
-				"--newproductinfo: " + $('#newproductinfo').val());
-*/
 		
 		$.post("admin/php/add_product.php", {
 				newproductname:$('#newproductname').val(),
