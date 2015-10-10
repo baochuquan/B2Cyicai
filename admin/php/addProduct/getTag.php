@@ -2,9 +2,9 @@
 //-------------------------------------------------------------
 //for product_management.html
 //$.post by productAdd.js
-//to get color
+//to get tag
 //-------------------------------------------------------------
-require ('../../includes/config.inc.php');
+require ('../../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
@@ -17,18 +17,18 @@ else {
 	require (MYSQL);
 
 	// Need the database connection:
-	$q = "SELECT color_id, color_name FROM color";
+	$q = "SELECT tag_id, tag_name FROM tags ORDER BY tag_id";
 	$r = mysqli_query($dbc, $q);
 	
-	$colorcontent = '[';
-	while($eachcolor = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-		$colorcontent .= '{"color_id": ' . $eachcolor['color_id'] . ', "color_name": "' . $eachcolor['color_name'] . '"},';
+	$tagcontent = '[';
+	while($eachtag = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+		$tagcontent .= '{"tag_id": ' . $eachtag['tag_id'] . ', "tag_name": "' . $eachtag['tag_name'] . '"},';
 	}
-	$colorcontent = substr($colorcontent, 0, strlen($colorcontent)-1);
-	$colorcontent .= ']';
+	$tagcontent = substr($tagcontent, 0, strlen($tagcontent)-1);
+	$tagcontent .= ']';
 
-	$colorfile = fopen("../json/color.json", "w");
-	fwrite($colorfile, $colorcontent);
-	fclose($colorfile);
+	$tagfile = fopen("../../json/tag.json", "w");
+	fwrite($tagfile, $tagcontent);
+	fclose($tagfile);
 }
 ?>

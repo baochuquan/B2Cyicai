@@ -4,7 +4,7 @@
 //$.post by productAdd.js
 //to add new product to database
 //-------------------------------------------------------------
-require ('../../includes/config.inc.php');
+require ('../../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
@@ -138,17 +138,8 @@ else {
 
 		// add imges 
 		for ($i=0; $i < count($_POST['newproductimg']); $i++) { 
-			$q = "SELECT img_name FROM imges WHERE img_name='" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "' LIMIT 1";
+			$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "',{$product_id['0']}, NOW())";
 			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0) {// if not exist
-				//the size name does not exist then insert into size
-				$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "',{$product_id['0']}, NOW())";
-				$r = mysqli_query($dbc, $q);
-			}
-			else { //if exist just update
-				$q = "UPDATE imges SET add_date=NOW() WHERE img_name='" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "' LIMIT 1";
-				$r = mysqli_query($dbc, $q);
-			}
 			if (mysqli_affected_rows($dbc) == 0)
 				$flag = "Failed";
 		}

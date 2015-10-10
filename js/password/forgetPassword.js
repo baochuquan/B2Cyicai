@@ -32,7 +32,7 @@ $(function(){
 			return false;
 		}	
 		//ajax to check the email if it is registered
-		$.post("php/forget_password.php", {usermail: $("#usermail").val()},
+		$.post("php/password/forget_password.php", {usermail: $("#usermail").val()},
 			function (data, textStatus){
 				switch(data)
 				{

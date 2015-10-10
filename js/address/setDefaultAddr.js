@@ -6,7 +6,7 @@
 $(document).ready(function(){
 	$("#setdefaultaddr").click(function(){
 		//alert("button");
-		$.post("php/set_default_addr.php", { user_id: $.cookie()['user_id'], addr_id: $("input[name='optionsRadios']:checked").val() }, function (data, status){
+		$.post("php/address/set_default_addr.php", { user_id: $.cookie()['user_id'], addr_id: $("input[name='optionsRadios']:checked").val() }, function (data, status){
 			//alert("DATA: "+data);
 			if(data == "Success"){
 				alert("设置成功!");

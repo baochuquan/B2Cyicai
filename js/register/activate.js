@@ -43,7 +43,7 @@ $(document).ready(function(){
 		}
 	})(jQuery);
 
-	$.get("php/activate.php", { x:$.getUrlPara("x"), y:$.getUrlPara("y")}, 
+	$.get("php/register/activate.php", { x:$.getUrlPara("x"), y:$.getUrlPara("y")}, 
 		function (data, textStatus){
 			//alert("x: "+$.getUrlPara("x")+ "\ny:"+$.getUrlPara("y")+ "\nDATA: "+ data);
 			switch(data)

@@ -66,7 +66,7 @@ $(function(){
 		if(numError){
 			return false;
 		}		
-		$.post("php/register.php", {
+		$.post("php/register/register.php", {
 			username:$("#username").val(),
 			usermail:$("#usermail").val(),
 			password1:$("#password1").val()

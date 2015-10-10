@@ -3,7 +3,7 @@
 // to add address
 //-------------------------------------------------------------
 $(document).ready(function(){
-	$.post("php/get_addr.php", { user_id: $.cookie()['user_id'] }, function (dataa, status){
+	$.post("php/address/get_addr.php", { user_id: $.cookie()['user_id'] }, function (dataa, status){
 		$.getScript("json/address.json",function (data){
 			data = JSON.parse(data);
 					
@@ -25,7 +25,7 @@ $(document).ready(function(){
 			$("#defaultaddress").append(content2);
 
 			// when click the "设置默认地址" button
-			$.getScript("js/setDefaultAddr.js");
+			$.getScript("js/address/setDefaultAddr.js");
 		});
 	});
 });

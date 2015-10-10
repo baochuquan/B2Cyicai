@@ -1,6 +1,6 @@
 <?php
 // This page activates the user's account.
-require ('../includes/config.inc.php'); 
+require ('../../includes/config.inc.php'); 
 // If $x and $y don't exist or aren't of the proper format, redirect the user:
 //if ($_SERVER["REQUEST_METHOD"] == "GET") {
 	

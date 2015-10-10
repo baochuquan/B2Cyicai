@@ -4,7 +4,7 @@
 //$.post by show_addr.js
 //to get all the address of a user
 //-------------------------------------------------------------
-require ('../includes/config.inc.php');
+require ('../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username'])) {
@@ -33,7 +33,7 @@ else {
 		$addrcontent = substr($addrcontent, 0, strlen($addrcontent)-1);
 		$addrcontent .= ']';
 
-		$addrfile = fopen("../json/address.json", "w");
+		$addrfile = fopen("../../json/address.json", "w");
 		fwrite($addrfile, $addrcontent);
 		fclose($addrfile);
 	}

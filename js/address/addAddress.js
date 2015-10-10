@@ -55,7 +55,7 @@ $(function(){
 			return false;
 		}
 		var $checkvalue = $("#setdefault").is(":checked") ? 'Y' : 'N';
-		$.post("php/add_address.php",{
+		$.post("php/address/add_address.php",{
 				user_id: $.cookie()['user_id'],
 				receivername: $("#receivername").val(),
 				receiverphone: $("#receiverphone").val(),

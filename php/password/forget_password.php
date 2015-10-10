@@ -1,6 +1,6 @@
 <?php
 // This page allows a user to reset their password, if forgotten.
-require ('../includes/config.inc.php'); 
+require ('../../includes/config.inc.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);

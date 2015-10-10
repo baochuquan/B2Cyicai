@@ -3,7 +3,7 @@
 //include the configuration file:
 header("Content-Type:text/html; charset=utf-8");
 
-require ('../includes/config.inc.php');
+require ('../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username'])) {

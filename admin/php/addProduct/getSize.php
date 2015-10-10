@@ -2,9 +2,9 @@
 //-------------------------------------------------------------
 //for product_management.html
 //$.post by productAdd.js
-//to get tag
+//to get size
 //-------------------------------------------------------------
-require ('../../includes/config.inc.php');
+require ('../../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
@@ -17,18 +17,18 @@ else {
 	require (MYSQL);
 
 	// Need the database connection:
-	$q = "SELECT tag_id, tag_name FROM tags ORDER BY tag_id";
+	$q = "SELECT size_id, size_name FROM size ORDER BY size_id";
 	$r = mysqli_query($dbc, $q);
 	
-	$tagcontent = '[';
-	while($eachtag = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-		$tagcontent .= '{"tag_id": ' . $eachtag['tag_id'] . ', "tag_name": "' . $eachtag['tag_name'] . '"},';
+	$sizecontent = '[';
+	while($eachsize = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
+		$sizecontent .= '{"size_id": ' . $eachsize['size_id'] . ', "size_name": "' . $eachsize['size_name'] . '"},';
 	}
-	$tagcontent = substr($tagcontent, 0, strlen($tagcontent)-1);
-	$tagcontent .= ']';
+	$sizecontent = substr($sizecontent, 0, strlen($sizecontent)-1);
+	$sizecontent .= ']';
 
-	$tagfile = fopen("../json/tag.json", "w");
-	fwrite($tagfile, $tagcontent);
-	fclose($tagfile);
+	$sizefile = fopen("../../json/size.json", "w");
+	fwrite($sizefile, $sizecontent);
+	fclose($sizefile);
 }
 ?>

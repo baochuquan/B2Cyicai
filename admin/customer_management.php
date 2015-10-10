@@ -2,11 +2,9 @@
 //this is the main page for the site.
 //include the configuration file:
 require ('includes/config.inc.php');
-
 //set the page title and include the HTML header:
 $page_title = '客户管理';
 include ('includes/header.html');
-
 //redirect if is not admin or unlogged in
 if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 	$url = BASE_URL .'index.php';
@@ -32,7 +30,6 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 					<?php  
 					// Need the database connection:
 					require (MYSQL);
-
 					// Define the query...
 					$q = "SELECT COUNT(user_id) FROM users WHERE userlevel=0";
 					$r = @mysqli_query($dbc, $q);
@@ -55,11 +52,9 @@ if (!isset($_SESSION['username']) || ($_SESSION['userlevel'] == 0)) {
 								        	</tr>
 							    		</thead>
 							    		<tbody>';
-
 					// Fetch all the information of users;
 					$q = "SELECT user_id, username, usermail, regist_date FROM users WHERE userlevel=0 ORDER BY regist_date DESC";
 					$r = @mysqli_query($dbc, $q);
-
 					$i = 0;
 					while ($eachuser = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
 						$i++;

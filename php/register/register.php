@@ -3,7 +3,7 @@
 //include the configuration file:
 header("Content-Type:text/html; charset=utf-8");
 
-require ('../includes/config.inc.php');
+require ('../../includes/config.inc.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	// Need the database connection:

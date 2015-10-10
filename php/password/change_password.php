@@ -1,6 +1,6 @@
 <?php
 // This page allows a logged-in user to change their password.
-require ('../includes/config.inc.php'); 
+require ('../../includes/config.inc.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	require (MYSQL);
@@ -13,12 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		// Make the query:
 		$q = "UPDATE users SET pass=SHA1('$p') WHERE user_id={$_COOKIE['user_id']} LIMIT 1";	
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-		if (mysqli_affected_rows($dbc) == 1) { // If it ran OK.
-			echo "Success";
-			mysqli_close($dbc); // Close the database connection.
-			exit();
-		} else { // If it did not run OK.
-			echo "Failed";		}
+		
+		echo "Success";
+		mysqli_close($dbc); // Close the database connection.
+		exit();
+
 	} else { // Failed the validation test.
 		echo "Failed";
 	}

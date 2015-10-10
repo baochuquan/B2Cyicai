@@ -1,7 +1,5 @@
-
 <?php
 require ('../../includes/config.inc.php');
-
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
 	$url = BASE_URL .'index.html';
@@ -11,22 +9,18 @@ if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
 else { 
 	// Need the database connection:
 	require (MYSQL);
-
 	if(isset($_POST["querytype"])) {
 		switch ($_POST['querytype']) {
 			case 'all':
 				// -----------------------------------------show all the products--------------------------------------------
 				$q = "SELECT product_id, product_name, pre_price, cur_price, SUM(quantity) AS sales FROM products LEFT JOIN order_content USING(product_id) GROUP BY (products.product_id) ORDER BY sales DESC";
 				break;
-
 			case 'name':
 				$q = "SELECT product_id, product_name, pre_price, cur_price, SUM(quantity) AS sales FROM products LEFT JOIN order_content USING(product_id) WHERE product_name LIKE '%" . $_POST['keyword'] . "%' GROUP BY (products.product_id) ORDER BY sales DESC";
 				break;
-
 			case 'tag':	
 				$q = "SELECT product_id, product_name, pre_price, cur_price, SUM(quantity) AS sales FROM products LEFT JOIN order_content USING(product_id) LEFT JOIN product_tag USING(product_id) LEFT JOIN tags USING(tag_id) WHERE tag_name LIKE '%" . $_POST['keyword'] . "%' GROUP BY (products.product_id) ORDER BY sales DESC";		
 				break;
-
 			case 'price':
 				if ($_POST['keyword'] == 200) {
 					$q = "SELECT product_id, product_name, pre_price, cur_price, SUM(quantity) AS sales FROM products LEFT JOIN order_content USING(product_id) WHERE cur_price BETWEEN 200.00 AND 300.00 GROUP BY (products.product_id) ORDER BY sales DESC";
@@ -39,11 +33,9 @@ else {
 					$q = "SELECT product_id, product_name, pre_price, cur_price, SUM(quantity) AS sales FROM products LEFT JOIN order_content USING(product_id) WHERE cur_price BETWEEN " . $_POST['keyword'] . " AND " . $uplimit ." GROUP BY (products.product_id) ORDER BY sales DESC";
 				}
 				break;
-
 			default:
 				break;
 		}
-
 		$r = @mysqli_query($dbc, $q);
 		if (!$r) {
 	 		printf("Error: %s\n", mysqli_error($dbc));
