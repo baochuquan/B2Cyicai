@@ -7,7 +7,7 @@ $(function(){
 	//default display the first page
 	$("#unsuccessusers .1page").parent().addClass("active");
 	//alert("POST:"+ $(".tab-content").children("[class*=active]").attr("id"));
-	$.post("admin/php/customer_page_unsu.php", { start: 0, id: "unsuccessusers"},
+	$.post("admin/php/customerManage/customer_page_unsu.php", { start: 0, id: "unsuccessusers"},
 		function (data, textStatus){
 			$("div[id=unsuccessusers] .userdisplaytable").append(data);
 	});
@@ -30,7 +30,7 @@ $(function(){
 
 		var $start = Number($(this).text());
 		$start = ($start - 1) * 20;
-		$.post("admin/php/customer_page_unsu.php", { start: $start, id: "unsuccessusers" }, 
+		$.post("admin/php/customerManage/customer_page_unsu.php", { start: $start, id: "unsuccessusers" }, 
 			function (data, textStatus){
 				$("div[id=unsuccessusers] .userdisplaytable").append(data);
 
@@ -45,7 +45,7 @@ $(function(){
 	});
 
 	//for manuactivate.js s
-	$.getScript("admin/js/manuactivate.js");
+	$.getScript("admin/js/customerManage/manuactivate.js");
 	//for manudelete.js s
-	$.getScript("admin/js/manudelete.js");
+	$.getScript("admin/js/customerManage/manudelete.js");
 });	

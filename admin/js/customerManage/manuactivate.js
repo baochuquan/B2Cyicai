@@ -16,7 +16,7 @@ $(function(){
 	});	
 	$("#confirmactivate").click(function(){	
 		//alert("DATA: "+useremail);
-		$.post("admin/php/manuactivate.php", { usermail: useremail }, function (data, textStatus){
+		$.post("admin/php/customerManage/manuactivate.php", { usermail: useremail }, function (data, textStatus){
 			if(data == "Success") {
 				alert("激活成功!");
 				window.location.reload();

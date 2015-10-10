@@ -16,7 +16,7 @@ $(function(){
 	});	
 	$("#confirmdelete").click(function(){	
 		//alert("DATA: "+useremail);
-		$.post("admin/php/manudelete.php", { usermail: useremail }, function (data, textStatus){
+		$.post("admin/php/customerManage/manudelete.php", { usermail: useremail }, function (data, textStatus){
 			if(data == "Success") {
 				alert("激活成功!");
 				window.location.reload();

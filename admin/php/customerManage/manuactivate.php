@@ -1,6 +1,6 @@
 <?php
 //include the configuration file:
-require ('../../includes/config.inc.php');
+require ('../../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {

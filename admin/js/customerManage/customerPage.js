@@ -7,7 +7,7 @@ $(function(){
 	//default display the first page
 	$("#allusers .1page").parent().addClass("active");
 	//alert("POST:"+ $(".tab-content").children("[class*=active]").attr("id"));
-	$.post("admin/php/customer_page.php", { start: 0, id: "allusers"},
+	$.post("admin/php/customerManage/customer_page.php", { start: 0, id: "allusers"},
 		function (data, textStatus){
 			$("div[id=allusers] .userdisplaytable").append(data);
 	});
@@ -31,7 +31,7 @@ $(function(){
 
 		var $start = Number($(this).text());
 		$start = ($start - 1) * 20;
-		$.post("admin/php/customer_page.php", { start: $start, id: "allusers" }, 
+		$.post("admin/php/customerManage/customer_page.php", { start: $start, id: "allusers" }, 
 			function (data, textStatus){
 				$("div[id=allusers] .userdisplaytable").append(data);
 		});

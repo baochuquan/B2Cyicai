@@ -5,7 +5,7 @@
 $(function(){
 	var PAGE = 20;
 
-	$.post("admin/php/customer_amount.php", { id1: "allusers", id2: "successusers", id3: "unsuccessusers" }, function (data, textStatus){
+	$.post("admin/php/customerManage/customer_amount.php", { id1: "allusers", id2: "successusers", id3: "unsuccessusers" }, function (data, textStatus){
 		var amountarray = new Array();
 		amountarray = $.trim(data).split(" ");
 		//alert("NUM0:"+ amountarray[0] + " NUM1:" + amountarray[1] + " NUM2:"+amountarray[2]);
@@ -20,7 +20,7 @@ $(function(){
 			$target.after(content);
 			$target = $target.next();
 		}
-		$.getScript("admin/js/customerPage.js");		
+		$.getScript("admin/js/customerManage/customerPage.js");		
 		
 		amount = Math.ceil(amountarray[1]/PAGE);
 		content = "<strong>" + amountarray[1] + "</strong>";
@@ -32,7 +32,7 @@ $(function(){
 			$target.after(content);
 			$target = $target.next();
 		}
-		$.getScript("admin/js/customerPageSucc.js");
+		$.getScript("admin/js/customerManage/customerPageSucc.js");
 		
 		amount = Math.ceil(amountarray[2]/PAGE);
 		content = "<strong>" + amountarray[2] + "</strong>";
@@ -44,6 +44,6 @@ $(function(){
 			$target.after(content);
 			$target = $target.next();
 		}
-		$.getScript("admin/js/customerPageUnsu.js");
+		$.getScript("admin/js/customerManage/customerPageUnsu.js");
 	});
 });

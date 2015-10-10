@@ -1,6 +1,6 @@
 
 <?php
-require ('../../includes/config.inc.php');
+require ('../../../includes/config.inc.php');
 
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
@@ -12,9 +12,9 @@ else {
 	// Need the database connection:
 	require (MYSQL);
 	$start = $_POST["start"];
-	if ($_POST["id"] == "successusers") {
+	if ($_POST["id"] == 'allusers')	{
 		// Fetch all the information of users;
-		$q = "SELECT user_id, username, usermail, regist_date, active FROM users WHERE userlevel=0 AND active IS NULL ORDER BY regist_date DESC LIMIT {$start},20";
+		$q = "SELECT user_id, username, usermail, regist_date, active FROM users WHERE userlevel=0 ORDER BY regist_date DESC LIMIT {$start},20";
 		$r = @mysqli_query($dbc, $q);
 		if (!$r) {
 	 		printf("Error: %s\n", mysqli_error($dbc));
@@ -29,11 +29,15 @@ else {
 							<td>' . $eachuser['user_id'] . '</td>
 							<td><a href="#">' . $eachuser['username'] . '</a></td>
 							<td>' . $eachuser['usermail'] . '</td>
-							<td>' . $eachuser['regist_date'] . '</td>
-						 	<td>已激活</td>
-						 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudelete" data-whatever="' . $eachuser['usermail'] . '">删除</button></td>
-						 </tr>';
-			}
+							<td>' . $eachuser['regist_date'] . '</td>';
+				if ($eachuser['active'] != NULL) {
+					echo 	'<td>未激活</td>';
+				}
+				else {
+					echo 	'<td>已激活</td>';
+				}
+				echo 	'</tr>';
+			}	
 			mysqli_free_result($r);
 		}
 		else {
