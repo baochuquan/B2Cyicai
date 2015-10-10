@@ -95,8 +95,8 @@ else {
 		}
 
 		//add parameter
-		$q = "INSERT INTO parameter (product_id, style, material, sleeve_style, type_version, component, collar) VALUES ({$product_id['0']}, {$save['style']}, {$save['material']}, {$save['sleeve_style']}, {$save['type_version']}, {$save['component']}, {$save['collar']})";
-		$r = $r = mysqli_query($dbc, $q);
+		$q = "INSERT INTO parameter (product_id, style, material, sleeve_style, type_version, component, collar) VALUES ({$product_id['0']}, '{$save['style']}', '{$save['material']}', '{$save['sleeve_style']}', '{$save['type_version']}', '{$save['component']}', '{$save['collar']}')";
+		$r = mysqli_query($dbc, $q);
 		if (mysqli_affected_rows($dbc) == 0)
 			$flag = "Failed";	
 
@@ -129,7 +129,7 @@ else {
 				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['shank']) . ",";
 				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['trous_len']) . ",";
 				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['size_name']) . "',";
-				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['sex']) . "',";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['sex']) . "')";
 				$r = @mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));			
 				if (mysqli_affected_rows($dbc) == 0)
 					$flag = "Failed";
