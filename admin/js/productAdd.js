@@ -4,100 +4,103 @@
 //-------------------------------------------------------------
 $(function(){			
 	//hide S,M,L,X,XXL,XXXL forms
-	$("#S-sizegroup-up").hide();
-	$("#S-sizegroup-down").hide();
-	$("#M-sizegroup-up").hide();
-	$("#M-sizegroup-down").hide();
-	$("#L-sizegroup-up").hide();
-	$("#L-sizegroup-down").hide();
-	$("#XL-sizegroup-up").hide();
-	$("#XL-sizegroup-down").hide();
-	$("#XXL-sizegroup-up").hide();
-	$("#XXL-sizegroup-down").hide();
-	$("#XXXL-sizegroup-up").hide();
-	$("#XXXL-sizegroup-down").hide();
+	$(".size-group").hide();
 
-	$("#CheckboxS").click(function(){
-		if($("#CheckboxS").is(':checked')) {
-			if($("#feature2").val() == '上装'){
-				$("#S-sizegroup-up").show();
-			}
-			else
-				$("#S-sizegroup-down").show();
+	$(".checkbox").click(function(){
+		switch($(this).val()){
+			case "S":
+				$(".size-group.S").removeClass("show");
+				$(".size-group.S").removeClass("yes");
+				if($(this).is(':checked')){
+					$(".size-group.S").addClass("yes");
+					if($("#feature2").val() == "Y")
+						$("#S-sizegroup-up").addClass("show");
+					else 
+						$("#S-sizegroup-down").addClass("show");
+				}										
+				break;
+			case "M":
+				$(".size-group.M").removeClass("show");
+				$(".size-group.M").removeClass("yes");
+				if($(this).is(':checked')){
+					$(".size-group.M").addClass("yes");
+					if($("#feature2").val() == "Y")
+						$("#M-sizegroup-up").addClass("show");
+					else 
+						$("#M-sizegroup-down").addClass("show");
+				}	
+				break;
+			case "L":
+				$(".size-group.L").removeClass("show");
+				$(".size-group.L").removeClass("yes");
+				if($(this).is(':checked')){
+					$(".size-group.L").addClass("yes");
+					if($("#feature2").val() == "Y")
+						$("#L-sizegroup-up").addClass("show");
+					else 
+						$("#L-sizegroup-down").addClass("show");
+				}	
+				break;
+			case "XL":
+				$(".size-group.XL").removeClass("show");
+				$(".size-group.XL").removeClass("yes");
+				if($(this).is(':checked')){
+					$(".size-group.XL").addClass("yes");
+					if($("#feature2").val() == "Y")
+						$("#XL-sizegroup-up").addClass("show");
+					else 
+						$("#XL-sizegroup-down").addClass("show");
+				}	
+				break;
+			case "XXL":
+				$(".size-group.XXL").removeClass("show");
+				$(".size-group.XXL").removeClass("yes");
+				if($(this).is(':checked')){
+					$(".size-group.XXL").addClass("yes");
+					if($("#feature2").val() == "Y")
+						$("#XXL-sizegroup-up").addClass("show");
+					else 
+						$("#XXL-sizegroup-down").addClass("show");
+				}	
+				break;
+			case "XXXL":
+				$(".size-group.XXXL").removeClass("show");
+				$(".size-group.XXXL").removeClass("yes");
+				if($(this).is(':checked')){
+					$(".size-group.XXXL").addClass("yes");
+					if($("#feature2").val() == "Y")
+						$("#XXXL-sizegroup-up").addClass("show");
+					else 
+						$("#XXXL-sizegroup-down").addClass("show");
+				}	
+				break;
+			default:
+				break;
 		}
-		else {
-			$("#S-sizegroup-up").hide();
-			$("#S-sizegroup-down").hide();
-		}
-	});
-	$("#CheckboxM").click(function(){
-		if($("#CheckboxM").is(':checked')) {
-			if($("#feature2").val() == '上装'){
-				$("#M-sizegroup-up").show();
-			}
-			else
-				$("#M-sizegroup-down").show();
-		}
-		else {
-			$("#M-sizegroup-up").hide();
-			$("#M-sizegroup-down").hide();
-		}
-	});
-	$("#CheckboxL").click(function(){
-		if($("#CheckboxL").is(':checked')) {
-			if($("#feature2").val() == '上装'){
-				$("#L-sizegroup-up").show();
-			}
-			else
-				$("#L-sizegroup-down").show();
-		}
-		else {
-			$("#L-sizegroup-up").hide();
-			$("#L-sizegroup-down").hide();
-		}
-	});
-	$("#CheckboxXL").click(function(){
-		if($("#CheckboxXL").is(':checked')) {
-			if($("#feature2").val() == '上装'){
-				$("#XL-sizegroup-up").show();
-			}
-			else
-				$("#XL-sizegroup-down").show();
-		}
-		else {
-			$("#XL-sizegroup-up").hide();
-			$("#XL-sizegroup-down").hide();
-		}
-	});
-	$("#CheckboxXXL").click(function(){
-		if($("#CheckboxXXL").is(':checked')) {
-			if($("#feature2").val() == '上装'){
-				$("#XXL-sizegroup-up").show();
-			}
-			else
-				$("#XXL-sizegroup-down").show();
-		}
-		else {
-			$("#XXL-sizegroup-up").hide();
-			$("#XXL-sizegroup-down").hide();
-		}
-	});
-	$("#CheckboxXXXL").click(function(){
-		if($("#CheckboxXXXL").is(':checked')) {
-			if($("#feature2").val() == '上装'){
-				$("#XXXL-sizegroup-up").show();
-			}
-			else
-				$("#XXXL-sizegroup-down").show();
-		}
-		else {
-			$("#XXXL-sizegroup-up").hide();
-			$("#XXXL-sizegroup-down").hide();
-		}
+		$.getScript("admin/js/validateSizeDetail.js");
 	});
 
 	$("#feature2").change(function(){
-		alert("haahhah");
+		var $dot = $(".size-group");
+		for(var i=0, len=$dot.length; i < len; i++){
+			if($($dot[i]).hasClass("yes")){
+				if($("#feature2").val() == 'Y'){
+					if($($dot[i]).hasClass("up")){
+						$($dot[i]).addClass("show");
+					}
+					else
+						$($dot[i]).removeClass("show");
+				}
+				else {
+					if($($dot[i]).hasClass("up")){
+						$($dot[i]).removeClass("show");
+					}
+					else
+						$($dot[i]).addClass("show");
+				}
+			}
+		}
+		$.getScript("admin/js/validateSizeDetail.js");
 	});
 
 	//hide & show color, size, tags collapse
@@ -122,7 +125,7 @@ $(function(){
 					});
 					$($("#colorcollapse").children()[0]).append(content);
 					// when click the color button
-					$.getScript("admin/js/colorButtonAdd.js");
+				//	$.getScript("admin/js/colorButtonAdd.js");
 				});
 			});
 		}
@@ -142,7 +145,7 @@ $(function(){
 					});
 					$($("#tagcollapse").children()[0]).append(content);
 					// when click the size button
-					$.getScript("admin/js/tagButtonAdd.js");
+				//	$.getScript("admin/js/tagButtonAdd.js");
 				});
 			});
 		}
@@ -150,9 +153,9 @@ $(function(){
 
 	$('#addproductform :input').blur(function(){
 		var $parent = $(this).parent();			//divs
-		$parent.parent().removeClass("has-success");
-		$parent.parent().find(".alert").remove();
-		$parent.find(".fa-check").remove();
+		$parent.parent().parent().removeClass("has-success");
+		$parent.parent().parent().find(".alert").remove();
+		$parent.parent().find(".fa-check").remove();
 
 		//validate new product name
 		if($(this).is('#newproductname')) {
@@ -167,9 +170,9 @@ $(function(){
 		}
 		//validate new product pre price
 		if($(this).is('#newproductpreprice') || $(this).is('#newproductcurprice')) {	
-			$parent.parent().parent().removeClass("has-success");
-			$parent.parent().parent().find(".alert").remove();
-			$parent.parent().find(".fa-check").remove();	
+		//	$parent.parent().parent().removeClass("has-success");
+		//	$parent.parent().parent().find(".alert").remove();
+		//	$parent.parent().find(".fa-check").remove();	
 			
 			if( this.value == "" || /^\d+(\.\d+)?$/.test($(this).val()) == false) {
 				var errorMsg = "请输入正确的价格格式.";
@@ -230,6 +233,7 @@ $(function(){
 			alert("有必填项目未填写");
 			return false;
 		}
+
 		// if no img uploaded
 		if($('#inputimg').children('img').length == 0) {
 			alert("请选择图片上传");
@@ -241,16 +245,40 @@ $(function(){
 			$imgname.push($(this).attr("title"));
 		});
 		//alert("imgname: "+$imgname[0]+$imgname[1]);
+	
 		
+		//for detail
+		var $sizedetail = [];
+		for(var i = 0; i < $(".checkbox:checked").length; i++){
+			var $temp = $($(".checkbox:checked")[i]).val();
+			$temp =".size-group.show." + $temp + " :input";
+			if($("#feature2").val() == 'Y'){//cloth
+				$sizedetail.push({ shoulder:$($($temp)[0]).val(), breast:$($($temp)[1]).val(), sleeve:$($($temp)[2]).val(), cloth_len:$($($temp)[3]).val(), waist:$($($temp)[4]).val(), collar:$($($temp)[5]).val(), size_name:$($(".checkbox:checked")[i]).val(), sex:$("#feature1").val(), type:$("#feature2").val() });
+			}
+			else {
+				$sizedetail.push({ waist:$($($temp)[0]).val(), buttocks:$($($temp)[1]).val(), leg:$($($temp)[2]).val(), shank:$($($temp)[3]).val(), trous_len:$($($temp)[4]).val(), size_name:$($(".checkbox:checked")[i]).val(), sex:$("#feature1").val(), type:$("#feature2").val()});	
+			}		
+		}
+
 		$.post("admin/php/add_product.php", {
 				newproductname:$('#newproductname').val(),
 				newproductpreprice:$('#newproductpreprice').val(),
 				newproductcurprice:$('#newproductcurprice').val(),
+				newproductimg:$imgname,
+
+				type:$("#feature2").val(), 
+				newproductsizedetail:$sizedetail,
+				style:$($("#productparameter :input")[0]).val(),
+				material:$($("#productparameter :input")[1]).val(),
+				component:$($("#productparameter :input")[2]).val(),
+				sleeve_style:$($("#productparameter :input")[3]).val(),
+				type_version:$($("#productparameter :input")[4]).val(),
+				collar:$($("#productparameter :input")[5]).val(),
+
 				newproductcolor:$('#newproductcolor').val(),
-				newproductsize:$('#newproductsize').val(),
+				//newproductsize:$('#newproductsize').val(),
 				newproducttag:$('#newproducttag').val(),
-				newproductinfo:$('#newproductinfo').val(),
-				newproductimg:$imgname
+				newproductinfo:$('#newproductinfo').val()
 			}, 
 			function (data, status){
 				if(data == 'Success'){

@@ -5,6 +5,7 @@
 //to add new product to database
 //-------------------------------------------------------------
 require ('../../includes/config.inc.php');
+
 //redirect if is not admin or unlogged in
 if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
 	$url = BASE_URL .'index.html';
@@ -12,14 +13,34 @@ if (!isset($_COOKIE['username']) || ($_COOKIE['userlevel'] == 0)) {
 	exit();
 }
 else {
-	// Need the database connection:
-	require (MYSQL);
-
 	if ($_SERVER['REQUEST_METHOD'] == "POST") {	
+		// Need the database connection:
+		require (MYSQL);
+
+		$save['newproductname'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductname']));
+		$save['newproductpreprice'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductpreprice']));
+		$save['newproductcurprice'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductcurprice']));
+
+		//$save['newproductsizedetail'] = mysqli_real_escape_string ($dbc, $trimmed['newproductsizedetail']);
+		$save['type'] = mysqli_real_escape_string ($dbc, trim($_POST['type']));
+		$save['style'] = mysqli_real_escape_string ($dbc, trim($_POST['style']));
+		$save['material'] = mysqli_real_escape_string ($dbc, trim($_POST['material']));
+		$save['component'] = mysqli_real_escape_string ($dbc, trim($_POST['component']));
+		$save['sleeve_style'] = mysqli_real_escape_string ($dbc, trim($_POST['sleeve_style']));
+		$save['type_version'] = mysqli_real_escape_string ($dbc, trim($_POST['type_version']));
+		$save['collar'] = mysqli_real_escape_string ($dbc, trim($_POST['collar']));
+
+		$save['newproductcolor'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductcolor']));
+		$save['newproductcolor'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductcolor']));
+		$save['newproducttag'] = mysqli_real_escape_string ($dbc, trim($_POST['newproducttag']));
+		$save['newproductinfo'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductinfo']));
+		//$save['newproductimg'] = mysqli_real_escape_string ($dbc, trim($_POST['newproductimg']));
+
+
 		$flag = "Success";
 
 		// add cur_price, pre_price, product_name, decription
-		$q = "INSERT INTO products (pre_price,cur_price,product_name,decription) VALUES ({$_POST['newproductpreprice']},{$_POST['newproductcurprice']},'"."{$_POST['newproductname']}','"."{$_POST['newproductinfo']}')";
+		$q = "INSERT INTO products (pre_price,cur_price,product_name,decription) VALUES ({$save['newproductpreprice']},{$save['newproductcurprice']},'"."{$save['newproductname']}','"."{$save['newproductinfo']}')";
 		$r = @mysqli_query($dbc, $q);
 		if (mysqli_affected_rows($dbc) == 0)
 			$flag = "Failed";
@@ -30,9 +51,8 @@ else {
 		$product_id = mysqli_fetch_array($r, MYSQLI_NUM);
 
 		// add color, size, tag
-		$colorarray = explode(',', $_POST['newproductcolor']);
-		$sizearray  = explode(',', $_POST['newproductsize']);
-		$tagarray   = explode(',', $_POST['newproducttag']);
+		$colorarray = explode(',', $save['newproductcolor']);
+		$tagarray   = explode(',', $save['newproducttag']);
 
 		//add color 
 		for ($i=0; $i < count($colorarray); $i++) { 
@@ -54,26 +74,6 @@ else {
 				$flag = "Failed";
 		}	
 
-		//add size 
-		for ($i=0; $i < count($sizearray); $i++) { 
-			$q = "SELECT size_name FROM size WHERE size_name='" . $sizearray[$i] . "' LIMIT 1";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0) {// if not exist this size
-				//the size name does not exist then insert into size
-				$q = "INSERT INTO size (size_name) VALUES ('" . $sizearray[$i] . "')";
-				$r = mysqli_query($dbc, $q);
-			}
-			// get color id
-			$q = "SELECT size_id FROM size WHERE size_name='" . $sizearray[$i] . "' LIMIT 1";
-			$r = mysqli_query($dbc, $q);
-			$size_id = mysqli_fetch_array($r, MYSQLI_NUM);
-
-			$q = "INSERT INTO product_size (product_id, size_id) VALUES ({$product_id['0']},{$size_id['0']})";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0)
-				$flag = "Failed";
-		}
-
 		//add tag 
 		for ($i=0; $i < count($tagarray); $i++) { 
 			$q = "SELECT tag_name FROM tags WHERE tag_name='" . $tagarray[$i] . "' LIMIT 1";
@@ -94,17 +94,59 @@ else {
 				$flag = "Failed";
 		}
 
+		//add parameter
+		$q = "INSERT INTO parameter (product_id, style, material, sleeve_style, type_version, component, collar) VALUES ({$product_id['0']}, {$save['style']}, {$save['material']}, {$save['sleeve_style']}, {$save['type_version']}, {$save['component']}, {$save['collar']})";
+		$r = $r = mysqli_query($dbc, $q);
+		if (mysqli_affected_rows($dbc) == 0)
+			$flag = "Failed";	
+
+		//add size_detail
+		// cloth
+		if ( $save['type'] == 'Y') {
+			for ($i=0; $i < count($_POST['newproductsizedetail']); $i++) { 
+				$q = "INSERT INTO size_detail (product_id, type, shoulder, breast, sleeve, cloth_len, waist, size_name, sex, collar) VALUES ({$product_id['0']},";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['type']) . "',";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['shoulder']) . ",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['breast']) .",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['sleeve']) .",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['cloth_len']) .",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['waist']) . ",";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['size_name']) . "',";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['sex']) . "',";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['collar']) . ")";
+				$r = @mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));			
+				if (mysqli_affected_rows($dbc) == 0)
+					$flag = "Failed";
+			}
+		}
+		else {
+			for ($i=0; $i < count($_POST['newproductsizedetail']); $i++) { 
+				$q = "INSERT INTO size_detail (product_id, type, waist, buttocks, leg, shank, trous_len, size_name, sex) VALUES ({$product_id['0']},";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['type']) . "',";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['waist']) . ",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['buttocks']) . ",";				
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['leg']) . ",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['shank']) . ",";
+				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['trous_len']) . ",";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['size_name']) . "',";
+				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['sex']) . "',";
+				$r = @mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));			
+				if (mysqli_affected_rows($dbc) == 0)
+					$flag = "Failed";
+			}
+		}
+
 		// add imges 
 		for ($i=0; $i < count($_POST['newproductimg']); $i++) { 
-			$q = "SELECT img_name FROM imges WHERE img_name='" . $_POST['newproductimg'][$i] . "' LIMIT 1";
+			$q = "SELECT img_name FROM imges WHERE img_name='" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "' LIMIT 1";
 			$r = mysqli_query($dbc, $q);
 			if (mysqli_affected_rows($dbc) == 0) {// if not exist
 				//the size name does not exist then insert into size
-				$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . $_POST['newproductimg'][$i] . "',{$product_id['0']}, NOW())";
+				$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "',{$product_id['0']}, NOW())";
 				$r = mysqli_query($dbc, $q);
 			}
 			else { //if exist just update
-				$q = "UPDATE imges SET add_date=NOW() WHERE img_name='" . $_POST['newproductimg'][$i] . "' LIMIT 1";
+				$q = "UPDATE imges SET add_date=NOW() WHERE img_name='" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "' LIMIT 1";
 				$r = mysqli_query($dbc, $q);
 			}
 			if (mysqli_affected_rows($dbc) == 0)

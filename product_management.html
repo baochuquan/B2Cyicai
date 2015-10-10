@@ -212,7 +212,7 @@
 						    	<div class="col-xs-2">
 							    	<div class="input-group">
 							    		<div class="input-group-addon">￥</div>
-							    		<input type="text" class="form-control" id="newproductpreprice" size="60" maxlength="60" placeholder="00.00cm">
+							    		<input type="text" class="form-control" id="newproductpreprice" size="60" maxlength="60" placeholder="00.00">
 							    	</div>
 							    </div>
 						    </div>
@@ -222,7 +222,7 @@
 						    	<div class="col-xs-2">
 							    	<div class="input-group">
 							    		<div class="input-group-addon">￥</div>
-							    		<input type="text" class="form-control" id="newproductcurprice" size="60" maxlength="60" placeholder="00.00cm">
+							    		<input type="text" class="form-control" id="newproductcurprice" size="60" maxlength="60" placeholder="00.00">
 								    </div>
 								</div>
 						  	</div>
@@ -232,500 +232,541 @@
 							  		<label for="feature1" class="col-xs-4 control-label">*分类1</label>
 							  		<div class="col-xs-1">
 								  		<select class="form-control" id="feature1">
-											<option>男装</option>
-											<option>女装</option>
+											<option value="M">男装</option>
+											<option value="F">女装</option>
 										</select>
 									</div>
 									<label for="feature2" class="col-xs-2 control-label">*分类2</label>
 							  		<div class="col-xs-1">
 								  		<select class="form-control" id="feature2">
-											<option>上装</option>
-											<option>下装</option>
+											<option value="Y">上装</option>
+											<option value="N">下装</option>
 										</select>
 									</div>
 								</div>
 						  	</div>
 						  	<!--size detail-->
 						  	<div class="form-group">
-						  		<div class="row">
 						  			<label for="" class="col-xs-4 control-label">尺寸</label>
 						  			<div class="col-xs-4" id="Checksize">
 							  			<label class="checkbox-inline">
-											<input type="checkbox" id="CheckboxS" value="S"> S
+											<input type="checkbox" class="checkbox" id="CheckboxS" value="S"> S
 										</label>
 										<label class="checkbox-inline">
-											<input type="checkbox" id="CheckboxM" value="M"> M
+											<input type="checkbox" class="checkbox" id="CheckboxM" value="M"> M
 										</label>
 										<label class="checkbox-inline">
-											<input type="checkbox" id="CheckboxL" value="L"> L
+											<input type="checkbox" class="checkbox" id="CheckboxL" value="L"> L
 										</label>
 										<label class="checkbox-inline">
-											<input type="checkbox" id="CheckboxXL" value="XL"> XL
+											<input type="checkbox" class="checkbox" id="CheckboxXL" value="XL"> XL
 										</label>
 										<label class="checkbox-inline">
-											<input type="checkbox" id="CheckboxXXL" value="XXL"> XXL
+											<input type="checkbox" class="checkbox" id="CheckboxXXL" value="XXL"> XXL
 										</label>
 										<label class="checkbox-inline">
-											<input type="checkbox" id="CheckboxXXXL" value="XXXL"> XXXL
+											<input type="checkbox" class="checkbox" id="CheckboxXXXL" value="XXXL"> XXXL
 										</label>
 									</div>
-								</div>
 							</div>
 							<!--size detail-->
-							<div class="form-group" id="S-sizegroup-up">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">上装S码尺寸参数</label>
-							  		<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">肩宽</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">胸围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">袖长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">衣长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>								
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">领围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								</div>
+							<div class="form-group size-group S up" id="S-sizegroup-up">
+					  			<label for="" class="col-xs-4 control-label">上装S码尺寸参数</label>
+						  		<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">肩宽</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">胸围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">袖长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">衣长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>								
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">领围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
 							</div>							
-							<div class="form-group" id="S-sizegroup-down">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">下装S码尺寸参数</label>
-						  			<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">臀围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">大腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>							    	
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">小腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">裤长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
+							<div class="form-group size-group S down" id="S-sizegroup-down">
+					  			<label for="" class="col-xs-4 control-label">下装S码尺寸参数</label>
+					  			<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">臀围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">大腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>							    	
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">小腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">裤长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
 							    </div>
 							</div>							
 
-							<div class="form-group" id="M-sizegroup-up">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">上装M码尺寸参数</label>
-							  		<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">肩宽</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">胸围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">袖长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">衣长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>								
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">领围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								</div>
-							</div>
-							<div class="form-group" id="M-sizegroup-down">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">下装M码尺寸参数</label>
-						  			<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">臀围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">								    		
-											<div class="input-group-addon">大腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>							    	
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">小腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">裤长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
+							<div class="form-group size-group M up" id="M-sizegroup-up">
+					  			<label for="" class="col-xs-4 control-label">上装M码尺寸参数</label>
+						  		<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">肩宽</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">胸围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">袖长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">衣长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>								
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">领围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
 							    </div>
 							</div>
-							<div class="form-group" id="L-sizegroup-up">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">上装L码尺寸参数</label>
-							  		<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">肩宽</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">胸围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">袖长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">衣长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>								
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">领围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								</div>
-							</div>
-							<div class="form-group" id="L-sizegroup-down">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">下装L码尺寸参数</label>
-						  			<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">臀围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">								    		<div class="input-group-addon">大腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>							    	
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">小腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">裤长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
+							<div class="form-group size-group M down" id="M-sizegroup-down">
+					  			<label for="" class="col-xs-4 control-label">下装M码尺寸参数</label>
+					  			<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">臀围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">								    		
+										<div class="input-group-addon">大腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>							    	
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">小腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">裤长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
 							    </div>
 							</div>
-							<div class="form-group" id="XL-sizegroup-up">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">上装XL码尺寸参数</label>
-							  		<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">肩宽</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">胸围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">袖长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">衣长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>								
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">领围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								</div>
-							</div>
-							<div class="form-group" id="XL-sizegroup-down">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">下装XL码尺寸参数</label>
-						  			<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">臀围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">大腿围</div>								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>							    	
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">小腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">裤长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
+							<div class="form-group size-group L up" id="L-sizegroup-up">
+					  			<label for="" class="col-xs-4 control-label">上装L码尺寸参数</label>
+						  		<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">肩宽</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">胸围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">袖长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">衣长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>								
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">领围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
 							    </div>
 							</div>
-							<div class="form-group" id="XXL-sizegroup-up">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">上装XXL码尺寸参数</label>
-							  		<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">肩宽</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">胸围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">袖长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">衣长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>								
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">领围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								</div>
-							</div>
-							<div class="form-group" id="XXL-sizegroup-down">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">下装XXL码尺寸参数</label>
-						  			<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">臀围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">大腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>							    	
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">小腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">裤长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
+							<div class="form-group size-group L down" id="L-sizegroup-down">
+					  			<label for="" class="col-xs-4 control-label">下装L码尺寸参数</label>
+					  			<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">臀围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">								    		
+										<div class="input-group-addon">大腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>							    	
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">小腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">裤长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    </div>
+							<div class="form-group size-group XL up" id="XL-sizegroup-up">
+					  			<label for="" class="col-xs-4 control-label">上装XL码尺寸参数</label>
+						  		<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">肩宽</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">胸围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">袖长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">衣长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>								
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">领围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
 							    </div>
 							</div>
-							<div class="form-group" id="XXXL-sizegroup-up">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">上装XXXL码尺寸参数</label>
-							  		<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">肩宽</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">胸围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">袖长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">衣长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>								
-							    	<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">领围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								</div>
+							<div class="form-group size-group XL down" id="XL-sizegroup-down">
+					  			<label for="" class="col-xs-4 control-label">下装XL码尺寸参数</label>
+					  			<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">臀围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">大腿围</div>								    		
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>							    	
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">小腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">裤长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
 							</div>
-							<div class="form-group" id="XXXL-sizegroup-down">
-						  		<div class="row">
-						  			<label for="" class="col-xs-4 control-label">下装XXXL码尺寸参数</label>
-						  			<div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">腰围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">臀围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">大腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>							    	
-								    <div class="col-xs-2">
-										<div class="input-group">
-								    		<div class="input-group-addon">小腿围</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
-								    <div class="col-xs-offset-4 col-xs-2">
-										<div class="input-group">
-								    		
-								    		<div class="input-group-addon">裤长</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
-								    	</div>
-								    </div>
+							<div class="form-group size-group XXL up" id="XXL-sizegroup-up">
+					  			<label for="" class="col-xs-4 control-label">上装XXL码尺寸参数</label>
+						  		<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">肩宽</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">胸围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">袖长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">衣长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>								
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">领围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							</div>
+							<div class="form-group size-group XXL down" id="XXL-sizegroup-down">
+					  			<label for="" class="col-xs-4 control-label">下装XXL码尺寸参数</label>
+					  			<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">臀围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">大腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>							    	
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">小腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">裤长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							</div>
+							<div class="form-group size-group XXXL up" id="XXXL-sizegroup-up">
+					  			<label for="" class="col-xs-4 control-label">上装XXXL码尺寸参数</label>
+						  		<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">肩宽</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">胸围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">袖长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">衣长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>								
+						    	<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">领围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							</div>
+							<div class="form-group size-group XXXL down" id="XXXL-sizegroup-down">
+					  			<label for="" class="col-xs-4 control-label">下装XXXL码尺寸参数</label>
+					  			<div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">腰围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">臀围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">大腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>							    	
+							    <div class="col-xs-2">
+									<div class="input-group">
+							    		<div class="input-group-addon">小腿围</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
+							    </div>
+							    <div class="col-xs-offset-4 col-xs-2">
+									<div class="input-group">							    		
+							    		<div class="input-group-addon">裤长</div>
+							    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="00.00">
+							    		<div class="input-group-addon">cm</div>
+							    	</div>
 							    </div>
 							</div>
 						  	<!--new product color-->
@@ -785,37 +826,37 @@
 							  		<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">风格</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
+								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:时尚英伦分">
 								    	</div>
 								    </div>
 							    	<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">面料</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
+								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:纯棉">
 								    	</div>
 								    </div>
 								    <div class="col-xs-offset-4 col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">成分</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
+								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:30%涤纶,70%棉">
 								    	</div>
 								    </div>
 							    	<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">袖型</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
+								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:直袖">
 								    	</div>
 								    </div>
 								    <div class="col-xs-offset-4 col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">版型</div>
-								    		<input type="text" class="form-control" id="newproductpreprice1" size="60" maxlength="60" placeholder="00.00cm">
+								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:A型">
 								    	</div>
 								    </div>								
 							    	<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">领型</div>
-								    		<input type="text" class="form-control" id="newproductpreprice2" size="60" maxlength="60" placeholder="00.00cm">
+								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:高领">
 								    	</div>
 								    </div>
 								</div>
