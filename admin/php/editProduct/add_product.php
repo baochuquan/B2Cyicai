@@ -144,11 +144,13 @@ else {
 				$flag = "Failed";
 		}
 		// set cover 
+		/*
 		$q = "UPDATE imges SET cover=1 WHERE product_id={$product_id['0']} ORDER BY add_date LIMIT 1";
 		$r = mysqli_query($dbc, $q);
 
 		if (mysqli_affected_rows($dbc) == 0)
 			$flag = "Failed";
+			*/
 		echo $flag;
 		mysqli_close($dbc);
 	}

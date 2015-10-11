@@ -38,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	}
 
 	// to write editimg.json
-	$q = "SELECT img_name FROM imges WHERE product_id={$save['product_id']}";
+	$q = "SELECT img_name, cover FROM imges WHERE product_id={$save['product_id']}";
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (mysqli_num_rows($r) != 0) { // user exist
 		$imgcontent = '[';
 		while($eachimg = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			$imgcontent .= '{"img_name":' . $eachimg['img_name'] . '},';
+			$imgcontent .= '{"img_name":"' . $eachimg['img_name'] . '", "cover":"' . $eachimg['cover'] .'"},';
 		}
 		$imgcontent = substr($imgcontent, 0, strlen($imgcontent)-1);
 		$imgcontent .= ']';

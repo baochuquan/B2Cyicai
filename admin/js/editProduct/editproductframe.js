@@ -209,11 +209,14 @@ $(function(){
 			contentType:false,
 			processData:false,
 			success:function(data) {
+				alert(data);
 				data = $(data).html();
-				if($("#inputimg").children('img').length == 0)
+				alert(data);
+				//data = '<div class="radio">' + data + '</div>';
+				if($("#inputimg img").length == 0)
 					$("#inputimg").append(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
 				else
-					$("#inputimg").children('img').eq(0).before(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+					$("#inputimg").prepend(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
 			},
 			error:function(){
 				alert('上传出错.');

@@ -176,6 +176,15 @@ $(document).ready(function(){
 			});	
 		});
 		//get editimg.json
-
+		$.getScript("admin/json/editimg.json",function (data){
+			data = JSON.parse(data);
+			var imgcontent = '';
+			$.each(data, function (index, imginfo){
+				var temp  = '';
+				temp = (imginfo['cover'] == 'Y') ? 'checked': '';
+				imgcontent += '<div class="radio"><label><input type="radio" name="imgselect" value="'+ imginfo['img_name'] +'" ' + temp + '><img src="img/productImg/' + imginfo['img_name'] + '" alt="' + imginfo['img_name'] + '" class="img-thumbnail"></label></div>';
+			});
+			$("#inputimg").html(imgcontent);
+		});
 	});
 });

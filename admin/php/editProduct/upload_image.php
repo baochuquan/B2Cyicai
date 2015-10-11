@@ -21,7 +21,7 @@ else {
         exit(0);
     }
  
-    $output = "<textarea>";
+    $output = "<div>";
     $index = 0;        //$_FILES 以文件name为数组下标，不适用foreach($_FILES as $index=>$file)
     foreach($_FILES as $file){
         $upload_file_name = 'upload' . $index;        //对应index.html FomData中的文件命名
@@ -45,12 +45,13 @@ else {
             //输出图片文件<img>标签
             //注：在一些系统src可能需要urlencode处理，发现图片无法显示，
             //    请尝试 urlencode($gb_filename) 或 urlencode($filename)，不行请查看HTML中显示的src并酌情解决。
-            $output .= "<img src='img/productImg/{$filename}' title='{$filename}' alt='{$filename}' width='400px' height='100%' class='img-thumbnail'/>";
+            $output .= "<div class='radio'><label><input type='radio' name='imgselect' value='{$filename}'><img src='img/productImg/{$filename}' alt='{$filename}' class='img-thumbnail'></label></div>";
+            //$output .= "<img src='img/productImg/{$filename}' title='{$filename}' alt='{$filename}' width='400px' height='100%' class='img-thumbnail'/>";
         }else {
             $output .= "上传失败!请检查文件大小或文件格式";
         }     
         $index++;
     }    
-    echo $output."</textarea>";
+    echo $output.'</div>';
 }
 ?>

@@ -119,7 +119,7 @@
 						  	<div class="form-group has-feedback">
 						  		<label for="newproductname" class="col-xs-4 control-label">*产品名称</label>
 						    	<div class="col-xs-4">
-						    		<input type="text" class="form-control" id="newproductname" size="60" maxlength="60" placeholder="新添加的产品名称" value="hehe"></input>
+						    		<input type="text" class="form-control" id="newproductname" size="60" maxlength="60" placeholder="新添加的产品名称">
 						    	</div>
 						    </div>
 						    <!--new product preprice-->
@@ -768,19 +768,35 @@
 						  		</div>
 						  	</div>
 						  	<div class="form-group has-feedback">
-								<label for="inputPicture" class="col-xs-4 control-label">选择图片</label>
+								<label for="inputPicture" class="col-xs-4 control-label">添加图片</label>
 							  	<div class="col-xs-4">	
 							  		<fieldset>
 										<legend><h6><small>请选择小于<strong style="color:#cc0000">2MB</strong>的JPEG、PNG、GIF、JPG格式的图片上传，可上传多个</small></h6></legend>
 										<input type="file" multiple="multiple" id="newproductimg" name="upload"/>
-										<span><h6><small>默认最后一张上传的图片为封面</small></h6></span>
+										<hr></hr>
+										<button type="button" id="coverselect" class="btn btn-warning btn-sm">选择并设置为封面</button>
 										<!--<button type="button" id="inputPictureSubmit" class="btn btn-primary btn-xs fr" style="display:inline-block">添加</button>-->
 									</fieldset>	
-									<div id="inputimg"></div>				
+									<div id="inputimg">
+<!--
+										<div class="radio">
+											<label>
+												<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+												<img src="img/productImg/IMG_4297.JPG" alt="img/productImg/IMG_4297.JPG" class="img-thumbnail">
+											</label>
+										</div>
+										<div class="radio">
+											<label>
+												<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+												<img src="img/productImg/IMG_4326.JPG" alt="img/productImg/IMG_4326.JPG" class="img-thumbnail">
+											</label>
+										</div>
+-->
+									</div>				
 								</div>
 						  	</div>
 						  	<div class="col-xs-offset-4 col-xs-2">
-						 		<button type="button" id="allsubmit" class="btn btn-success">确定</button>
+						 		<button type="button" id="allsubmit" class="btn btn-success">保存</button>
 					 		</div>
 						</form>
 					</div>
