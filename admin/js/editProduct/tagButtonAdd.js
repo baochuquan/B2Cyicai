@@ -17,18 +17,18 @@ $(function(){
 		else { 
 			if (inputcontent.indexOf(tagname) == -1) {
 				//add tagname into input
-				newinputcontent = inputcontent + '/' + tagname;
+				newinputcontent = inputcontent + ',' + tagname;
 			}
 			else {//has the tag, need to delete
-				if(inputcontent.indexOf('/' + tagname) != -1) {
+				if(inputcontent.indexOf(',' + tagname) != -1) {
 					//delete
-					var splitcontent = inputcontent.split('/' + tagname);
+					var splitcontent = inputcontent.split(',' + tagname);
 					newinputcontent = splitcontent.join("");
 				}
 				else {
-					if (inputcontent.indexOf(tagname + '/') != -1) {
+					if (inputcontent.indexOf(tagname + ',') != -1) {
 						//delete
-						var splitcontent = inputcontent.split(tagname + '/');
+						var splitcontent = inputcontent.split(tagname + ',');
 						newinputcontent = splitcontent.join("");
 					}
 					else {

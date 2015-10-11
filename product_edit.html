@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/main.css">
 	<!-- Modernizr -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
 
 		<!-- Respond.js for IE 8 or less only -->
 	 	<!--[if (lt IE 9) & (!IEMobile)]>
@@ -107,103 +106,20 @@
 		</nav>	
 	</header>
 <!-------------------------------------------------------------------------------------------------------------------->
+
 <main role="main">
 	<div class="container">
 		<h1 class="page-header">产品管理</h1>
-		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#allproducts" aria-controls="allproducts" role="tab" data-toggle="tab">所有产品</a></li>
-			<li role="presentation"><a href="#uploadproducts" aria-controls="uploadproducts" role="tab" data-toggle="tab">添加产品</a></li>
-		</ul>
-		<div class="tab-content">
-			<!--show all the products-->
-			<div role="tabpanel" class="tab-pane active" id="allproducts">
-				<!--query-->
-				<div class="container">
-					<form id="productsqueryform" class="form-horizontal mt20" action="#">
-					  	<div class="form-group has-feedback">
-					  		<!--all query-->
-					    	<div class="col-xs-1">
-					  			<button type="button" id="allquery" class="btn btn-success">查看所有产品</button>
-					  		</div>
-
-					  		<!--name query-->
-					    	<label for="productname" class="col-xs-1 control-label">名称</label>
-					    	<div class="col-xs-2">
-					    		<input type="text" class="form-control" id="productname" size="60" maxlength="60" placeholder="按名称查询产品">
-					    	</div>
-					    	<div class="col-xs-1">
-					  			<button type="button" id="namequery" class="btn btn-success">查询</button>
-					  		</div>
-
-					  		<!--tag query-->
-					  		<label for="tagname" class="col-xs-1 control-label">标签</label>
-					    	<div class="col-xs-1">
-								<input type="text" class="form-control" id="tagname" size="60" maxlength="60" placeholder="按标签查询产品">
-					    	</div>
-					    	<div class="col-xs-1">
-					  			<button type="button" id="tagquery" class="btn btn-success">查询</button>
-					  		</div>
-
-					  		<!--price query-->
-					  		<label for="priceregion" class="col-xs-1 control-label">价格区间</label>
-					  		<div class="col-xs-1">
-					  			<select class="form-control" id="priceregion">
-					  				<option value="0">0-50</option>
-									<option value="50">50-100</option>
-									<option value="100">100-150</option>
-									<option value="150">150-200</option>
-									<option value="200">200-300</option>
-									<option value="300">300以上</option>
-					  			</select>
-					  		</div>
-					  		<div class="col-xs-1">
-					  			<button type="button" id="pricequery" class="btn btn-success">查询</button>
-					  		</div>
-					    </div>			  	
-					</form>
-				</div>
-				<!--end of query-->
-				<div class="text-center"> 
-					<h1></h1>
-					<div class="panel panel-info mt20">
-			  			<div class="panel-heading">
-			    			<h3 class="productsamount panel-title">产品数量: </h3>
-			  			</div>
-			  			<div class="panel-body text-center">
-							<table class="table table-striped">
-								<thead>
-			    					<tr>
-					            		<th class="text-center">产品ID</th>
-							            <th class="text-center">产品名称</th>
-							            <th class="text-center">原价</th>
-							            <th class="text-center">现价</th>
-							            <th class="text-center">销量</th>		
-							            <th class="text-center">颜色</th>
-							       		<th class="text-center">尺寸</th>
-							       		<th class="text-center">标签</th>
-							       		<th class="text-center">编辑</th>
-							       		<th class="text-center">删除</th>
-						        	</tr>
-					    		</thead>
-					    		<tbody class="productsdisplaytable">
-					    		</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!--upload products-->
 			<div role="tabpanel" class="tab-pane" id="uploadproducts">
 				<div class="container">
 					<div class="jumbotron mt20">	
-						<h2 id="addproducttitle" class="text-center"><small>添加新产品</small></h2>
+						<h2 id="addproducttitle" class="text-center"><small>产品编辑</small></h2>
 						<form id="addproductform" class="form-horizontal mt20" action="#" method="post">
 							<!--new product name-->
 						  	<div class="form-group has-feedback">
 						  		<label for="newproductname" class="col-xs-4 control-label">*产品名称</label>
 						    	<div class="col-xs-4">
-						    		<input type="text" class="form-control" id="newproductname" size="60" maxlength="60" placeholder="新添加的产品名称">
+						    		<input type="text" class="form-control" id="newproductname" size="60" maxlength="60" placeholder="新添加的产品名称" value="hehe"></input>
 						    	</div>
 						    </div>
 						    <!--new product preprice-->
@@ -269,6 +185,7 @@
 										</label>
 									</div>
 							</div>
+
 							<!--size detail-->
 							<div class="form-group size-group S up" id="S-sizegroup-up">
 					  			<label for="" class="col-xs-4 control-label">上装S码尺寸参数</label>
@@ -808,37 +725,37 @@
 							  		<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">风格</div>
-								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:时尚英伦分">
+								    		<input type="text" class="form-control" id="para-style" size="60" maxlength="60" placeholder="如:时尚英伦分">
 								    	</div>
 								    </div>
 							    	<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">面料</div>
-								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:纯棉">
+								    		<input type="text" class="form-control" id="para-mater" size="60" maxlength="60" placeholder="如:纯棉">
 								    	</div>
 								    </div>
 								    <div class="col-xs-offset-4 col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">成分</div>
-								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:30%涤纶,70%棉">
+								    		<input type="text" class="form-control" id="para-compo"size="60" maxlength="60" placeholder="如:30%涤纶,70%棉">
 								    	</div>
 								    </div>
 							    	<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">袖型</div>
-								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:直袖">
+								    		<input type="text" class="form-control" id="para-sleev" size="60" maxlength="60" placeholder="如:直袖">
 								    	</div>
 								    </div>
 								    <div class="col-xs-offset-4 col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">版型</div>
-								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:A型">
+								    		<input type="text" class="form-control" id="para-typev" size="60" maxlength="60" placeholder="如:A型">
 								    	</div>
 								    </div>								
 							    	<div class="col-xs-2">
 										<div class="input-group">
 								    		<div class="input-group-addon">领型</div>
-								    		<input type="text" class="form-control" size="60" maxlength="60" placeholder="如:高领">
+								    		<input type="text" class="form-control" id="para-colla" size="60" maxlength="60" placeholder="如:高领">
 								    	</div>
 								    </div>
 								</div>
@@ -872,25 +789,6 @@
 		</div>
 	</div>
 </main>
-<!--modal delete-->
-<div class="modal fade manudeleteproduct" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title text-center" id="gridSystemModalLabel2">警告</h4>
-			</div>
-			<div class="modal-body text-center">
-				<p>请确认是否删除ID为【<strong class="modalproductid"></strong>】的产品</p>
-				<div class="text-center mt50">
-					<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" id="confirmdelete">确认删除</button>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-------------------------------------------------------------------------------------------------------------------->
 	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
 		<p><a href="index.html"><img src="img/logo.png" width="80" alt="Logo"></a></p>
@@ -912,15 +810,14 @@
 	<script src="js/carousel.js"></script>
 	<script src="js/navbar.js"></script>
 	<script src="js/logout.js"></script>
+
+	<script src="admin/js/editProduct/editproductframe.js"></script>
+<!--	<script src="js/editProduct/editProduct.js"></script>-->
+
+	<script src="admin/js/editProduct/generateeditproduct.js"></script>
 <!--
-	<script src="admin/js/productDisplay.js"></script>
-	<script src="admin/js/productAmount.js"></script>
--->
-	<script src="admin/js/editProduct/productDisplay.js"></script>
+	<script src="admin/js/customerPage.js"></script>-->
 
-	<script src="admin/js/addProduct/productAdd.js"></script>
-
-	<script src="js/jquery.tagsinput.js"></script>
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 	<script>
