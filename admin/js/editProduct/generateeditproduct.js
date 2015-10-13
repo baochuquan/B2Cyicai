@@ -52,10 +52,12 @@ $(document).ready(function(){
 			var $description 	= data[0]['decription'];
 			var $preprice 		= data[0]['pre_price'];
 			var $curprice 		= data[0]['cur_price'];
+			var $product_id 	= data[0]['product_id'];
 			$("#newproductname").val($namecontent);
 			$("#newproductinfo").val($description);
 			$("#newproductpreprice").val($preprice);
 			$("#newproductcurprice").val($curprice);
+			$("#productid").val($product_id);
 		});
 
 		//get editcolor.json
@@ -182,9 +184,15 @@ $(document).ready(function(){
 			$.each(data, function (index, imginfo){
 				var temp  = '';
 				temp = (imginfo['cover'] == 'Y') ? 'checked': '';
-				imgcontent += '<div class="radio"><label><input type="radio" name="imgselect" value="'+ imginfo['img_name'] +'" ' + temp + '><img src="img/productImg/' + imginfo['img_name'] + '" alt="' + imginfo['img_name'] + '" class="img-thumbnail"></label></div>';
+				imgcontent += '<div class="radio"><label><input type="radio" name="coverimg" value="'+ imginfo['img_name'] +'" ' + temp + '><img src="img/productImg/' + imginfo['img_name'] + '" alt="' + imginfo['img_name'] + '" title="' + imginfo['img_name'] + '" class="img-thumbnail"></label></div>';
 			});
-			$("#inputimg").html(imgcontent);
+			$("#inputimg .old").html(imgcontent);
+
+			imgcontent = imgcontent.replace(/coverimg/g, "deleteimg");
+			imgcontent = imgcontent.replace(/checked/g, "");
+			$("#outputimg .old").html(imgcontent);
+
+			$.getScript("admin/js/editProduct/setcover.js");
 		});
 	});
 });

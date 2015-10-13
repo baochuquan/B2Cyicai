@@ -45,8 +45,8 @@ else {
             //输出图片文件<img>标签
             //注：在一些系统src可能需要urlencode处理，发现图片无法显示，
             //    请尝试 urlencode($gb_filename) 或 urlencode($filename)，不行请查看HTML中显示的src并酌情解决。
-            $output .= "<div class='radio'><label><input type='radio' name='imgselect' value='{$filename}'><img src='img/productImg/{$filename}' alt='{$filename}' class='img-thumbnail'></label></div>";
-            //$output .= "<img src='img/productImg/{$filename}' title='{$filename}' alt='{$filename}' width='400px' height='100%' class='img-thumbnail'/>";
+            $output .= "<div class='radio'><label><input type='radio' name='coverimg' value='{$filename}'><img src='img/productImg/{$filename}' alt='{$filename}' title='{$filename}' class='img-thumbnail'></label></div>";
+            //$output .= "<img src='img/productImg/{$filename}' title='{$filename}' alt='{$filename}' class='img-thumbnail'/>";
         }else {
             $output .= "上传失败!请检查文件大小或文件格式";
         }     

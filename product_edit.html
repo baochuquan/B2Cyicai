@@ -114,6 +114,7 @@
 				<div class="container">
 					<div class="jumbotron mt20">	
 						<h2 id="addproducttitle" class="text-center"><small>产品编辑</small></h2>
+						<h2 id="productid" style="display:none"></h2>
 						<form id="addproductform" class="form-horizontal mt20" action="#" method="post">
 							<!--new product name-->
 						  	<div class="form-group has-feedback">
@@ -773,28 +774,37 @@
 							  		<fieldset>
 										<legend><h6><small>请选择小于<strong style="color:#cc0000">2MB</strong>的JPEG、PNG、GIF、JPG格式的图片上传，可上传多个</small></h6></legend>
 										<input type="file" multiple="multiple" id="newproductimg" name="upload"/>
-										<hr></hr>
+										<span><h6><small><strong>已选中的图片为默认封面</strong></small></h6></span>
 										<button type="button" id="coverselect" class="btn btn-warning btn-sm">选择并设置为封面</button>
-										<!--<button type="button" id="inputPictureSubmit" class="btn btn-primary btn-xs fr" style="display:inline-block">添加</button>-->
 									</fieldset>	
 									<div id="inputimg">
-<!--
-										<div class="radio">
-											<label>
-												<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-												<img src="img/productImg/IMG_4297.JPG" alt="img/productImg/IMG_4297.JPG" class="img-thumbnail">
-											</label>
+										<div class="new">
+
 										</div>
-										<div class="radio">
-											<label>
-												<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-												<img src="img/productImg/IMG_4326.JPG" alt="img/productImg/IMG_4326.JPG" class="img-thumbnail">
-											</label>
+										<div class="old">
+
 										</div>
--->
 									</div>				
 								</div>
 						  	</div>
+						  	<hr></hr>
+						  	<div class="form-group has-feedback">
+								<label for="deletePicture" class="col-xs-4 control-label">删除图片</label>
+							  	<div class="col-xs-4">	
+							  		<fieldset>
+										<legend><h6><small>选中相应图片并点击“删除图片”可删除图片</small></h6></legend>
+										<button type="button" id="deleteselect" class="btn btn-warning btn-sm">删除图片</button>
+									</fieldset>
+									<div id="outputimg">
+										<div class="new">
+
+										</div>
+										<div class="old">
+
+										</div>
+									</div>
+							  	</div>
+							 </div>
 						  	<div class="col-xs-offset-4 col-xs-2">
 						 		<button type="button" id="allsubmit" class="btn btn-success">保存</button>
 					 		</div>

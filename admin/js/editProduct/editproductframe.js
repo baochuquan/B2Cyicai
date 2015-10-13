@@ -209,14 +209,24 @@ $(function(){
 			contentType:false,
 			processData:false,
 			success:function(data) {
-				alert(data);
 				data = $(data).html();
-				alert(data);
 				//data = '<div class="radio">' + data + '</div>';
+				//var output1 = "<div class='radio'><label><input type='radio' name='imgselect' value='{$filename}'>'" + data + "</label></div>";
+				//var output2 = ""
+
 				if($("#inputimg img").length == 0)
-					$("#inputimg").append(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+					$("#inputimg .new").append(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
 				else
-					$("#inputimg").prepend(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+					$("#inputimg .new").prepend(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+				
+				data = data.replace(/coverimg/g, "deleteimg");
+				if($("#outputimg img").length == 0)
+					
+					$("#outputimg .new").append(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+				else
+					$("#outputimg .new").prepend(data.replace(/&lt;/g,'<').replace(/&gt;/g,'>'));
+
+				//$.getScript("admin/js/editProduct/setcover.js");
 			},
 			error:function(){
 				alert('上传出错.');
