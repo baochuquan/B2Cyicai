@@ -55,45 +55,48 @@ else {
 		$tagarray   = explode('/', $save['newproducttag']);
 
 		//add color 
-		for ($i=0; $i < count($colorarray); $i++) { 
-			$q = "SELECT color_name FROM color WHERE color_name='" . $colorarray[$i] . "' LIMIT 1";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0) {// if not exist this color
-				//the color name does not exist then insert into color
-				$q = "INSERT INTO color (color_name) VALUES ('" . $colorarray[$i] . "')";
+		if(!empty($colorarray)){
+			for ($i=0; $i < count($colorarray); $i++) { 
+				$q = "SELECT color_name FROM color WHERE color_name='" . $colorarray[$i] . "' LIMIT 1";
 				$r = mysqli_query($dbc, $q);
-			}
-			// get color id
-			$q = "SELECT color_id FROM color WHERE color_name='" . $colorarray[$i] . "' LIMIT 1";
-			$r = mysqli_query($dbc, $q);
-			$color_id = mysqli_fetch_array($r, MYSQLI_NUM);
-
-			$q = "INSERT INTO product_color (product_id, color_id) VALUES ({$product_id['0']},{$color_id['0']})";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0)
-				$flag = "Failed";
-		}	
-
-		//add tag 
-		for ($i=0; $i < count($tagarray); $i++) { 
-			$q = "SELECT tag_name FROM tags WHERE tag_name='" . $tagarray[$i] . "' LIMIT 1";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0) {// if not exist this size
-				//the size name does not exist then insert into size
-				$q = "INSERT INTO tags (tag_name) VALUES ('" . $tagarray[$i] . "')";
+				if (mysqli_affected_rows($dbc) == 0) {// if not exist this color
+					//the color name does not exist then insert into color
+					$q = "INSERT INTO color (color_name) VALUES ('" . $colorarray[$i] . "')";
+					$r = mysqli_query($dbc, $q);
+				}
+				// get color id
+				$q = "SELECT color_id FROM color WHERE color_name='" . $colorarray[$i] . "' LIMIT 1";
 				$r = mysqli_query($dbc, $q);
-			}
-			// get color id
-			$q = "SELECT tag_id FROM tags WHERE tag_name='" . $tagarray[$i] . "' LIMIT 1";
-			$r = mysqli_query($dbc, $q);
-			$tag_id = mysqli_fetch_array($r, MYSQLI_NUM);
+				$color_id = mysqli_fetch_array($r, MYSQLI_NUM);
 
-			$q = "INSERT INTO product_tag (product_id, tag_id) VALUES ({$product_id['0']},{$tag_id['0']})";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0)
-				$flag = "Failed";
+				$q = "INSERT INTO product_color (product_id, color_id) VALUES ({$product_id['0']},{$color_id['0']})";
+				$r = mysqli_query($dbc, $q);
+				if (mysqli_affected_rows($dbc) == 0)
+					$flag = "Failed";
+			}	
 		}
 
+		//add tag 
+		if(!empty($tagarray)){
+			for ($i=0; $i < count($tagarray); $i++) { 
+				$q = "SELECT tag_name FROM tags WHERE tag_name='" . $tagarray[$i] . "' LIMIT 1";
+				$r = mysqli_query($dbc, $q);
+				if (mysqli_affected_rows($dbc) == 0) {// if not exist this size
+					//the size name does not exist then insert into size
+					$q = "INSERT INTO tags (tag_name) VALUES ('" . $tagarray[$i] . "')";
+					$r = mysqli_query($dbc, $q);
+				}
+				// get color id
+				$q = "SELECT tag_id FROM tags WHERE tag_name='" . $tagarray[$i] . "' LIMIT 1";
+				$r = mysqli_query($dbc, $q);
+				$tag_id = mysqli_fetch_array($r, MYSQLI_NUM);
+
+				$q = "INSERT INTO product_tag (product_id, tag_id) VALUES ({$product_id['0']},{$tag_id['0']})";
+				$r = mysqli_query($dbc, $q);
+				if (mysqli_affected_rows($dbc) == 0)
+					$flag = "Failed";
+			}
+		}
 		//add parameter
 		$q = "INSERT INTO parameter (product_id, style, material, sleeve_style, type_version, component, collar) VALUES ({$product_id['0']}, '{$save['style']}', '{$save['material']}', '{$save['sleeve_style']}', '{$save['type_version']}', '{$save['component']}', '{$save['collar']}')";
 		$r = mysqli_query($dbc, $q);
@@ -116,10 +119,10 @@ else {
 				$q .= mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['collar']) . ")";
 				$r = @mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));			
 				if (mysqli_affected_rows($dbc) == 0)
-					$flag = "Failed";
+					$flag = "Failed1";
 			}
 		}
-		else {
+		if($save['type'] == 'N'){
 			for ($i=0; $i < count($_POST['newproductsizedetail']); $i++) { 
 				$q = "INSERT INTO size_detail (product_id, type, waist, buttocks, leg, shank, trous_len, size_name, sex) VALUES ({$product_id['0']},";
 				$q .= "'" . mysqli_real_escape_string ($dbc, $_POST['newproductsizedetail'][$i]['type']) . "',";
@@ -137,18 +140,18 @@ else {
 		}
 
 		// add imges 
-		for ($i=0; $i < count($_POST['newproductimg']); $i++) { 
-			$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "',{$product_id['0']}, NOW())";
-			$r = mysqli_query($dbc, $q);
-			if (mysqli_affected_rows($dbc) == 0)
-				$flag = "Failed";
+		if(!empty($_POST['newproductimg'])){
+			for ($i=0; $i < count($_POST['newproductimg']); $i++) { 
+				$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['newproductimg'][$i]) . "',{$product_id['0']}, NOW())";
+				$r = mysqli_query($dbc, $q);
+				if (mysqli_affected_rows($dbc) == 0)
+					$flag = "Failed";
+			}
 		}
 		// set cover 
 		$q = "UPDATE imges SET cover=1 WHERE product_id={$product_id['0']} ORDER BY add_date LIMIT 1";
 		$r = mysqli_query($dbc, $q);
 
-		if (mysqli_affected_rows($dbc) == 0)
-			$flag = "Failed";
 		echo $flag;
 		mysqli_close($dbc);
 	}

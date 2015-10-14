@@ -193,6 +193,7 @@ $(document).ready(function(){
 			$("#outputimg .old").html(imgcontent);
 
 			$.getScript("admin/js/editProduct/setcover.js");
+			$.getScript("admin/js/editProduct/deleteimg.js");
 		});
 	});
 });

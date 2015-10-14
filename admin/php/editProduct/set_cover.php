@@ -27,7 +27,7 @@ else {
 
 			// add imges 
 			for ($i=0; $i < count($_POST['img_name']); $i++) { 
-				$q = "INSERT INTO imges (img_name, producxt_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['img_name'][$i]) . "',{$_POST['product_id']}, NOW())";
+				$q = "INSERT INTO imges (img_name, product_id, add_date) VALUES ('" . mysqli_real_escape_string ($dbc, $_POST['img_name'][$i]) . "',{$_POST['product_id']}, NOW())";
 				$r = mysqli_query($dbc, $q);
 				if (mysqli_affected_rows($dbc) == 0)
 					$flag = "Failed";
@@ -43,7 +43,7 @@ else {
 			// all img cover set to 'N'
 			$q = "UPDATE imges SET cover='N' WHERE cover='Y' AND product_id={$_POST['product_id']} LIMIT 1";
 			$r = mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
-			
+
 			// set new cover
 			$q = "UPDATE imges SET cover='Y' WHERE img_name='{$_POST['checked']}' AND product_id={$_POST['product_id']} LIMIT 1";
 			$r = mysqli_query($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));

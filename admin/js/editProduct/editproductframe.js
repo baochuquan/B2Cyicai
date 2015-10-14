@@ -253,7 +253,7 @@ $(function(){
 		}
 		// get array for img name
 		var $imgname = new Array();
-		$('#inputimg img').each(function(){
+		$('#inputimg .new img').each(function(){
 			$imgname.push($(this).attr("title"));
 		});
 		//alert("imgname: "+$imgname[0]+$imgname[1]);
@@ -271,6 +271,7 @@ $(function(){
 			}		
 		}
 		$.post("admin/php/editProduct/add_product.php", {
+				product_id:$("#productid").val(),
 				newproductname:$('#newproductname').val(),
 				newproductpreprice:$('#newproductpreprice').val(),
 				newproductcurprice:$('#newproductcurprice').val(),
@@ -291,6 +292,7 @@ $(function(){
 				newproductinfo:$('#newproductinfo').val()
 			}, 
 			function (data, status){
+				alert(data);
 				if(data == 'Success'){
 					$("#addproductform").hide();
 					$("#addproducttitle small").text("编辑成功");
