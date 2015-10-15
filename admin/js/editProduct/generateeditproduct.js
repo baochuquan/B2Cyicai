@@ -44,8 +44,8 @@ $(document).ready(function(){
 	})(jQuery);
 
 	$.post("admin/php/editProduct/get_each_product.php", { product_id:$.getUrlPara("product_id") }, function (dataa, textStatus){
-		
 		// get editbase.json
+
 		$.getScript("admin/json/editbase.json",function (data){
 			data = JSON.parse(data);
 			var $namecontent 	= data[0]['product_name'];
@@ -63,38 +63,41 @@ $(document).ready(function(){
 		//get editcolor.json
 		$.getScript("admin/json/editcolor.json",function (data){
 			data = JSON.parse(data);
-
-			var $colorcontent = '';
-			$.each(data, function (index, colorinfo){
-				if(index == 0){
-					$colorcontent += colorinfo['color_name'];
-				}
-				else {
-					$colorcontent += "/" + colorinfo['color_name'];
-				}
-			});
-			$("#newproductcolor").val($colorcontent);
+			if(data[0]['product_id'] == $.getUrlPara("product_id")){
+				var $colorcontent = '';
+				$.each(data, function (index, colorinfo){
+					if(index == 0){
+						$colorcontent += colorinfo['color_name'];
+					}
+					else {
+						$colorcontent += "/" + colorinfo['color_name'];
+					}
+				});
+				$("#newproductcolor").val($colorcontent);
+			}
 		});
 
 		//get edittag.json
 		$.getScript("admin/json/edittag.json",function (data){
 			data = JSON.parse(data);
-
-			var $tagcontent = '';
-			$.each(data, function (index, taginfo){
-				if(index == 0){
-					$tagcontent += taginfo['tag_name'];
-				}
-				else {
-					$tagcontent += "/" + taginfo['tag_name'];
-				}
-			});
-			$("#newproducttag").val($tagcontent);
+			if(data[0]['product_id'] == $.getUrlPara("product_id")){
+				var $tagcontent = '';
+				$.each(data, function (index, taginfo){
+					if(index == 0){
+						$tagcontent += taginfo['tag_name'];
+					}
+					else {
+						$tagcontent += "/" + taginfo['tag_name'];
+					}
+				});
+				$("#newproducttag").val($tagcontent);
+			}
 		});
 
 		//get editparameter.json
 		$.getScript("admin/json/editparameter.json",function (data){
 			data = JSON.parse(data);	
+
 			var style 			= data[0]['style'];
 			var material 		= data[0]['material'];
 			var sleeve_style 	= data[0]['sleeve_style'];
@@ -112,74 +115,77 @@ $(document).ready(function(){
 		//get editdetail.json
 		$.getScript("admin/json/editdetail.json",function (data){
 			data = JSON.parse(data);
-			
-			$.each(data, function (index, detailinfo){
-				switch(detailinfo['size_name']){
-					case 'S':
-						$(".S").addClass("show");
-						$(".S").addClass("yes");
-						$("#CheckboxS").attr("checked","selected");
-						break;
-					case 'M':
-						$(".M").addClass("show");
-						$(".M").addClass("yes");
-						$("#CheckboxM").attr("checked","checked");
-						break;
-					case 'L':
-						$(".L").addClass("show");
-						$(".L").addClass("yes");
-						$("#CheckboxL").attr("checked","checked");
-						break;
-					case 'XL':
-						$(".XL").addClass("show");
-						$(".XL").addClass("yes");
-						$("#CheckboxXL").attr("checked","checked");
-						break;
-					case 'XXL':
-						$(".XXL").addClass("show");
-						$(".XXL").addClass("yes");
-						$("#CheckboxXXL").attr("checked","checked");
-						break;
-					case 'XXXL':
-						$(".XXXL").addClass("show");
-						$(".XXXL").addClass("yes");
-						$("#CheckboxXXXL").attr("checked","checked");	
-						break;
-				}
-			});
-			if(data[0]['sex'] == "M")
-				$("#feature1 option").eq(0).attr("selected","selected");
-			else 
-				$("#feature1 option").eq(1).attr("selected","selected");
-			if(data[0]['type'] == "Y"){
-				$("#feature2 option").eq(0).attr("selected","selected");
-				$(".down").removeClass("show");
-			}
-			else {
-				$("#feature2 option").eq(1).attr("selected","selected");
-				$(".up").removeClass("show");
-			}
-			$.each(data, function (index, detailinfo){
+
+			if(data[0]['product_id'] == $.getUrlPara("product_id")){
+				$.each(data, function (index, detailinfo){
+					switch(detailinfo['size_name']){
+						case 'S':
+							$(".S").addClass("show");
+							$(".S").addClass("yes");
+							$("#CheckboxS").attr("checked","selected");
+							break;
+						case 'M':
+							$(".M").addClass("show");
+							$(".M").addClass("yes");
+							$("#CheckboxM").attr("checked","checked");
+							break;
+						case 'L':
+							$(".L").addClass("show");
+							$(".L").addClass("yes");
+							$("#CheckboxL").attr("checked","checked");
+							break;
+						case 'XL':
+							$(".XL").addClass("show");
+							$(".XL").addClass("yes");
+							$("#CheckboxXL").attr("checked","checked");
+							break;
+						case 'XXL':
+							$(".XXL").addClass("show");
+							$(".XXL").addClass("yes");
+							$("#CheckboxXXL").attr("checked","checked");
+							break;
+						case 'XXXL':
+							$(".XXXL").addClass("show");
+							$(".XXXL").addClass("yes");
+							$("#CheckboxXXXL").attr("checked","checked");	
+							break;
+					}
+				});
+				if(data[0]['sex'] == "M")
+					$("#feature1 option").eq(0).attr("selected","selected");
+				else 
+					$("#feature1 option").eq(1).attr("selected","selected");
 				if(data[0]['type'] == "Y"){
-					$(".size-group.show").eq(index).find(":input").eq(0).val(detailinfo['shoulder']);
-					$(".size-group.show").eq(index).find(":input").eq(1).val(detailinfo['breast']);
-					$(".size-group.show").eq(index).find(":input").eq(2).val(detailinfo['sleeve']);
-					$(".size-group.show").eq(index).find(":input").eq(3).val(detailinfo['cloth_len']);
-					$(".size-group.show").eq(index).find(":input").eq(4).val(detailinfo['waist']);
-					$(".size-group.show").eq(index).find(":input").eq(5).val(detailinfo['collar']);
+					$("#feature2 option").eq(0).attr("selected","selected");
+					$(".down").removeClass("show");
 				}
-				else{
-					$(".size-group.show").eq(index).find(":input").eq(0).val(detailinfo['waist']);
-					$(".size-group.show").eq(index).find(":input").eq(1).val(detailinfo['buttocks']);
-					$(".size-group.show").eq(index).find(":input").eq(2).val(detailinfo['leg']);
-					$(".size-group.show").eq(index).find(":input").eq(3).val(detailinfo['shank']);
-					$(".size-group.show").eq(index).find(":input").eq(4).val(detailinfo['trous_len']);
+				else {
+					$("#feature2 option").eq(1).attr("selected","selected");
+					$(".up").removeClass("show");
 				}
-			});	
+				$.each(data, function (index, detailinfo){
+					if(data[0]['type'] == "Y"){
+						$(".size-group.show").eq(index).find(":input").eq(0).val(detailinfo['shoulder']);
+						$(".size-group.show").eq(index).find(":input").eq(1).val(detailinfo['breast']);
+						$(".size-group.show").eq(index).find(":input").eq(2).val(detailinfo['sleeve']);
+						$(".size-group.show").eq(index).find(":input").eq(3).val(detailinfo['cloth_len']);
+						$(".size-group.show").eq(index).find(":input").eq(4).val(detailinfo['waist']);
+						$(".size-group.show").eq(index).find(":input").eq(5).val(detailinfo['collar']);
+					}
+					else{
+						$(".size-group.show").eq(index).find(":input").eq(0).val(detailinfo['waist']);
+						$(".size-group.show").eq(index).find(":input").eq(1).val(detailinfo['buttocks']);
+						$(".size-group.show").eq(index).find(":input").eq(2).val(detailinfo['leg']);
+						$(".size-group.show").eq(index).find(":input").eq(3).val(detailinfo['shank']);
+						$(".size-group.show").eq(index).find(":input").eq(4).val(detailinfo['trous_len']);
+					}
+				});	
+			}
 		});
 		//get editimg.json
 		$.getScript("admin/json/editimg.json",function (data){
 			data = JSON.parse(data);
+
 			var imgcontent = '';
 			$.each(data, function (index, imginfo){
 				var temp  = '';

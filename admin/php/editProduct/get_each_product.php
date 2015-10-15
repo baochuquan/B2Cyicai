@@ -54,12 +54,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	}
 
 	// to write editcolor.json
-	$q = "SELECT color_id, color_name FROM product_color LEFT JOIN color USING(color_id) WHERE product_id={$save['product_id']}";
+	$q = "SELECT product_id, color_id, color_name FROM product_color LEFT JOIN color USING(color_id) WHERE product_id={$save['product_id']}";
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (mysqli_num_rows($r) != 0) { // user exist
 		$colorcontent = '[';
 		while($eachcolor = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			$colorcontent .= '{"color_name":"' . $eachcolor['color_name'] . '","color_id":' . $eachcolor['color_id'] . '},';
+			$colorcontent .= '{"product_id":' . $eachcolor['product_id'] . ',"color_name":"' . $eachcolor['color_name'] . '","color_id":' . $eachcolor['color_id'] . '},';
 		}
 		$colorcontent = substr($colorcontent, 0, strlen($colorcontent)-1);
 		$colorcontent .= ']';
@@ -70,12 +70,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	}
 
 	// to write edittag.json
-	$q = "SELECT tag_id, tag_name FROM product_tag LEFT JOIN tags USING(tag_id) WHERE product_id={$save['product_id']}";
+	$q = "SELECT product_id, tag_id, tag_name FROM product_tag LEFT JOIN tags USING(tag_id) WHERE product_id={$save['product_id']}";
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	if (mysqli_num_rows($r) != 0) { // user exist
 		$tagcontent = '[';
 		while($eachtag = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
-			$tagcontent .= '{"tag_name":"' . $eachtag['tag_name'] . '","tag_id":' . $eachtag['tag_id'] . '},';
+			$tagcontent .= '{"product_id":' . $eachtag['product_id'] . ',"tag_name":"' . $eachtag['tag_name'] . '","tag_id":' . $eachtag['tag_id'] . '},';
 		}
 		$tagcontent = substr($tagcontent, 0, strlen($tagcontent)-1);
 		$tagcontent .= ']';
