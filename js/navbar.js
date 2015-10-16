@@ -5,7 +5,7 @@
 $(function(){
 	var COOKIE_NAME = 'username';
 	var COOKIE_LEVEL = 'userlevel';
-	if($.cookie(COOKIE_NAME) != ""){
+	if($.cookie(COOKIE_NAME) && $.cookie(COOKIE_LEVEL) && $.cookie(COOKIE_NAME) != "" && ($.cookie(COOKIE_LEVEL)== 0 || $.cookie(COOKIE_LEVEL) == 1) ){
 		var content = '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon fa fa-user fa-lg"></i> ';
 		content += $.cookie(COOKIE_NAME);
 		content += '<span class="caret"></span></a>';
