@@ -43,67 +43,119 @@ $(document).ready(function(){
 			return null;
 		}
 	})(jQuery);
+	var PRODUCT_ID = $.getUrlPara("product_id");
 
-	$.post("php/get_each_product.php", { product_id:$.getUrlPara("product_id") }, function (dataa, textStatus){
+	$.post("php/get_each_product.php", { product_id:PRODUCT_ID }, function (dataa, textStatus){
 		// get productbase.json
 		
 		$.getScript("json/productbase.json",function (data){
 			data = JSON.parse(data);
 			
-			$("#productname").empty();
-			$("#productdescription").empty();
-			$("#preprice").empty();
-			$("#curprice").empty();
-			var namecontent = '';	
-			var description = '';
-			var preprice = '';
-			var curprice = '';
-			$.each(data, function (index, baseinfo){
-				namecontent = '<h4>' + baseinfo['product_name'] + '</h4>';
-				description = '<p>' + baseinfo['decription'] + '</p>';
-				preprice = '￥' + baseinfo['pre_price']
-				curprice = '<strong>￥' + baseinfo['cur_price'] + '</strong>';;
-			});
-			$("#productname").append(namecontent);
-			$("#productdescription").append(description);
-			$("#preprice").append(preprice);
-			$("#curprice").append(curprice);
+			if(data[0]['product_id'] == PRODUCT_ID){
+				$("#productname").empty();
+				$("#productdescription").empty();
+				$("#preprice").empty();
+				$("#curprice").empty();
+				var namecontent = '';	
+				var description = '';
+				var preprice = '';
+				var curprice = '';
+				$.each(data, function (index, baseinfo){
+					namecontent = '<h4>' + baseinfo['product_name'] + '</h4>';
+					description = '<p>' + baseinfo['decription'] + '</p>';
+					preprice = '￥' + baseinfo['pre_price']
+					curprice = '<strong>￥' + baseinfo['cur_price'] + '</strong>';;
+				});
+				$("#productname").append(namecontent);
+				$("#productdescription").append(description);
+				$("#preprice").append(preprice);
+				$("#curprice").append(curprice);
+			}
 		});
 
 		//get productcolor.json
 		$.getScript("json/productcolor.json",function (data){
 			data = JSON.parse(data);
 
-			$("productcolor").empty();
-			var colorcontent = '';
-			$.each(data, function (index, colorinfo){
-				if(index == 0){
-					colorcontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ colorinfo['color_id'] +'" checked="checked">'+ colorinfo['color_name'] +'</label>';
-				}
-				else {
-					colorcontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ colorinfo['color_id'] +'">'+ colorinfo['color_name'] +'</label>';
-				}
-			});
-			$("#productcolor").append(colorcontent);
+			if(data[0]['product_id'] == PRODUCT_ID){
+				$("#productcolor").empty();
+				var colorcontent = '';
+				$.each(data, function (index, colorinfo){
+					if(index == 0){
+						colorcontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ colorinfo['color_id'] +'" checked="checked">'+ colorinfo['color_name'] +'</label>';
+					}
+					else {
+						colorcontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ colorinfo['color_id'] +'">'+ colorinfo['color_name'] +'</label>';
+					}
+				});
+				$("#productcolor").append(colorcontent);
+			}
+			else {
+				//重定向
+			}
 		});
 
-		//get productsize.json
-		/*
-		$.getScript("json/productsize.json",function (data){
+		//get productparameter.json
+		$.getScript("json/productparameter.json",function (data){
 			data = JSON.parse(data);
 
-			$("productsize").empty();
-			var sizecontent = '';
-			$.each(data, function (index, sizeinfo){
-				if(index == 0){
-					sizecontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ sizeinfo['size_id'] +'" checked="checked">'+ sizeinfo['size_name'] +'</label>';
-				}
-				else {
-					sizecontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ sizeinfo['size_id'] +'">'+ sizeinfo['size_name'] +'</label>';
-				}
-			});
-			$("#productsize").append(sizecontent);
+			if(data[0]['product_id'] == PRODUCT_ID){
+				$("#productparameter span").empty();
+				
+				$("#productparameter span.style").text(data[0]['style']);
+				$("#productparameter span.material").text(data[0]['material']);
+				$("#productparameter span.component").text(data[0]['component']);
+				$("#productparameter span.sleeve_style").text(data[0]['sleeve_style']);
+				$("#productparameter span.type_version").text(data[0]['type_version']);
+				$("#productparameter span.collar").text(data[0]['collar']);
+			}
 		});
-*/
+
+		//get productdetail.json
+		
+		$.getScript("json/productdetail.json",function (data){
+			data = JSON.parse(data);
+
+			if(data[0]['product_id'] == PRODUCT_ID){
+				
+				$("#productdetail").empty();
+
+				var detailcontent = '';
+				$.each(data, function (index, detailinfo){
+					if(index == 0){
+						detailcontent += '<div class="radio"><label><input type="radio" name="optionsRadios" value="'+detailinfo['size_name']+'" checked>';
+					}
+					else {
+						detailcontent += '<div class="radio"><label><input type="radio" name="optionsRadios" value="'+detailinfo['size_name']+'">';
+					}
+					// cloth
+					if (detailinfo['type'] == 'Y') {
+						detailcontent +='<div><span class="pr20"><strong>尺码:'+detailinfo['size_name']+'</strong></span><span class="pr20"><strong>尺码:身高<strong></span></div>';
+
+						detailcontent +='<div class="row"><div class="col-xs-6"><span class="text-muted pr5"><small>肩宽:'+detailinfo['shoulder']+'</small></span></div>';
+						detailcontent +='<div class="col-xs-6"><span class="text-muted pr5"><small>袖长:'+detailinfo['sleeve']+'</small></span></div></div>';
+
+						detailcontent +='<div class="row"><div class="col-xs-6"><span class="text-muted pr5"><small>衣长:'+detailinfo['cloth_len']+'</small></span></div>';
+						detailcontent +='<div class="col-xs-6"><span class="text-muted pr5"><small>胸围:'+detailinfo['breast']+'</small></span></div></div>';
+
+						detailcontent +='<div class="row"><div class="col-xs-6"><span class="text-muted pr5"><small>腰围:'+detailinfo['waist']+'</small></span></div>';
+						detailcontent +='<div class="col-xs-6"><span class="text-muted pr5"><small>领围:'+detailinfo['collar']+'</small></span></div></div></label></div>';
+					}
+					// trousers
+					if (detailinfo['type'] == 'N') {
+						detailcontent +='<div><span class="pr20"><strong>尺码:'+detailinfo['size_name']+'</strong></span><span class="pr20"><strong>尺码:身高<strong></span></div>';
+
+						detailcontent +='<div class="row"><div class="col-xs-4"><small class="text-muted pr5">腰围:'+detailinfo['waist']+'</small></div>';
+						detailcontent +='<div class="col-xs-4"><small class="text-muted pr5">臀围:'+detailinfo['buttocks']+'</small></div>';
+						detailcontent +='<div class="col-xs-4"><small class="text-muted pr5">裤长:'+detailinfo['trous_len']+'</small></div></div>';
+
+						detailcontent +='<div class="row"><div class="col-xs-6"><small class="text-muted pr5">小腿围:'+detailinfo['shank']+'</small></div>';
+						detailcontent +='<div class="col-xs-6"><small class="text-muted pr5">大腿围:'+detailinfo['leg']+'</small></div></div>';
+						detailcontent +='<div class="row"><div class="col-xs-12"><small class="text-muted pr5">裤长:'+detailinfo['trous_len']+'</small></div></div></label></div>';
+					}
+				});
+				$("#productdetail").append(detailcontent);	
+			}
+		});
 	});
 });

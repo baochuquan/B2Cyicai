@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	require (MYSQL);
 
 	// Need the database connection:
-	$q = "SELECT product_id, product_name, decription, img_name FROM products LEFT JOIN imges USING(product_id) GROUP BY product_id";
+	$q = "SELECT product_id, product_name, decription, img_name FROM products LEFT JOIN imges USING(product_id) WHERE cover='Y' GROUP BY product_id";
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 	$productscontent = '[';
