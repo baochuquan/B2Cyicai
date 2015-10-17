@@ -54,7 +54,7 @@ else {
 		$tagarray   = explode('/', $save['newproducttag']);
 
 		//add color 
-		if(($_POST['newproductcolor'] != '') && (trim($_POST['newproducttag'] != '') && !empty($colorarray)){
+		if(($_POST['newproductcolor'] != '') && !empty($colorarray)){
 			for ($i=0; $i < count($colorarray); $i++) { 
 				$q = "SELECT color_name FROM color WHERE color_name='" . $colorarray[$i] . "' LIMIT 1";
 				$r = mysqli_query($dbc, $q);
@@ -76,7 +76,7 @@ else {
 		}
 
 		//add tag 
-		if(($_POST['newproducttag'] != '') && (trim($_POST['newproducttag'] != '') && !empty($tagarray)){
+		if(($_POST['newproducttag'] != '') && !empty($tagarray)){
 			for ($i=0; $i < count($tagarray); $i++) { 
 				$q = "SELECT tag_name FROM tags WHERE tag_name='" . $tagarray[$i] . "' LIMIT 1";
 				$r = mysqli_query($dbc, $q);

@@ -130,28 +130,27 @@ $(document).ready(function(){
 					}
 					// cloth
 					if (detailinfo['type'] == 'Y') {
-						detailcontent +='<div><span class="pr20"><strong>尺码:'+detailinfo['size_name']+'</strong></span><span class="pr20"><strong>尺码:身高<strong></span></div>';
+						detailcontent +='<div><span class="pr20"><strong>尺码:'+detailinfo['size_name']+'</strong></span><span class="pr20"><strong></strong></span></div>';
 
-						detailcontent +='<div class="row"><div class="col-xs-6"><span class="text-muted pr5"><small>肩宽:'+detailinfo['shoulder']+'</small></span></div>';
-						detailcontent +='<div class="col-xs-6"><span class="text-muted pr5"><small>袖长:'+detailinfo['sleeve']+'</small></span></div></div>';
+						detailcontent +='<div class="row"><div class="col-xs-6 pl5 pr5"><span class="text-muted pr5"><small>肩宽:'+detailinfo['shoulder']+'</small></span></div>';
+						detailcontent +='<div class="col-xs-6 pl5 pr5"><span class="text-muted pr5"><small>袖长:'+detailinfo['sleeve']+'</small></span></div></div>';
 
-						detailcontent +='<div class="row"><div class="col-xs-6"><span class="text-muted pr5"><small>衣长:'+detailinfo['cloth_len']+'</small></span></div>';
-						detailcontent +='<div class="col-xs-6"><span class="text-muted pr5"><small>胸围:'+detailinfo['breast']+'</small></span></div></div>';
+						detailcontent +='<div class="row"><div class="col-xs-6 pl5 pr5"><span class="text-muted pr5"><small>衣长:'+detailinfo['cloth_len']+'</small></span></div>';
+						detailcontent +='<div class="col-xs-6 pl5 pr5"><span class="text-muted pr5"><small>胸围:'+detailinfo['breast']+'</small></span></div></div>';
 
-						detailcontent +='<div class="row"><div class="col-xs-6"><span class="text-muted pr5"><small>腰围:'+detailinfo['waist']+'</small></span></div>';
-						detailcontent +='<div class="col-xs-6"><span class="text-muted pr5"><small>领围:'+detailinfo['collar']+'</small></span></div></div></label></div>';
+						detailcontent +='<div class="row"><div class="col-xs-6 pl5 pr5"><span class="text-muted pr5"><small>腰围:'+detailinfo['waist']+'</small></span></div>';
+						detailcontent +='<div class="col-xs-6 pl5 pr5"><span class="text-muted pr5"><small>领围:'+detailinfo['collar']+'</small></span></div></div></label></div>';
 					}
 					// trousers
 					if (detailinfo['type'] == 'N') {
-						detailcontent +='<div><span class="pr20"><strong>尺码:'+detailinfo['size_name']+'</strong></span><span class="pr20"><strong>尺码:身高<strong></span></div>';
+						detailcontent +='<div><span class="pr20"><strong>尺码:'+detailinfo['size_name']+'</strong></span><span class="pr20"><strong>尺码:身高</strong></span></div>';
 
-						detailcontent +='<div class="row"><div class="col-xs-4"><small class="text-muted pr5">腰围:'+detailinfo['waist']+'</small></div>';
-						detailcontent +='<div class="col-xs-4"><small class="text-muted pr5">臀围:'+detailinfo['buttocks']+'</small></div>';
-						detailcontent +='<div class="col-xs-4"><small class="text-muted pr5">裤长:'+detailinfo['trous_len']+'</small></div></div>';
+						detailcontent +='<div class="row"><div class="col-xs-6 pl5 pr5"><small class="text-muted pr5">腰围:'+detailinfo['waist']+'</small></div>';
+						detailcontent +='<div class="col-xs-6 pl5 pr5"><small class="text-muted pr5">臀围:'+detailinfo['buttocks']+'</small></div></div>';
 
-						detailcontent +='<div class="row"><div class="col-xs-6"><small class="text-muted pr5">小腿围:'+detailinfo['shank']+'</small></div>';
-						detailcontent +='<div class="col-xs-6"><small class="text-muted pr5">大腿围:'+detailinfo['leg']+'</small></div></div>';
-						detailcontent +='<div class="row"><div class="col-xs-12"><small class="text-muted pr5">裤长:'+detailinfo['trous_len']+'</small></div></div></label></div>';
+						detailcontent +='<div class="row"><div class="col-xs-6 pl5 pr5"><small class="text-muted pr5">小腿围:'+detailinfo['shank']+'</small></div>';
+						detailcontent +='<div class="col-xs-6 pl5 pr5"><small class="text-muted pr5">大腿围:'+detailinfo['leg']+'</small></div></div>';
+						detailcontent +='<div class="row"><div class="col-xs-12 pl5 pr5"><small class="text-muted pr5">裤长:'+detailinfo['trous_len']+'</small></div></div></label></div>';
 					}
 				});
 				$("#productdetail").append(detailcontent);	

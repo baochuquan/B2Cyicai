@@ -260,7 +260,6 @@ $(function(){
 				$sizedetail.push({ waist:$($($temp)[0]).val(), buttocks:$($($temp)[1]).val(), leg:$($($temp)[2]).val(), shank:$($($temp)[3]).val(), trous_len:$($($temp)[4]).val(), size_name:$($(".checkbox:checked")[i]).val(), sex:$("#feature1").val(), type:$("#feature2").val()});	
 			}		
 		}
-
 		$.post("admin/php/addProduct/add_product.php", {
 				newproductname:$('#newproductname').val(),
 				newproductpreprice:$('#newproductpreprice').val(),

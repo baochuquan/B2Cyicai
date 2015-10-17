@@ -292,7 +292,6 @@ $(function(){
 				newproductinfo:$('#newproductinfo').val()
 			}, 
 			function (data, status){
-				alert(data);
 				if(data == 'Success'){
 					$("#addproductform").hide();
 					$("#addproducttitle small").text("编辑成功");
