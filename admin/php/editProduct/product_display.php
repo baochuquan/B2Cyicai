@@ -49,7 +49,7 @@ else {
 				}
 				echo 	'<tr>
 							<td>' . $eachproduct['product_id'] . '</td>
-							<td><a href="#">' . $eachproduct['product_name'] . '</a></td>
+							<td><a href="product.html?product_id=' . $eachproduct['product_id'] .'">' . $eachproduct['product_name'] . '</a></td>
 							<td>' . $eachproduct['pre_price'] . '</td>
 							<td>' . $eachproduct['cur_price'] . '</td>
 							<td>' . $eachproduct['sales'] . '</td>

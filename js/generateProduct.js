@@ -61,7 +61,7 @@ $(document).ready(function(){
 				var preprice = '';
 				var curprice = '';
 				$.each(data, function (index, baseinfo){
-					namecontent = '<h4>' + baseinfo['product_name'] + '</h4>';
+					namecontent = '<h4><strong>' + baseinfo['product_name'] + '</strong></h4>';
 					description = '<p>' + baseinfo['decription'] + '</p>';
 					preprice = '￥' + baseinfo['pre_price']
 					curprice = '<strong>￥' + baseinfo['cur_price'] + '</strong>';;
@@ -89,6 +89,28 @@ $(document).ready(function(){
 					}
 				});
 				$("#productcolor").append(colorcontent);
+			}
+			else {
+				//重定向
+			}
+		});
+
+		//get producttag.json
+		$.getScript("json/producttag.json",function (data){
+			data = JSON.parse(data);
+
+			if(data[0]['product_id'] == PRODUCT_ID){
+				$("#producttag").empty();
+				var tagcontent = '';
+				$.each(data, function (index, taginfo){
+					if(index == 0){
+						tagcontent += taginfo['tag_name'];
+					}
+					else {
+						tagcontent += '/'+ taginfo['tag_name'];
+					}
+				});
+				$("#producttag").append(tagcontent);
 			}
 			else {
 				//重定向
@@ -154,6 +176,32 @@ $(document).ready(function(){
 					}
 				});
 				$("#productdetail").append(detailcontent);	
+			}
+		});
+
+		//get productimg.json
+		$.getScript("json/productimg.json", function (data){
+			data = JSON.parse(data);
+			if(data[0]['product_id'] == PRODUCT_ID){
+				$("#homepage-feature ol").empty();
+				$("#homepage-feature").children().eq(1).empty();
+				$.each(data, function (index, imginfo){
+
+					if(index == 0){
+						var content = '<li data-target="#homepage-feature" data-slide-to="' + index + '" class="active"></li>';
+						$("#homepage-feature ol").append(content);
+
+						content = '<div class="item active"><img src="img/productImg/'+imginfo['img_name']+'"></div>';
+						$("#homepage-feature").children().eq(1).append(content);
+					}
+					else {
+						var content = '<li data-target="#homepage-feature" data-slide-to="' + index + '"></li>';
+						$("#homepage-feature ol").append(content);
+
+						content = '<div class="item"><img src="img/productImg/'+imginfo['img_name']+'"></div>';
+						$("#homepage-feature").children().eq(1).append(content);
+					}
+				});
 			}
 		});
 	});
