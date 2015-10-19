@@ -10,7 +10,7 @@ $(document).ready(function() {
 		
 		//validate username
 		if( $(this).is('#username') ){
-			if( this.value == "" || this.value.length < 6 ) {
+			if( $(this).value == "" || this.value.length < 6 ) {
 				var errorMsg = "请输入至少6位的用户名.";
 				$parent.after('<div class="col-xs-2 alert alert-danger" role="alert"><span class="fa fa-exclamation-triangle" aria-hidden="true"></span><span>' + errorMsg + '</span></div>');
 			}

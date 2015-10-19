@@ -71,6 +71,10 @@ $(document).ready(function(){
 				$("#preprice").append(preprice);
 				$("#curprice").append(curprice);
 			}
+			else {
+				// redirect
+				window.location.assign('index.html');
+			}
 		});
 
 		//get productcolor.json
@@ -89,9 +93,6 @@ $(document).ready(function(){
 					}
 				});
 				$("#productcolor").append(colorcontent);
-			}
-			else {
-				//重定向
 			}
 		});
 
