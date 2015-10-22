@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>我的账户</title>
+    <title>我的购物车</title>
     <meta name="description" content="">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
@@ -109,61 +109,80 @@
 <!-------------------------------------------------------------------------------------------------------------------->
 <main role="main">
 	<div class="container">
-		<h4 class="page-header">购物车</h4>
-		<div class="row">
-			<div class="jumbotron ml20 mr20 text-center">
-				<p>您的购物车还是空的...</p>
-				<p>您可以<a class="btn btn-danger btn" href="#" role="button">继续购物</a></button></p>
+		<h4 class="page-header"><i class="fa fa-shopping-cart fa-lg"></i> 我的购物车</h4>
+		<div class="row emptycart">
+			<div class="col-xs-offset-2 col-xs-8">
+				<div class="jumbotron ml20 mr20 text-center">
+					<p>您的购物车还是空的...</p>
+					<p>您可以<a class="btn btn-danger btn" href="index.html" role="button">继续购物</a></button></p>
+				</div>
+			</div>
+		</div>
+		<div class="row notemptycart hidden">
+			<div class="col-xs-offset-2 col-xs-8">
+				<div class="well ml20 mr20">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-1">
+									<div class="checkbox margin-bottom-none margin-top-none" id="selectall">
+										<label>
+											<input type="checkbox" value="">全选
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-6 text-center">
+									<strong>商品</strong>
+								</div>
+								<div class="col-xs-1 text-center">
+									<strong>单价</strong>
+								</div>
+								<div class="col-xs-2 text-center">
+									<strong>数量</strong>
+								</div>
+								<div class="col-xs-1 text-center">
+									<strong>小计</strong>
+								</div>
+								<div class="col-xs-1 text-center">
+									<strong>操作</strong>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body pl2 pr2">
+							<div class="alert alert-warning mb20" role="alert">
+								<div class="row">
+									<div class="col-xs-1">
+										<div class="checkbox margin-bottom-none margin-top-none" id="selectall">
+											<label>
+												<input type="checkbox" value="">
+												<img src="img/admin/IMG_1838.JPG" alt="img/admin/IMG_1838.JPG" width="100px" height="100px" class="img-thumbnail" >
+											</label>
+										</div>
+									</div>
+									<!--
+									<div class="media">
+										<div class="media-left media-middle">
+											<a href="#">
+										 		<img class="media-object" src="img/admin/IMG_1838.JPG" alt="img/admin/IMG_1838.JPG" width="100px" height="100px">
+											</a>
+										</div>
+										<div class="media-body">
+											<h4 class="media-heading">Middle aligned media</h4>
+										</div>
+									</div>
+								-->
+								</div>
+							</div>
+							<div class="alert alert-warning mb20" role="alert">
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </main>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="addaddrtitle">
-  	<div class="modal-dialog" role="document">
-    	<div class="modal-content">
-      		<div class="modal-header">
-        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        		<h4 class="modal-title text-center" id="addaddrtitle">添加地址</h4>
-      		</div>
-	      	<div class="modal-body">
-				<form class="form-horizontal" id="addaddressform" action="#">
-  					<div class="form-group has-feedback">
-					 	<label for="receivername" class="col-xs-4 control-label">收件人姓名:</label>
-				    	<div class="col-xs-4">
-				      		<input type="text" class="form-control" id="receivername" placeholder="姓名"/>
-				      	</div>
-				  	</div>
-				 	<div class="form-group has-feedback">
-					    <label for="receiverphone" class="col-xs-4 control-label">收件人联系方式:</label>
-					    <div class="col-xs-4">
-					    	<input type="text" class="form-control" id="receiverphone" placeholder="手机号码"/>
-					    </div>
-					</div>
-					<div class="form-group has-feedback">
-					    <label for="receiveraddr" class="col-xs-4 control-label">收件人地址:</label>
-					    <div class="col-xs-5">
-					    	<textarea class="form-control" id="receiveraddr" rows="4" placeholder="详细地址"></textarea>
-					    </div>
-					</div>
-
-				  	<div class="form-group text-center">
-				  		<div class="checkbox">
-			        		<label>
-			          			<input type="checkbox" id="setdefault" value="Y" checked> 设置为默认地址
-			        		</label>
-			      		</div>
-				  	</div>
-				  	<div class="form-group text-center">
-				  		<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-    					<button type="button" class="btn btn-primary" id="addaddresssubmit">确定</button>	        	
-				  	</div>
-				</form>
-	      	</div>
-       	</div>
-  	</div>
-</div>
 <!-------------------------------------------------------------------------------------------------------------------->
 	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
 		<p><a href="index.html"><img src="img/logo.png" width="80" alt="Logo"></a></p>
@@ -195,7 +214,7 @@
 	<script src="js/address/showAddress.js"></script>
 	<script src="js/address/addAddress.js"></script>
 
-<!--	<script src="admin/js/customerPage.js"></script>-->
+	<script src="js/product/cartManage.js"></script>
 
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

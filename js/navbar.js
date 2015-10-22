@@ -14,8 +14,15 @@ $(function(){
 			content +=  '<li role="separator" class="divider"></li><li><a href="order_management.html">订单管理</a></li><li><a href="product_management.html">产品管理</a></li><li><a href="customer_management.html">客户管理</a></li><li role="separator" class="divider"></li>'
 		}
 		content += '<li><a id="logoutlink" href="#">退出账户</a></li></ul></li>'
-		content += '<li><a href="shoppingcart.html" title="view cart"><i class="icon fa fa-shopping-cart fa-lg"></i> 购物车</a></li>'
+		content += '<li><a href="shoppingcart.html" title="view cart"><i class="icon fa fa-shopping-cart fa-lg"></i> 购物车<span class="badge"></span></a></li>'
 		$("#cookiedeal li").hide();
 		$("#cookiedeal").append(content);
+
+		// shopping cart amount
+		$.post("php/product/getordernum.php",{user_id: $.cookie("user_id")},
+			function (data, status){
+				if(data != 0)
+					$(".badge").text(data);
+			});
 	}
 });

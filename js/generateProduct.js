@@ -61,10 +61,10 @@ $(document).ready(function(){
 				var preprice = '';
 				var curprice = '';
 				$.each(data, function (index, baseinfo){
-					namecontent = '<h4><strong>' + baseinfo['product_name'] + '</strong></h4>';
+					namecontent = '<h3 class="hidden">'+baseinfo['product_id']+'</h3><h4><strong>' + baseinfo['product_name'] + '</strong></h4>';
 					description = '<p>' + baseinfo['decription'] + '</p>';
-					preprice = '￥' + baseinfo['pre_price']
-					curprice = '<strong>￥' + baseinfo['cur_price'] + '</strong>';;
+					preprice = baseinfo['pre_price']
+					curprice = '<strong>' + baseinfo['cur_price'] + '</strong>';;
 				});
 				$("#productname").append(namecontent);
 				$("#productdescription").append(description);
@@ -206,4 +206,5 @@ $(document).ready(function(){
 			}
 		});
 	});
+	$.getScript("js/product/addToCart.js");
 });
