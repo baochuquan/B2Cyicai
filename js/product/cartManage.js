@@ -13,20 +13,25 @@ $(function(){
 				$(".emptycart").addClass("hidden");
 				$(".notemptycart").removeClass("hidden");
 
-				
-				/*
-				$("#productcolor").empty();
-				var colorcontent = '';
-				$.each(data, function (index, colorinfo){
-					if(index == 0){
-						colorcontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ colorinfo['color_id'] +'" checked="checked">'+ colorinfo['color_name'] +'</label>';
-					}
-					else {
-						colorcontent += '<label class="radio-inline"><input type="radio" name="inlineRadioOptions" value="'+ colorinfo['color_id'] +'">'+ colorinfo['color_name'] +'</label>';
-					}
+				var cartcontent = '';
+				$.each(data, function (index, cartinfo){
+					cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'"><div class="row"><div class="col-xs-3"><div class="checkbox margin-bottom-none margin-top-none" id="selectall"><label><input type="checkbox"></label><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank"><img src="img/productImg/'+cartinfo['img_name']+'" alt="img/productImg/'+cartinfo['img_name']+'" width="100px" height="100px" class="img-thumbnail" ></a></div></div><div class="col-xs-2 text-center pt30"><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">'+cartinfo['product_name']+'</a></div><div class="col-xs-1 text-center pt30">'+cartinfo['color']+'</div><div class="col-xs-1 text-center pt30">'+cartinfo['size']+'</div><div class="col-xs-1 text-center pt30">'+cartinfo['price']+'</div><div class="col-xs-2 text-center pt15"><div class="mt10 mb10" id="orderamount"><input id="min" type="button" value="-" /><input id="amount" type="text" value="'+cartinfo['quantity']+'" style="width:50px" /><input id="add" type="button" value="+" /></div></div><div class="col-xs-1 text-center pt30">'+parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'])+'</div><div class="col-xs-1 text-center pt30"><button type="button" class="btn btn-danger btn-xs">删除</button></div></div></div>';
 				});
-				$("#productcolor").append(colorcontent);
-				*/
+				//cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'"><div class="row"><div class="col-xs-3"><div class="checkbox margin-bottom-none margin-top-none" id="selectall"><label><input type="checkbox" value=""></label><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank"><img src="img/productImg/'+cartinfo['img_name']+'" alt="img/productImg/'+cartinfo['img_name']+'" width="100px" height="100px" class="img-thumbnail" ></a></div></div><div class="col-xs-4 text-center pt30"><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">'+cartinfo['product_name']+'</a></div><div class="col-xs-1 text-center pt30">'+cartinfo['price']+'</div><div class="col-xs-2 text-center pt15"><div class="mt10 mb10" id="orderamount"><input id="min" type="button" value="-" /><input id="amount" type="text" value="'+cartinfo['quantity']+'" style="width:50px" /><input id="add" type="button" value="+" /></div></div><div class="col-xs-1 text-center pt30">'+parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'])+'</div><div class="col-xs-1 text-center pt30"><button type="button" class="btn btn-danger btn-xs">删除</button></div></div></div>';
+				
+				$(".notemptycart .panel-body").prepend(cartcontent);
+			}
+		});
+
+		// manage 
+		$(".selectall :input").click(function(){
+			if($(this).is(":checked")){
+				$(".notemptycart .panel-body .checkbox :input").attr("checked","checked");
+				$(".selectall :input").attr("checked","checked");
+			}
+			else {
+				$(".notemptycart .panel-body .checkbox :input").attr("checked",false);
+				$(".selectall :input").attr("checked",false);
 			}
 		});
 	});

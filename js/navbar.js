@@ -21,8 +21,7 @@ $(function(){
 		// shopping cart amount
 		$.post("php/product/getordernum.php",{user_id: $.cookie("user_id")},
 			function (data, status){
-				if(data != 0)
-					$(".badge").text(data);
+				$(".badge").text(data);
 			});
 	}
 });

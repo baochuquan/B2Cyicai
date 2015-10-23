@@ -124,15 +124,21 @@
 					<div class="panel panel-success">
 						<div class="panel-heading">
 							<div class="row">
-								<div class="col-xs-1">
-									<div class="checkbox margin-bottom-none margin-top-none" id="selectall">
+								<div class="col-xs-3">
+									<div class="checkbox margin-bottom-none margin-top-none selectall">
 										<label>
 											<input type="checkbox" value="">全选
 										</label>
 									</div>
 								</div>
-								<div class="col-xs-6 text-center">
+								<div class="col-xs-2 text-center">
 									<strong>商品</strong>
+								</div>
+								<div class="col-xs-1 text-center">
+									<strong>颜色</strong>
+								</div>
+								<div class="col-xs-1 text-center">
+									<strong>尺寸</strong>
 								</div>
 								<div class="col-xs-1 text-center">
 									<strong>单价</strong>
@@ -149,32 +155,55 @@
 							</div>
 						</div>
 						<div class="panel-body pl2 pr2">
-							<div class="alert alert-warning mb20" role="alert">
+<!--
+							<div class="alert alert-warning mb20" role="alert" id="">
 								<div class="row">
-									<div class="col-xs-1">
+									<div class="col-xs-3">
 										<div class="checkbox margin-bottom-none margin-top-none" id="selectall">
 											<label>
 												<input type="checkbox" value="">
-												<img src="img/admin/IMG_1838.JPG" alt="img/admin/IMG_1838.JPG" width="100px" height="100px" class="img-thumbnail" >
 											</label>
+											<a href="#" target="_blank"><img src="img/admin/IMG_1838.JPG" alt="img/admin/IMG_1838.JPG" width="100px" height="100px" class="img-thumbnail" ></a>
 										</div>
 									</div>
-									<!--
-									<div class="media">
-										<div class="media-left media-middle">
-											<a href="#">
-										 		<img class="media-object" src="img/admin/IMG_1838.JPG" alt="img/admin/IMG_1838.JPG" width="100px" height="100px">
-											</a>
-										</div>
-										<div class="media-body">
-											<h4 class="media-heading">Middle aligned media</h4>
+									<div class="col-xs-4 text-center pt30">
+										<span>name</span>
+									</div>
+									<div class="col-xs-1 text-center pt30">
+										199
+									</div>
+									<div class="col-xs-2 text-center pt15">
+										<div class="mt10 mb10" id="orderamount">
+											<input id="min" type="button" value="-" />
+											<input id="amount" type="text" value="1" style="width:50px" />
+											<input id="add" type="button" value="+" />
 										</div>
 									</div>
-								-->
+									<div class="col-xs-1 text-center pt30">
+										1990
+									</div>
+									<div class="col-xs-1 text-center pt30">
+										<button type="button" class="btn btn-danger btn-xs">删除</button>
+									</div>
 								</div>
 							</div>
-							<div class="alert alert-warning mb20" role="alert">
-
+-->							<div class="row">
+								<div class="col-xs-3">
+									<div class="checkbox margin-bottom-none margin-top-none selectall">
+										<label>
+											<input type="checkbox"><strong>全选</strong>
+										</label>
+									</div>
+								</div>
+								<div class="col-xs-offset-5 col-xs-4">
+									<div class="text-center"><span></span>件商品金额总计: <i class="fa fa-jpy"></i><span></span></div>
+									<div class="text-center">运费: <i class="fa fa-jpy"></i><strong>20</strong></div>
+									<hr></hr>
+									<div class="text-center mb20">应付总额: <strong></strong></div>
+									<div class="col-xs-offset-3 col-xs-9">
+										<buttton type="button" class="btn btn-warning btn-lg btn-block">结算</button>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
