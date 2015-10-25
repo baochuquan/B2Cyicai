@@ -42,13 +42,12 @@ $(function(){
 		var price = $(this).parent().parent().prev().text();
 		$(this).parent().parent().next().text(parseInt(price) * num);
 
-		// update total 
-		if($(this).parent().parent().parent().children().eq(0).find(":input").prop(":checked")){
-			// update totalquantity & totalprice
+		// update totalquantity & totalprice 
+		if($(this).parent().parent().parent().children().eq(0).find(":input").prop("checked")){
 			var totalnum = 0;
 			var totalprice = 0;
 			for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
-				if($(".notemptycart .panel-body .checkbox :input").eq(i).prop(":checked")){
+				if($(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
 					totalnum += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(5).find(":input").eq(1).val());
 					totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 				}
@@ -65,13 +64,12 @@ $(function(){
 		var price = $(this).parent().parent().prev().text();
 		$(this).parent().parent().next().text(parseInt(price) * num);
 
-		// update total
-		if($(this).parent().parent().parent().children().eq(0).find(":input").prop(":checked")){
-			// update totalquantity & totalprice
+		// update totalquantity & totalprice
+		if($(this).parent().parent().parent().children().eq(0).find(":input").prop("checked")){
 			var totalnum = 0;
 			var totalprice = 0;
 			for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
-				if($(".notemptycart .panel-body .checkbox :input").eq(i).prop(":checked")){
+				if($(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
 					totalnum += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(5).find(":input").eq(1).val());
 					totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 				}
@@ -88,13 +86,12 @@ $(function(){
 		var price = $(this).parent().parent().prev().text();
 		$(this).parent().parent().next().text(parseInt(price) * num);
 
-		// update total
-		if($(this).parent().parent().parent().children().eq(0).find(":input").prop(":checked")){
-			// update totalquantity & totalprice
+		// update totalquantity & totalprice
+		if($(this).parent().parent().parent().children().eq(0).find(":input").prop("checked")){
 			var totalnum = 0;
 			var totalprice = 0;
 			for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
-				if($(".notemptycart .panel-body .checkbox :input").eq(i).prop(":checked")){
+				if($(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
 					totalnum += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(5).find(":input").eq(1).val());
 					totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 				}
@@ -104,4 +101,54 @@ $(function(){
 			$("#actualtotalprice").text(totalprice+20);
 		}
 	});	
+
+	// recalculate when checkbox are clicked
+	$(".notemptycart .panel-body .checkbox :input").click(function(){
+		if(!$(this).hasClass("all")){	//except the last on: select all
+			if(!$(this).prop("checked")){//if unchecked
+				$(".selectall :input").removeAttr("checked");
+				// update totalquantity & totalprice
+				if($(this).prop("checked")){
+					var totalnum = 0;
+					var totalprice = 0;
+					for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
+						if($(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
+							totalnum += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(5).find(":input").eq(1).val());
+							totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
+						}
+					}
+					$("#totalquantity").text(totalnum);
+					$("#totalprice").text(totalprice);
+					$("#actualtotalprice").text(totalprice+20);
+				}
+			}
+			else {
+				//to determine if should make select checked
+				var checkflag = 1;
+				for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
+					if(!$(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
+						checkflag = 0;
+						break
+					}
+				}
+				if(checkflag){
+					$(".selectall :input").prop("checked",'true');
+					// update totalquantity & totalprice
+					if($(this).prop("checked")){
+						var totalnum = 0;
+						var totalprice = 0;
+						for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
+							if($(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
+								totalnum += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(5).find(":input").eq(1).val());
+								totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
+							}
+						}
+						$("#totalquantity").text(totalnum);
+						$("#totalprice").text(totalprice);
+						$("#actualtotalprice").text(totalprice+20);
+					}
+				}
+			}
+		}
+	});
 });
