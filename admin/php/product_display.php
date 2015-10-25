@@ -56,30 +56,50 @@ else {
 				//get all the color of each products
 				$q = "SELECT color_name FROM products LEFT JOIN product_color USING(product_id) LEFT JOIN color USING(color_id) WHERE product_id=" . $eachproduct["product_id"];
 				$rr = @mysqli_query($dbc, $q);
+				$i = 0;
 				while ($eachcolor = mysqli_fetch_array($rr, MYSQLI_ASSOC)) {
-					echo 	$eachcolor['color_name'] . ',';
+					if($i == 0)
+						echo $eachcolor['color_name'];
+					else
+						echo '/' . $eachcolor['color_name'];
+					$i++;
 				}
 				echo 			'</td>
 							<td>';
 				//get all the size of each products
-				$q = "SELECT size_name FROM products LEFT JOIN product_size USING(product_id) LEFT JOIN size USING(size_id) WHERE product_id=" . $eachproduct["product_id"];
+				$q = "SELECT size_name FROM products LEFT JOIN size_detail USING(product_id) WHERE product_id=" . $eachproduct["product_id"];
 				$rr = @mysqli_query($dbc, $q);
+				$i = 0;
 				while ($eachsize = mysqli_fetch_array($rr, MYSQLI_ASSOC)) {
-					echo 	$eachsize['size_name'] . ',';
+					if($i ==0)
+						echo $eachsize['size_name'];
+					else
+						echo '/' . $eachsize['size_name'];
+					$i++;
 				}
 				echo 			'</td>
 							<td>';
 				//get all the tags of each products
 				$q = "SELECT tag_name FROM products LEFT JOIN product_tag USING(product_id) LEFT JOIN tags USING(tag_id) WHERE product_id=" . $eachproduct["product_id"];
 				$rr = @mysqli_query($dbc, $q);
+				$i = 0;
 				while ($eachtag = mysqli_fetch_array($rr, MYSQLI_ASSOC)) {
-					echo 	$eachtag['tag_name'] . ',';
+					if($i ==0)
+						echo $eachtag['tag_name'];
+					else
+						echo '/' . $eachtag['tag_name'];
+					$i++;
 				}
 				echo 			'</td>		
-						 	<td><button type="button" class="btn btn-success manueditproduct" data-whatever="' . $eachproduct['product_id'] . '">编辑</button></td>
-						 	<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target=".manudeleteproduct" data-whatever="' . $eachproduct['product_id'] . '">删除</button></td>
+						 	<td><a role="button" class="btn btn-success btn-xs" href="product_edit.html?product_id=' . $eachproduct['product_id'] . '" target="_blank">编辑</a></td>
+						 	<td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".manudeleteproduct" data-whatever="' . $eachproduct['product_id'] . '">删除</button></td>
 						</tr>';	
 			} 	
+			/*
+<td><button type="button" class="btn btn-success btn-xs manueditproduct" data-whatever="' . $eachproduct['product_id'] . '">编辑</button></td>
+						 	<td><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target=".manudeleteproduct" data-whatever="' . $eachproduct['product_id'] . '">删除</button></td>
+						</tr>
+			*/
 			mysqli_free_result($r);
 			mysqli_free_result($rr);
 		}
