@@ -38,9 +38,9 @@ $(function(){
 			$(this).val(1);
 		}
 		// update 小计
-		var num = $(this).val();
+		var $num = $(this).val();
 		var price = $(this).parent().parent().prev().text();
-		$(this).parent().parent().next().text(parseInt(price) * num);
+		$(this).parent().parent().next().text(parseInt(price) * $num);
 
 		// update totalquantity & totalprice 
 		if($(this).parent().parent().parent().children().eq(0).find(":input").prop("checked")){
@@ -56,13 +56,25 @@ $(function(){
 			$("#totalprice").text(totalprice);
 			$("#actualtotalprice").text(totalprice+20);
 		}
+		// update the amount in the database
+		var $oc_id = $(this).parent().parent().parent().parent().attr("id");
+		$.post("php/product/cartAmountUpdate.php",{
+				user_id: $.cookie("user_id"),
+				oc_id: $oc_id,
+				num: $num
+			},
+			function (data, status){
+				if(data != "Success")
+					alert("系统出错");
+		});
 	});
+
 	$(".orderamount .min").click(function(){
-		var num = $(this).next().val()-1 > 1 ?  $(this).next().val()-1 : 1;
-		$(this).next().val(num);
+		var $num = $(this).next().val()-1 > 1 ?  $(this).next().val()-1 : 1;
+		$(this).next().val($num);
 		// update 小计
 		var price = $(this).parent().parent().prev().text();
-		$(this).parent().parent().next().text(parseInt(price) * num);
+		$(this).parent().parent().next().text(parseInt(price) * $num);
 
 		// update totalquantity & totalprice
 		if($(this).parent().parent().parent().children().eq(0).find(":input").prop("checked")){
@@ -78,13 +90,25 @@ $(function(){
 			$("#totalprice").text(totalprice);
 			$("#actualtotalprice").text(totalprice+20);
 		}
+		// update the amount in the database
+		var $oc_id = $(this).parent().parent().parent().parent().attr("id");
+		$.post("php/product/cartAmountUpdate.php",{
+				user_id: $.cookie("user_id"),
+				oc_id: $oc_id,
+				num: $num
+			},
+			function (data, status){
+				if(data != "Success")
+					alert("系统出错");
+		});
 	});
+
 	$(".orderamount .add").click(function(){
-		var num = parseInt($(this).prev().val())+1;
-		$(this).prev().val(num);
+		var $num = parseInt($(this).prev().val())+1;
+		$(this).prev().val($num);
 		// update 小计
 		var price = $(this).parent().parent().prev().text();
-		$(this).parent().parent().next().text(parseInt(price) * num);
+		$(this).parent().parent().next().text(parseInt(price) * $num);
 
 		// update totalquantity & totalprice
 		if($(this).parent().parent().parent().children().eq(0).find(":input").prop("checked")){
@@ -100,6 +124,17 @@ $(function(){
 			$("#totalprice").text(totalprice);
 			$("#actualtotalprice").text(totalprice+20);
 		}
+		// update the amount in the database
+		var $oc_id = $(this).parent().parent().parent().parent().attr("id");
+		$.post("php/product/cartAmountUpdate.php",{
+				user_id: $.cookie("user_id"),
+				oc_id: $oc_id,
+				num: $num
+			},
+			function (data, status){
+				if(data != "Success")
+					alert("系统出错");
+		});
 	});	
 
 	// recalculate when checkbox are clicked
@@ -149,4 +184,24 @@ $(function(){
 			}
 		}
 	});
+
+	//commit order
+	$("#checkout").click(function(){
+		//for checked checkbox item
+		var $checkeditem = [];
+		for(var i = 0; i < $(".notemptycart .panel-body .checkbox :input").length-1; i++){
+			var $temp = $(".notemptycart .panel-body .checkbox :input");
+			if($($temp).eq(i).prop("checked")){
+				var $oc_id = $($temp).eq(i).parent().parent().parent().parent().parent().attr("id");
+				$checkeditem.push({ oc_id: $oc_id });
+			}		
+		}
+		$.post("php/product/checkout.php", {
+			checkeditem: $checkeditem,
+			user_id: $.cookie("user_id")
+		},function (data,status){
+			alert(data);
+		});
+	});
+	
 });
