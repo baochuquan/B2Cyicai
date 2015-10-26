@@ -184,6 +184,52 @@ $(function(){
 			}
 		}
 	});
+	// delete 
+	$(".delete").click(function(){
+		//update the totalquantity & totalprice
+		if(confirm("您确定要从购物车删除该项目吗?")){
+			var $oc_id = $(this).parent().parent().parent().attr("id");
+			if($(this).parent().parent().children().eq(0).find(":input").prop("checked")){
+				var onenum = $(this).parent().parent().children().eq(5).find(".amount").val();
+				var oneprice = parseInt($(this).parent().parent().children().eq(6).text());
+				
+				var totalnum = parseInt($("#totalquantity").text());
+				var totalprice = parseInt($("#totalprice").text());
+				var actualtotalprice = parseInt($("#actualtotalprice").text());
+
+				$("#totalquantity").text(totalnum-onenum);
+				$("#totalprice").text(totalprice-oneprice);
+				$("#actualtotalprice").text(actualtotalprice-oneprice);
+
+				//delete 
+				$(this).parent().parent().parent().remove();
+			}
+			else{
+				//delete 
+				$(this).parent().parent().parent().remove();
+				//update if select all or not
+				var checkflag = 1;
+				for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
+					if(!$(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
+						checkflag = 0;
+						break
+					}
+				}
+				if(checkflag){
+					$(".selectall :input").prop("checked",'true');
+				}
+			}
+			// update data base
+			$.post("php/product/removeFromCart.php",{
+					user_id:$.cookie("user_id"),
+					oc_id:$oc_id
+				},function (data, status){
+					if(data != 'Success')
+						alert("删除出错");
+			});
+		}
+	});
+
 
 	//commit order
 	$("#checkout").click(function(){
@@ -201,7 +247,7 @@ $(function(){
 			user_id: $.cookie("user_id")
 		},function (data,status){
 			alert(data);
+			// redirect to 
 		});
 	});
-	
 });
