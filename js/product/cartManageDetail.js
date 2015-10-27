@@ -17,9 +17,13 @@ $(function(){
 				totalnum += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(5).find(":input").eq(1).val());
 				totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 			}
+			if(totalnum == 0)
+				$("#checkout").addClass("disabled");
+			else 
+				$("#checkout").removeClass("disabled");
 			$("#totalquantity").text(totalnum);
 			$("#totalprice").text(totalprice);
-			$("#actualtotalprice").text(totalprice+20);
+			$("#actualtotalprice").text(totalprice);
 		}
 		else {
 			$(".notemptycart .panel-body .checkbox :input").removeAttr("checked");
@@ -52,9 +56,13 @@ $(function(){
 					totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 				}
 			}
+			if(totalnum == 0)
+				$("#checkout").addClass("disabled");
+			else 
+				$("#checkout").removeClass("disabled");
 			$("#totalquantity").text(totalnum);
 			$("#totalprice").text(totalprice);
-			$("#actualtotalprice").text(totalprice+20);
+			$("#actualtotalprice").text(totalprice);
 		}
 		// update the amount in the database
 		var $oc_id = $(this).parent().parent().parent().parent().attr("id");
@@ -86,9 +94,13 @@ $(function(){
 					totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 				}
 			}
+			if(totalnum == 0)
+				$("#checkout").addClass("disabled");
+			else 
+				$("#checkout").removeClass("disabled");
 			$("#totalquantity").text(totalnum);
 			$("#totalprice").text(totalprice);
-			$("#actualtotalprice").text(totalprice+20);
+			$("#actualtotalprice").text(totalprice);
 		}
 		// update the amount in the database
 		var $oc_id = $(this).parent().parent().parent().parent().attr("id");
@@ -120,9 +132,13 @@ $(function(){
 					totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 				}
 			}
+			if(totalnum == 0)
+				$("#checkout").addClass("disabled");
+			else 
+				$("#checkout").removeClass("disabled");
 			$("#totalquantity").text(totalnum);
 			$("#totalprice").text(totalprice);
-			$("#actualtotalprice").text(totalprice+20);
+			$("#actualtotalprice").text(totalprice);
 		}
 		// update the amount in the database
 		var $oc_id = $(this).parent().parent().parent().parent().attr("id");
@@ -151,9 +167,13 @@ $(function(){
 						totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 					}
 				}
+				if(totalnum == 0)
+					$("#checkout").addClass("disabled");
+				else 
+					$("#checkout").removeClass("disabled");
 				$("#totalquantity").text(totalnum);
 				$("#totalprice").text(totalprice);
-				$("#actualtotalprice").text(totalprice+20);
+				$("#actualtotalprice").text(totalprice);
 			}
 			else {
 				//to determine if should make select checked
@@ -164,6 +184,19 @@ $(function(){
 						break
 					}
 				}
+
+				var showflag = 0;
+				for(var i=0;i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
+					if($(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
+						showflag = 1;
+						break;
+					}
+				}
+				if(showflag == 0)
+					$("#checkout").addClass("disabled");
+				else 
+					$("#checkout").removeClass("disabled");
+
 				if(checkflag){
 					$(".selectall :input").prop("checked",'true');
 					// update totalquantity & totalprice
@@ -176,9 +209,13 @@ $(function(){
 								totalprice += parseInt($(".notemptycart .panel-body .checkbox :input").eq(i).parent().parent().parent().parent().children().eq(6).text());
 							}
 						}
+						if(totalnum == 0)
+							$("#checkout").addClass("disabled");
+						else 
+							$("#checkout").removeClass("disabled");
 						$("#totalquantity").text(totalnum);
 						$("#totalprice").text(totalprice);
-						$("#actualtotalprice").text(totalprice+20);
+						$("#actualtotalprice").text(totalprice);
 					}
 				}
 			}
@@ -197,6 +234,10 @@ $(function(){
 				var totalprice = parseInt($("#totalprice").text());
 				var actualtotalprice = parseInt($("#actualtotalprice").text());
 
+				if((totalnum-onenum) == 0)
+					$("#checkout").addClass("disabled");
+				else 
+					$("#checkout").removeClass("disabled");
 				$("#totalquantity").text(totalnum-onenum);
 				$("#totalprice").text(totalprice-oneprice);
 				$("#actualtotalprice").text(actualtotalprice-oneprice);
@@ -212,7 +253,7 @@ $(function(){
 				for(var i=0; i<$(".notemptycart .panel-body .checkbox :input").length-1; i++){
 					if(!$(".notemptycart .panel-body .checkbox :input").eq(i).prop("checked")){
 						checkflag = 0;
-						break
+						break;
 					}
 				}
 				if(checkflag){
@@ -246,7 +287,8 @@ $(function(){
 			checkeditem: $checkeditem,
 			user_id: $.cookie("user_id")
 		},function (data,status){
-			alert(data);
+			if(data == "Success")
+				window.location.assign("commitorder.html");
 			// redirect to 
 		});
 	});

@@ -30,7 +30,7 @@ $(function(){
 				// calculate the total price & quantity
 				$("#totalquantity").text(totalnum);
 				$("#totalprice").text(totalprice);
-				$("#actualtotalprice").text(totalprice+20);
+				$("#actualtotalprice").text(totalprice);
 			}
 		});
 		$.getScript("js/product/cartManageDetail.js");
