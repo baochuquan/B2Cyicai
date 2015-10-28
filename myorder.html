@@ -110,23 +110,79 @@
 <main role="main">
 	<div class="container">
 		<h4 class="page-header"><i class="fa fa-file-text fa-lg"></i> 我的订单</h4>
-		<!--query-->
 		<div class="row">
+			<div class="col-xs-offset-2 col-xs-8">
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active"><a href="#allorder" aria-controls="allorder" role="tab" data-toggle="tab">所有订单</a></li>
+					<li role="presentation"><a href="#unfinishedorder" aria-controls="unfinishedorder" role="tab" data-toggle="tab">未完成的订单</a></li>
+					<li role="presentation"><a href="#finishedorder" aria-controls="finishedorder" role="tab" data-toggle="tab">已完成的订单</a></li>
+				</ul>
+			</div>
+		</div>
+		<!--query-->
+		<div class="row emptyorder mt20 hidden">
 			<div class="col-xs-offset-2 col-xs-8">
 				<div class="jumbotron ml20 mr20 text-center">
 					<p>您还没下过任何订单...</p>
 				</div>
 			</div>
 		</div>
-		<!--
-		<div class="row">
-			<div class="col-xs-offset-2 col-xs-8">
-				<div class="well ml20 mr20">
 
+		<div class="row notemptyorder mt20">
+			<div class="col-xs-offset-2 col-xs-8">
+				<div class="tab-content">
+				    <div role="tabpanel" class="tab-pane active" id="allorder">
+				    	
+				    	<div class="well ml20 mr20">
+					    	<div class="panel panel-success">
+								<div class="panel-heading">
+									<div class="row">
+										<div class="col-xs-3">
+											<div class="checkbox margin-bottom-none margin-top-none selectall">
+												<label>
+													<input type="checkbox">全选
+												</label>
+											</div>
+										</div>
+										<div class="col-xs-2 text-center">
+											<strong>商品</strong>
+										</div>
+										<div class="col-xs-1 text-center">
+											<strong>颜色</strong>
+										</div>
+										<div class="col-xs-1 text-center">
+											<strong>尺寸</strong>
+										</div>
+										<div class="col-xs-1 text-center">
+											<strong>单价</strong>
+										</div>
+										<div class="col-xs-2 text-center">
+											<strong>数量</strong>
+										</div>
+										<div class="col-xs-1 text-center">
+											<strong>小计</strong>
+										</div>
+										<div class="col-xs-1 text-center">
+											<strong>操作</strong>
+										</div>
+									</div>
+								</div>
+								<div class="panel-body pl2 pr2">
+
+								</div>
+							</div>
+						</div>
+				    	<!--all the orders-->
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="unfinishedorder">mmmsksk
+				    	<!--unfnished order-->
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="finishedorder">lkas
+				    	<!--finished order-->
+				    </div>
 				</div>
 			</div>
 		</div>
-	-->
 	</div>
 </main>
 
