@@ -16,8 +16,12 @@ else {
 	// Need the database connection:
 	require (MYSQL);
 
+	//set all unselected
+	$q = "UPDATE order_content SET selected='N' WHERE user_id={$_POST['user_id']} AND cmt_status='N'";
+	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
+	
 	for ($i=0; $i < count($_POST['checkeditem']); $i++) { 
-		$q = "UPDATE order_content SET cmt_status='Y' WHERE user_id={$_POST['user_id']} AND oc_id={$_POST['checkeditem'][$i]['oc_id']} LIMIT 1";
+		$q = "UPDATE order_content SET selected='Y' WHERE user_id={$_POST['user_id']} AND oc_id={$_POST['checkeditem'][$i]['oc_id']} LIMIT 1";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 	}
 	echo "Success";

@@ -113,22 +113,66 @@
 		<!--query-->
 		<div class="row">
 			<div class="col-xs-offset-2 col-xs-8">
-				<div class="jumbotron ml20 mr20 text-center">
-					<p>您还没下过任何订单...</p>
-				</div>
-			</div>
-		</div>
-		<!--
-		<div class="row">
-			<div class="col-xs-offset-2 col-xs-8">
 				<div class="well ml20 mr20">
 
+					<div class="row">
+						<div class="col-xs-2">
+							<a href="myaccount.html" type="button" class="btn btn-success"><i class="fa fa-plus"></i> 添加地址</a>
+							<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary btn-lg hidden" id="addaddress" data-toggle="modal" data-target="#myModal">
+							</button>
+						</div>
+					</div>
+					<div class="row haveaddress hidden mt10 mr5 ml5">
+						<h5><strong>确认收货地址</strong></h5>
+						<hr class="mt5 mb5"></hr>
+						<div class="row">
+							<div class="col-xs-2 pt10 text-center" style="color:#ff0000">
+								<i class="fa fa-map-pin fa-lg"></i> 寄送至 
+							</div>
+							<div class="radio col-xs-10">
+								<label>
+							    	<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							    	Option one is this and that&mdash;be sure to include why it's great
+							  	</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-2">
+							</div>
+							<div class="radio col-xs-10">
+							  	<label>
+							    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							    	Option two can be something else and selecting it will deselect option one
+							  	</label>
+							</div>
+						</div>
+					</div>
+					<div class="row ml5 mr5 mt20">
+						<h5><strong>确认订单信息</strong></h5>
+						<hr class="mt5 mb5"></hr>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	-->
 	</div>
 </main>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header text-center">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle"></i> 提示</h4>
+			</div>
+			<div class="modal-body text-center">
+				<p>您还没有任何地址, 添加一个呗.</p>
+				<a href="myaccount.html" type="button" class="btn btn-success btn-sm mt50">添加地址</a>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-------------------------------------------------------------------------------------------------------------------->
 	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
@@ -158,8 +202,11 @@
 
 	<script src="js/jquery.tagsinput.js"></script>
 
+	<script src="js/commit/getCommitInfo.js"></script>
+
 	<script src="js/address/showAddress.js"></script>
 	<script src="js/address/addAddress.js"></script>
+
 
 <!--	<script src="admin/js/customerPage.js"></script>-->
 
