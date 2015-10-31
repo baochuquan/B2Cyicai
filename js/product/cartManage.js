@@ -20,9 +20,36 @@ $(function(){
 				$.each(data, function (index, cartinfo){
 					totalprice += parseInt(cartinfo['quantity']) * parseInt(cartinfo['price']);
 					totalnum += parseInt(cartinfo['quantity']);
-					cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'"><div class="row"><div class="col-xs-3"><div class="checkbox margin-bottom-none margin-top-none"><label><input type="checkbox"></label><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank"><img src="img/productImg/'+cartinfo['img_name']+'" alt="img/productImg/'+cartinfo['img_name']+'" width="100px" height="100px" class="img-thumbnail" ></a></div></div><div class="col-xs-2 text-center pt30"><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">'+cartinfo['product_name']+'</a></div><div class="col-xs-1 text-center pt30">'+cartinfo['color']+'</div><div class="col-xs-1 text-center pt30">'+cartinfo['size']+'</div><div class="col-xs-1 text-center pt30">'+cartinfo['price']+'</div><div class="col-xs-2 text-center pt15"><div class="mt10 mb10 orderamount"><input class="min" type="button" value="-" /><input class="amount" type="text" value="'+cartinfo['quantity']+'" style="width:50px" /><input class="add" type="button" value="+" /></div></div><div class="col-xs-1 text-center pt30">'+parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'])+'</div><div class="col-xs-1 text-center pt30"><button type="button" class="btn btn-danger btn-xs delete">删除</button></div></div></div>';
+					cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'">';
+					cartcontent += 		'<div class="row">';
+					cartcontent += 			'<div class="col-xs-3">';
+					cartcontent +=				'<div class="checkbox margin-bottom-none margin-top-none">';
+					cartcontent +=					'<label>';
+					cartcontent +=						'<input type="checkbox">';
+					cartcontent +=					'</label>';
+					cartcontent +=					'<a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">';
+					cartcontent +=						'<img src="img/productImg/'+cartinfo['img_name']+'" alt="img/productImg/'+cartinfo['img_name']+'" width="100px" height="100px" class="img-thumbnail" >';
+					cartcontent +=					'</a>';
+					cartcontent +=				'</div>';
+					cartcontent +=			'</div>';
+					cartcontent +=			'<div class="col-xs-2 text-center pt30">';
+					cartcontent +=				'<a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">'+cartinfo['product_name']+'</a>';
+					cartcontent +=			'</div>';
+					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+cartinfo['color']+'</div>';
+					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+cartinfo['size']+'</div>';
+					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+cartinfo['price']+'</div>';
+					cartcontent +=			'<div class="col-xs-2 text-center pt15">';
+					cartcontent +=				'<div class="mt10 mb10 orderamount">';
+					cartcontent +=					'<input class="min" type="button" value="-" />';
+					cartcontent +=					'<input class="amount" type="text" value="'+cartinfo['quantity']+'" style="width:50px" />';
+					cartcontent +=					'<input class="add" type="button" value="+" />';
+					cartcontent +=				'</div>';
+					cartcontent +=			'</div>';
+					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'])+'</div>';
+					cartcontent +=			'<div class="col-xs-1 text-center pt30"><button type="button" class="btn btn-danger btn-xs delete">删除</button></div>';
+					cartcontent +=		'</div>';
+					cartcontent +=	'</div>';
 				});
-				//cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'"><div class="row"><div class="col-xs-3"><div class="checkbox margin-bottom-none margin-top-none" id="selectall"><label><input type="checkbox" value=""></label><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank"><img src="img/productImg/'+cartinfo['img_name']+'" alt="img/productImg/'+cartinfo['img_name']+'" width="100px" height="100px" class="img-thumbnail" ></a></div></div><div class="col-xs-4 text-center pt30"><a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">'+cartinfo['product_name']+'</a></div><div class="col-xs-1 text-center pt30">'+cartinfo['price']+'</div><div class="col-xs-2 text-center pt15"><div class="mt10 mb10" id="orderamount"><input id="min" type="button" value="-" /><input id="amount" type="text" value="'+cartinfo['quantity']+'" style="width:50px" /><input id="add" type="button" value="+" /></div></div><div class="col-xs-1 text-center pt30">'+parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'])+'</div><div class="col-xs-1 text-center pt30"><button type="button" class="btn btn-danger btn-xs">删除</button></div></div></div>';
 				
 				$(".notemptycart .panel-body").prepend(cartcontent);
 				$(".notemptycart .checkbox :input").prop("checked",'true');
