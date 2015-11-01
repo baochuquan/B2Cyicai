@@ -158,7 +158,9 @@
 						<div class="panel panel-success">
 							<div class="panel-heading">
 								<div class="row">
-									<div class="col-xs-6 text-center">
+									<div class="col-xs-1">
+									</div>
+									<div class="col-xs-5 text-center">
 										<strong>商品</strong>
 									</div>
 									<div class="col-xs-1 text-center">
@@ -179,6 +181,26 @@
 								</div>
 							</div>
 							<div class="panel-body pl2 pr2">
+
+								<div class="row">
+									<div class="col-xs-3">
+										<div class="checkbox margin-bottom-none margin-top-none selectall">
+											<label>
+												<input type="checkbox" class="all"><strong>全选</strong>
+											</label>
+										</div>
+									</div>
+									<div class="col-xs-offset-5 col-xs-4">
+										<div class="text-center"><span id="totalquantity"></span>件商品金额总计: <i class="fa fa-jpy"></i><span id="totalprice" style="font-size:1.5em"></span></div>
+										<div class="text-center">运费: <i class="fa fa-jpy"></i><strong>20</strong></div>
+										<hr></hr>
+										<div class="text-center mb20">总额(不含运费): <i class="fa fa-jpy"></i><strong id="actualtotalprice" style="font-size:2em;color:#ce0000"></strong></div>
+										<div class="col-xs-offset-3 col-xs-9">
+											<!--<a href="#" class="btn btn-warning btn-lg btn-block" role="button" id="checkout">结算</a>-->
+											<buttton type="button" class="btn btn-warning btn-lg btn-block" id="checkout">结算</button>
+										</div>		
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

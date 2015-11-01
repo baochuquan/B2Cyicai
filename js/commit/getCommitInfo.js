@@ -57,10 +57,10 @@ $(function(){
 		$.getScript("json/commit/cartinfo.json",function (data){
 			data = JSON.parse(data);
 			if(data[0]['user_id'] == $.cookie('user_id')){
-				alert("hhehe");
 
 				var cartcontent = '';
 				var totalprice = 0;
+
 				$.each(data, function (index, cartinfo){
 					cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'">';
 					cartcontent += 		'<div class="row">';
@@ -71,17 +71,17 @@ $(function(){
 					cartcontent +=					'</a>';
 					cartcontent +=				'</div>';
 					cartcontent +=			'</div>';
-					cartcontent +=			'<div class="col-xs-3 text-center pt30">';
+					cartcontent +=			'<div class="col-xs-3 pt30">';
 					cartcontent +=				'<a href="product.html?product_id='+cartinfo['product_id']+'" target="_blank">'+cartinfo['product_name']+'</a>';
 					cartcontent +=			'</div>';
 					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+cartinfo['color']+'</div>';
 					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+cartinfo['size']+'</div>';
 					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+cartinfo['price']+'</div>';
-					cartcontent +=			'<div class="col-xs-2 text-center pt15">'+cartinfo['quantity']+'</div>';
+					cartcontent +=			'<div class="col-xs-2 text-center pt30">'+cartinfo['quantity']+'</div>';
 					cartcontent +=			'<div class="col-xs-1 text-center pt30">'+parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'])+'</div>';
 					cartcontent +=		'</div>';
 					cartcontent +=	'</div>';
-					totalprice += parseInt(cartinfo['quantity']) * parseInt(cartinfo['price'];
+					totalprice += parseInt(cartinfo['quantity']) * parseInt(cartinfo['price']);
 				});
 				$(".confirmorder .panel-body").prepend(cartcontent);
 			}

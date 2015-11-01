@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 	require (MYSQL);
 
 	// Need the database connection:
-	$q = "SELECT user_id,oc_id, order_id, product_id, quantity, price, color, size, img_name FROM order_content LEFT JOIN imges USING(product_id) WHERE user_id={$_POST['user_id']} AND cmt_status='N' AND selected='Y'";
+	$q = "SELECT user_id,oc_id, order_id, product_id, quantity, price, color, size, img_name, product_name FROM order_content LEFT JOIN imges USING(product_id) LEFT JOIN products USING(product_id) WHERE user_id={$_POST['user_id']} AND cmt_status='N' AND selected='Y' AND cover='Y'";
 	$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		
 	$cartscontent = '[';
@@ -25,6 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // Handle the form.
 						', "price":' . $eachcart['price'] . 
 						', "color":"' . $eachcart['color'] . 
 						'", "size":"' . $eachcart['size'] .  
+						'", "img_name":"' . $eachcart['img_name'] .
+						'", "product_name":"' . $eachcart['product_name'] .
 						'"},';
 	}
 	$cartscontent = substr($cartscontent, 0, strlen($cartscontent)-1);
