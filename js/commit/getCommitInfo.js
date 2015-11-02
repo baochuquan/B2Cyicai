@@ -36,7 +36,7 @@ $(function(){
 					else {
 						addrcontent += 				'<input type="radio" name="optionsRadios" value="'+ addrinfo['addr_id'] +'">';
 					}
-					addrcontent +=				addrinfo['addr'] + '（' +addrinfo['reciver']+ '）<span class="text-muted">' + addrinfo['reci_phone'] +'</span>';
+					addrcontent +=				'<span class="addr">'+addrinfo['addr'] + '</span>（<span class="reciver">' +addrinfo['reciver']+ '</span>）<span class="text-muted reci-phone">' + addrinfo['reci_phone'] +'</span>';
 					addrcontent +=			'</label>';
 					addrcontent +=		'</div>';
 					addrcontent +=	'</div>';
@@ -45,6 +45,17 @@ $(function(){
 				$(".haveaddress .addressinfo").append(addrcontent);
 				// addtional operation
 				$.getScript("js/commit/addrOperation.js");
+				
+				// check addrinfo before commit order
+				if($(".haveaddress .addressinfo").children().length == 0){
+					$("#commitorder").addClass("disabled");
+				}
+				else {
+					$("#commitorder").removeClass("disabled");
+				}
+
+				// deal when click commit order
+				$.getScript("js/commit/commitOrder.js");
 			}
 		});
 	});
@@ -60,9 +71,10 @@ $(function(){
 
 				var cartcontent = '';
 				var totalprice = 0;
+				var totalnum = 0;
 
 				$.each(data, function (index, cartinfo){
-					cartcontent += '<div class="alert alert-warning mb20" role="alert" id="'+cartinfo['oc_id']+'">';
+					cartcontent += '<div class="alert alert-warning mb20 order-content-name" role="alert" id="'+cartinfo['oc_id']+'">';
 					cartcontent += 		'<div class="row">';
 					cartcontent += 			'<div class="col-xs-3">';
 					cartcontent +=				'<div class="margin-bottom-none margin-top-none">';
@@ -82,9 +94,18 @@ $(function(){
 					cartcontent +=		'</div>';
 					cartcontent +=	'</div>';
 					totalprice += parseInt(cartinfo['quantity']) * parseInt(cartinfo['price']);
+					totalnum += parseInt(cartinfo['quantity']);
 				});
 				$(".confirmorder .panel-body").prepend(cartcontent);
+				$("#totalquantity").text(totalnum);
+				$("#totalprice").text(totalprice);
+				$("#actualtotalprice").text(totalprice+20);
+
+				$(".confirmorder .panel-body .hidden").removeClass("hidden");
+				$.getScript("js/commit/judgeordernum.js");
 			}
+
 		});
 	});
+	
 });
