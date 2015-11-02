@@ -29,7 +29,7 @@ else {
 		$order_id = mysqli_fetch_array($r, MYSQLI_NUM);
 
 		for($i = 0; $i < count($_POST['oc_id']); $i++){
-			$q = "UPDATE order_content SET order_id={$order_id[0]}, cmt_status='Y' WHERE user_id={$_POST['user_id']} AND selected='Y'";
+			$q = "UPDATE order_content SET order_id={$order_id[0]}, cmt_status='Y' WHERE user_id={$_POST['user_id']} AND selected='Y' AND cmt_status='N' AND oc_id={$_POST['oc_id'][$i]['id']} LIMIT 1";
 			$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		}
 		echo "Success";

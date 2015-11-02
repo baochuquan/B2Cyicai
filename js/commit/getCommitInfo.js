@@ -102,9 +102,7 @@ $(function(){
 				$("#actualtotalprice").text(totalprice+20);
 
 				$(".confirmorder .panel-body .hidden").removeClass("hidden");
-				$.getScript("js/commit/judgeordernum.js");
 			}
-
 		});
 	});
 	
