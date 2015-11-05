@@ -24,7 +24,7 @@ $(function(){
 					ordercontent +=		'</div>';
 					ordercontent +=		'<div class="panel-body">';
 					ordercontent +=			'<div class="row">';
-					ordercontent +=				'<div class="col-xs-6" id="'+orderinfo['order_id']+'"">';/*
+					ordercontent +=				'<div class="col-xs-6" id="product'+orderinfo['order_id']+'">';/*
 					ordercontent +=					'<div class="row">';
 					ordercontent +=						'<div class="col-xs-6"></div>';				//product
 					ordercontent +=						'<div class="col-xs-2 text-center"></div>';	//price
@@ -32,7 +32,7 @@ $(function(){
 					ordercontent +=						'<div class="col-xs-2 text-center"></div>';	//total
 					ordercontent +=					'</div>';*/
 					ordercontent +=				'</div>';
-					ordercontent +=			'<div class="col-xs-2 text-center">未付款</div>';			//pay
+					ordercontent +=			'<div class="col-xs-2 text-center">'+orderinfo['total']+'</div>';			//pay
 
 					if(orderinfo['sendstate'] == 'N'){
 						ordercontent +=			'<div class="col-xs-2 text-center">未付款</div>';			//state
@@ -52,6 +52,7 @@ $(function(){
 					ordercontent +=	'</div>';
 				});
 				$("#allorder").append(ordercontent);
+				$.getScript("js/order/getOrderDetailInfo.js");
 			}
 		});
 	});
