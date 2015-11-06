@@ -24,7 +24,7 @@ $(function(){
 					ordercontent +=		'</div>';
 					ordercontent +=		'<div class="panel-body">';
 					ordercontent +=			'<div class="row">';
-					ordercontent +=				'<div class="col-xs-6" id="product'+orderinfo['order_id']+'">';/*
+					ordercontent +=				'<div class="col-xs-6" id="'+orderinfo['order_id']+'">';/*
 					ordercontent +=					'<div class="row">';
 					ordercontent +=						'<div class="col-xs-6"></div>';				//product
 					ordercontent +=						'<div class="col-xs-2 text-center"></div>';	//price
@@ -32,20 +32,26 @@ $(function(){
 					ordercontent +=						'<div class="col-xs-2 text-center"></div>';	//total
 					ordercontent +=					'</div>';*/
 					ordercontent +=				'</div>';
-					ordercontent +=			'<div class="col-xs-2 text-center">'+orderinfo['total']+'</div>';			//pay
+					ordercontent +=				'<div class="col-xs-2 text-center">'+orderinfo['total']+'</div>';			//pay
 
-					if(orderinfo['sendstate'] == 'N'){
+					if(orderinfo['paystate'] == 'N'){
 						ordercontent +=			'<div class="col-xs-2 text-center">未付款</div>';			//state
 					}
 					else {
 						ordercontent +=			'<div class="col-xs-2 text-center">已付款</div>';			//state
 					}
-
-					if(orderinfo['paystate'] == 'N'){
-						ordercontent +=			'<div class="col-xs-2 text-center"><a href="#">等待发货</a><br/><a href="#">取消订单</a></div>';			//operation
+					if(orderinfo['sendstate'] == 'N'){
+						ordercontent +=			'<div class="col-xs-2 text-center"><p>等待发货</p>';			//state
 					}
 					else {
-						ordercontent +=			'<div class="col-xs-2 text-center"><a href="#">等待发货</a><br/><a href="#">查看订单详情</a></div>';			//operation
+						ordercontent +=			'<div class="col-xs-2 text-center"><p>已发货</p>';			//state
+					}
+
+					if(orderinfo['paystate'] == 'N'){
+						ordercontent +=				'<button type="button" class="btn btn-xs cancelorder">取消订单</button><br/><button type="button" class="btn btn-xs btn-danger payoff">立即付款</button></div>';			//operation
+					}
+					else {
+						ordercontent +=				'<a href="#">查看订单详情</a></div>';			//operation
 					}
 					ordercontent +=			'</div>';
 					ordercontent +=		'</div>';
