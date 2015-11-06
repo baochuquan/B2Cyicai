@@ -78,7 +78,7 @@ $(function(){
 					case "Success":
 						$("#registerform").hide();
 						$("#registertitle small").text("注册成功");
-						$("#registertitle").after('<div class="text-center"><span class="center icon fa fa-check fa-4x" style="color:#99ff66"></span></div><p class="text-center"><small>感谢您的注册！激活码已经发送至您的邮箱。请点击邮件中的链接以激活您的账户。<small></p><p id="timedown" class="text-center"></p>');
+						$("#registertitle").after('<div class="text-center"><span class="center icon fa fa-check fa-4x" style="color:#00bb00"></span></div><p class="text-center"><small>感谢您的注册！激活码已经发送至您的邮箱。请点击邮件中的链接以激活您的账户。<small></p><p id="timedown" class="text-center"></p>');
 						var t1 = setTimeout("$('#timedown').text('3秒后自动跳转到首页.')",0);
 						var t2 = setTimeout("$('#timedown').text('2秒后自动跳转到首页.')",1000);
 						var t3 = setTimeout("$('#timedown').text('1秒后自动跳转到首页.')",2000);

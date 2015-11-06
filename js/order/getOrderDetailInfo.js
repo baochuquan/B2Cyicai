@@ -30,7 +30,7 @@ $(function(){
 				user_id: $.cookie("user_id"),
 				order_id: $(this).parent().parent().children().eq(0).attr("id")
 			},function(){
-				alert(data);
+				alert("成功删除订单");
 			});
 		}
 	});

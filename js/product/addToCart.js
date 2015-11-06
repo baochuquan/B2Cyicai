@@ -19,8 +19,8 @@ $(function(){
 			},
 			function (data, index){
 				// add a badge after the shopping cart
-				alert("成功加入购物车");
 				$(".badge").text(parseInt($(".badge").text()) + 1);
+				window.location.assign("successaddtocart.html");
 			});
 		}
 		else {
