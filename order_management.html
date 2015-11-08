@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>订单提交</title>
+    <title>衣彩</title>
     <meta name="description" content="">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="css/main.css">
 	<!-- Modernizr -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
-
 		<!-- Respond.js for IE 8 or less only -->
 	 	<!--[if (lt IE 9) & (!IEMobile)]>
 	 	<script src="js/vendor/respond.min.js"></script>
@@ -109,124 +107,25 @@
 <!-------------------------------------------------------------------------------------------------------------------->
 <main role="main">
 	<div class="container">
-		<h4 class="page-header"><i class="fa fa-file-text fa-lg"></i> 订单提交</h4>
-		<!--query-->
-		<div class="row beforecommit">
-			<div class="col-xs-offset-2 col-xs-8">
-				<div class="well ml20 mr20">
-
-					<div class="row">
-						<div class="col-xs-2">
-							<a href="myaccount.html" type="button" class="btn btn-success"><i class="fa fa-plus"></i> 添加地址</a>
-							<!-- Button trigger modal -->
-							<button type="button" class="btn btn-primary btn-lg hidden" id="addaddress" data-toggle="modal" data-target="#myModal">
-							</button>
-						</div>
-					</div>
-					<div class="row haveaddress hidden mt10 mr5 ml5">
-						<h5><strong>确认收货地址</strong></h5>
-						<hr class="mt5 mb5"></hr>
-						<div class="addressinfo">
-							<!--
-							<div class="row">
-								<div class="col-xs-2 pt10 text-center" style="color:#ff0000">
-									<i class="fa fa-map-pin fa-lg"></i> 寄送至 
-								</div>
-								<div class="radio col-xs-10">
-									<label>
-								    	<input type="radio" name="optionsRadios" value="ss" checked>
-								    	Option one is this and that&mdash;be sure to include why it's great
-								  	</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-2">
-								</div>
-								<div class="radio col-xs-10">
-								  	<label>
-								    	<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-								    	Option two can be something else and selecting it will deselect option one
-								  	</label>
-								</div>
-							</div>
-						-->
-						</div>
-					</div>
-					<div class="row ml5 mr5 mt20 confirmorder">
-						<h5><strong>确认订单信息</strong></h5>
-						<hr class="mt5 mb5"></hr>
-						<div class="panel panel-success">
-							<div class="panel-heading">
-								<div class="row">
-									<div class="col-xs-1">
-									</div>
-									<div class="col-xs-5 text-center">
-										<strong>商品</strong>
-									</div>
-									<div class="col-xs-1 text-center">
-										<strong>颜色</strong>
-									</div>
-									<div class="col-xs-1 text-center">
-										<strong>尺寸</strong>
-									</div>
-									<div class="col-xs-1 text-center">
-										<strong>单价</strong>
-									</div>
-									<div class="col-xs-2 text-center">
-										<strong>数量</strong>
-									</div>
-									<div class="col-xs-1 text-center">
-										<strong>小计</strong>
-									</div>
-								</div>
-							</div>
-							<div class="panel-body pl2 pr2">
-
-								<div class="row hidden">
-									<div class="col-xs-8">
-										<form class="form-horizontal">
-											<div class="form-group">
-												<label for="customermessage" class="col-xs-2 control-label">备注: </label>
-												<div class="col-xs-10">
-													<input type="text" class="form-control" id="customermessage" placeholder="买家留言">
-												</div>
-											</div>
-	    								</form>
-									</div>
-									<div class="col-xs-4">
-										<div class="text-center"><span id="totalquantity"></span>件商品金额总计: <i class="fa fa-jpy"></i><span id="totalprice" style="font-size:1.5em"></span></div>
-										<div class="text-center">运费: <i class="fa fa-jpy"></i><strong>20</strong></div>
-										<hr></hr>
-										<div class="text-center mb20">总额(不含运费): <i class="fa fa-jpy"></i><strong id="actualtotalprice" style="font-size:2em;color:#ce0000"></strong></div>
-										<div class="col-xs-offset-3 col-xs-9">
-											<a href="#" class="btn btn-warning btn-lg btn-block" role="button" id="commitorder">提交订单</a>
-											<!--<button type="button" class="btn btn-warning btn-lg btn-block" id="commitorder">提交订单</button>-->
-										</div>		
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		<h1 class="page-header">订单管理</h1>
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#todayorder" aria-controls="todayorder" role="tab" data-toggle="tab">今日订单</a></li>
+			<li role="presentation"><a href="#unfinishedorder" aria-controls="unfinishedorder" role="tab" data-toggle="tab">未完成订单</a></li>
+			<li role="presentation"><a href="#allorder" aria-controls="allorder" role="tab" data-toggle="tab">所有订单</a></li>
+		</ul>
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="todayorder">
+				.....
+			</div>
+			<div role="tabpanel" class="tab-pane" id="unfinishedorder">
+				sdfsad
+			</div>
+			<div role="tabpanel" class="tab-pane" id="allorder">
+				sadgdf
 			</div>
 		</div>
 	</div>
 </main>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog modal-sm" role="document">
-		<div class="modal-content">
-			<div class="modal-header text-center">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel"><i class="fa fa-exclamation-triangle"></i> 提示</h4>
-			</div>
-			<div class="modal-body text-center">
-				<p>您还没有任何地址, 添加一个呗.</p>
-				<a href="myaccount.html" type="button" class="btn btn-success btn-sm mt50">添加地址</a>
-			</div>
-		</div>
-	</div>
-</div>
 
 <!-------------------------------------------------------------------------------------------------------------------->
 	<footer role="contentinfo" style="background-color:#ccff99;opacity:0.7">
@@ -249,20 +148,8 @@
 	<script src="js/carousel.js"></script>
 	<script src="js/navbar.js"></script>
 	<script src="js/logout.js"></script>
-	x	
-	<script src="admin/js/productDisplay.js"></script>
-	<script src="admin/js/productAmount.js"></script>
-	<script src="admin/js/productAdd.js"></script>
-
-	<script src="js/jquery.tagsinput.js"></script>
-
-	<script src="js/commit/getCommitInfo.js"></script>
-
-	<script src="js/address/showAddress.js"></script>
-	<script src="js/address/addAddress.js"></script>
-
-<!--	<script src="admin/js/customerPage.js"></script>-->
-
+	
+	<script src="admin/js/customerManage/customerAmount.js"></script>
 
 	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 	<script>
