@@ -12,6 +12,8 @@ $(function(){
 			if(data[0]['user_id'] == $.cookie('user_id')){
 				$("#allorder").empty();
 				var ordercontent = '';
+				var todayorder = '';
+				var unfinishedorder = '';
 				$.each(data, function (index, orderinfo){
 					//insert into page
 					var strtemp = orderinfo['order_date'];

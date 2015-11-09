@@ -18,7 +18,7 @@ else {
 		require (MYSQL);
 
 		// to write order.json
-		$q = "SELECT order_id, user_id, paystate, sendstate, user_info, total, order_date, addr, reciver, reci_phone FROM orders WHERE user_id={$_POST['user_id']}";
+		$q = "SELECT order_id, user_id, paystate, sendstate, user_info, total, order_date, addr, reciver, reci_phone FROM orders WHERE user_id={$_POST['user_id']} ORDER BY order_date DESC";
 		$r = mysqli_query ($dbc, $q) or trigger_error("Query: $q\n<br />MySQL Error: " . mysqli_error($dbc));
 		$orderscontent = '[';
 		while($eachorder = mysqli_fetch_array($r, MYSQLI_ASSOC)) {
