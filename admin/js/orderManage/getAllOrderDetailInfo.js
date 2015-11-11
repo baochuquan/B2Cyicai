@@ -1,10 +1,10 @@
 //-------------------------------------------------------------
-//for myorder.html
+//for order_management.html
 // getScript by getOrderInfo.js
 // to show the order infomation
 //-------------------------------------------------------------
 $(function(){
-	$.getScript("json/order/orderdetail.json",function (data){
+	$.getScript("admin/json/orderManage/orderdetail.json",function (data){
 		data = JSON.parse(data);
 		if(data[0]['user_id'] == $.cookie('user_id')){
 			$.each(data, function (index, orderinfo){
@@ -21,7 +21,7 @@ $(function(){
 		}
 	});
 });
-
+/*
 $(function(){
 	$(".cancelorder").click(function(){
 		if(confirm("请确认是否删除该订单？")){
@@ -40,3 +40,4 @@ $(function(){
 		alert("接下来要创建支付宝并支付"+total+"元");
 	});
 });
+*/

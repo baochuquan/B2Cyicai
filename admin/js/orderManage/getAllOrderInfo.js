@@ -38,24 +38,25 @@ $(function(){
 					ordercontent +=				'<div class="col-xs-2 text-center">'+orderinfo['total']+'</div>';			//pay
 
 					if(orderinfo['paystate'] == 'N'){
-						ordercontent +=			'<div class="col-xs-2 text-center">未付款</div>';			//state
+						ordercontent +=			'<div class="col-xs-2 text-center"><p style="color: red"><strong>未付款</strong></p></div>';			//state
 					}
 					else {
-						ordercontent +=			'<div class="col-xs-2 text-center">已付款</div>';			//state
+						ordercontent +=			'<div class="col-xs-2 text-center"><p style="color: green"><strong>已付款</strong></p></div>';			//state
 					}
 					if(orderinfo['sendstate'] == 'N'){
-						ordercontent +=			'<div class="col-xs-2 text-center"><p>等待发货</p>';			//state
+						ordercontent +=			'<div class="col-xs-2 text-center"><p style="color: red"><strong>未发货</strong></p>';			//state
 					}
 					else {
-						ordercontent +=			'<div class="col-xs-2 text-center"><p>已发货</p>';			//state
+						ordercontent +=			'<div class="col-xs-2 text-center"><p stlye="color: blue">交易完成</p><p style="color: green"><strong>已发货</strong></p>';			//state
 					}
 
 					if(orderinfo['paystate'] == 'N'){
-						ordercontent +=				'<button type="button" class="btn btn-xs cancelorder">取消订单</button><br/><button type="button" class="btn btn-xs btn-danger payoff">立即付款</button></div>';			//operation
+						ordercontent +=				'<p class="text-muted">请等待买家付款</p>';
 					}
 					else {
-						ordercontent +=				'<a href="#">查看订单详情</a></div>';			//operation
+						ordercontent +=				'<p class="text-muted">买家已付款,请尽快发货</p>';			//operation
 					}
+					ordercontent +=					'<button type="button" class="btn btn-xs btn-danger cancelorder">删除订单</button><br/><button type="button" class="btn btn-xs btn-success payoff mt10">确认发货</button></div>';			//operation
 					ordercontent +=			'</div>';
 					ordercontent +=		'</div>';
 					ordercontent +=		'<div class="panel-footer">';
@@ -73,7 +74,7 @@ $(function(){
 					ordercontent +=	'</div>';
 				});
 				$("#allorder").append(ordercontent);
-				//$.getScript("js/order/getOrderDetailInfo.js");
+				$.getScript("admin/js/orderManage/getAllOrderDetailInfo.js");
 			}
 		});
 	});
