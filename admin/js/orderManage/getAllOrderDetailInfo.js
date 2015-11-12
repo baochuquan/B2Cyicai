@@ -21,23 +21,33 @@ $(function(){
 		}
 	});
 });
-/*
+
 $(function(){
 	$(".cancelorder").click(function(){
 		if(confirm("请确认是否删除该订单？")){
 			$(this).parent().parent().parent().parent().addClass("hidden");
-			$.post("php/order/deleteOrder.php",{
+			$.post("admin/php/orderManage/deleteOrder.php",{
 				user_id: $.cookie("user_id"),
+				user_level: $.cookie("userlevel"),
 				order_id: $(this).parent().parent().children().eq(0).attr("id")
-			},function(){
+			},function (data, status){
 				alert("成功删除订单");
 			});
 		}
 	});
-	$(".payoff").click(function(){
-		var total='';
-		total = $(this).parent().parent().children().eq(1).text();
-		alert("接下来要创建支付宝并支付"+total+"元");
+	$(".confirmsend").click(function(){
+		if(confirm("请仔细确认是否已经发货?")){
+			$.post("admin/php/orderManage/confirmSend.php",{
+				user_id: $.cookie("user_id"),
+				user_level: $.cookie("userlevel"),
+				order_id: $(this).parent().parent().children().eq(0).attr("id")
+			},function (data, status) {
+				if(data == "Success"){
+					alert(data);
+					$(this).parent().empty().html('<p><i class="fa fa-check" style="color: green"></i><strong>交易完成</strong></p>');
+				}
+			});
+		}
 	});
 });
-*/
+
