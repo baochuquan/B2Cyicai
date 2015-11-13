@@ -36,6 +36,7 @@ $(function(){
 		}
 	});
 	$(".confirmsend").click(function(){
+		var $cur = $(this);
 		if(confirm("请仔细确认是否已经发货?")){
 			$.post("admin/php/orderManage/confirmSend.php",{
 				user_id: $.cookie("user_id"),
@@ -43,8 +44,7 @@ $(function(){
 				order_id: $(this).parent().parent().children().eq(0).attr("id")
 			},function (data, status) {
 				if(data == "Success"){
-					alert(data);
-					$(this).parent().empty().html('<p><i class="fa fa-check" style="color: green"></i><strong>交易完成</strong></p>');
+					$($cur).parent().empty().html('<p><i class="fa fa-check" style="color: green"></i><strong>交易完成</strong></p>');
 				}
 			});
 		}
